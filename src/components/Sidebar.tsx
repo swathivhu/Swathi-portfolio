@@ -20,11 +20,11 @@ const GmailIcon = () => (
 );
 
 const IndiaFlag = () => (
-  <span className="text-base">🇮🇳</span>
+  <span className="text-base mr-1">🇮🇳</span>
 );
 
 const KarnatakaFlag = () => (
-  <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm">
+  <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm ml-1">
     <div className="h-1/2 bg-[#FFFF00]" />
     <div className="h-1/2 bg-[#FF0000]" />
   </div>
@@ -34,12 +34,12 @@ export const Sidebar: React.FC = () => {
   return (
     <aside className="w-full lg:w-[320px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
-      {/* 1. Sidebar Container */}
-      <div className="w-full bg-[#050505] border border-white/5 rounded-[3rem] py-10 px-6 flex flex-col items-center shadow-[0_0_50px_rgba(16,185,129,0.1)] relative overflow-hidden transition-all duration-500 hover:shadow-[0_0_60px_rgba(16,185,129,0.15)]">
+      {/* Sidebar Container */}
+      <div className="w-full bg-[#050505] border border-white/5 rounded-[3rem] py-10 px-6 flex flex-col items-center shadow-[0_0_50px_rgba(16,185,129,0.1)] relative overflow-hidden">
         
-        {/* 2. Avatar Section */}
+        {/* 1. Avatar Section */}
         <div className="relative w-[110px] h-[110px] flex-shrink-0">
-          <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
+          <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl" />
           <div className="relative w-full h-full rounded-full border border-primary/40 p-1 bg-black z-10 overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.3)]">
              <div className="relative w-full h-full rounded-full overflow-hidden">
               <Image
@@ -53,25 +53,27 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 3. Name Section */}
+        {/* 2. Name Section */}
         <div className="mt-6 flex flex-col items-center">
-          <h1 className="text-[36px] font-headline font-bold text-white tracking-tight text-center">
+          <h1 className="text-[36px] font-headline font-bold text-white tracking-tight text-center leading-none">
             Swathi P V
           </h1>
+          {/* Glowing Emerald Underline */}
+          <div className="w-12 h-[2px] bg-primary mt-2 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
         </div>
 
-        {/* 4. Title Section */}
-        <div className="mt-2 flex flex-col items-center">
+        {/* 3. Title Section */}
+        <div className="mt-3 flex flex-col items-center">
           <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.4em]">
             AI SYSTEM ARCHITECT
           </div>
         </div>
 
-        {/* 5. Location Card (Boarding Pass style) */}
+        {/* 4. Location Card (Boarding Pass style) */}
         <div className="mt-6 w-[85%] bg-primary rounded-[2rem] p-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
-          <div className="w-full flex justify-between items-center mb-4">
+          <div className="w-full flex justify-between items-center mb-2">
             <div className="flex flex-col items-start">
-              <div className="flex items-center gap-1.5 font-bold">
+              <div className="flex items-center font-bold">
                 <IndiaFlag />
                 <span className="text-xl">IND</span>
               </div>
@@ -83,7 +85,7 @@ export const Sidebar: React.FC = () => {
             </div>
             
             <div className="flex flex-col items-end">
-              <div className="flex items-center gap-1.5 font-bold">
+              <div className="flex items-center font-bold">
                 <span className="text-xl">BLR</span>
                 <KarnatakaFlag />
               </div>
@@ -91,37 +93,38 @@ export const Sidebar: React.FC = () => {
             </div>
           </div>
           
-          <div className="w-full h-0 border-t border-dashed border-white/40 mb-4" />
+          {/* Thin Solid Divider with Subtle Opacity */}
+          <div className="w-full h-[1px] bg-white/20 my-4" />
           
-          <div className="text-center">
-            <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/90">
+          <div className="text-center space-y-1">
+            <div className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/90">
               CURRENT STATUS
             </div>
-            <div className="text-[9px] font-bold uppercase tracking-widest text-white/70">
+            <div className="text-[9px] font-bold uppercase tracking-widest text-white/80">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
         </div>
 
-        {/* 6. Roles Card (Requested Changes) */}
+        {/* 5. Roles Card */}
         <div className="mt-5 w-[85%] bg-[#0a0a0a] border border-primary/20 rounded-[2rem] py-6 px-4 flex flex-col items-center gap-4 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
-          <div className="flex items-center gap-3 text-primary transition-colors hover:text-primary/80">
+          <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
           </div>
           
-          <div className="flex items-center gap-3 text-purple-500 transition-colors hover:text-purple-400">
+          <div className="flex items-center gap-3 text-purple-500">
             <Bot className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">GEN AI</span>
           </div>
           
-          <div className="flex items-center gap-3 text-orange-500 transition-colors hover:text-orange-400">
+          <div className="flex items-center gap-3 text-orange-500">
             <Clapperboard className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">CONTENT CREATOR</span>
           </div>
         </div>
 
-        {/* 7. Social Icon Row */}
+        {/* 6. Social Icon Row */}
         <div className="mt-5 flex flex-row justify-center gap-4 w-full">
           {[
             { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu', label: 'GitHub' },
