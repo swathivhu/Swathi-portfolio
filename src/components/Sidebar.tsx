@@ -20,15 +20,11 @@ const GmailIcon = () => (
 );
 
 const IndiaFlag = () => (
-  <div className="w-5 h-3.5 flex flex-col overflow-hidden rounded-[1px] shadow-sm border border-white/10">
-    <div className="h-1/3 bg-[#FF9933]" />
-    <div className="h-1/3 bg-white" />
-    <div className="h-1/3 bg-[#128807]" />
-  </div>
+  <span className="text-base">🇮🇳</span>
 );
 
 const KarnatakaFlag = () => (
-  <div className="w-5 h-3.5 flex flex-col overflow-hidden rounded-[1px] shadow-sm border border-white/10">
+  <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm">
     <div className="h-1/2 bg-[#FFFF00]" />
     <div className="h-1/2 bg-[#FF0000]" />
   </div>
@@ -36,23 +32,16 @@ const KarnatakaFlag = () => (
 
 export const Sidebar: React.FC = () => {
   return (
-    <aside className="w-full lg:w-80 xl:w-[420px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
+    <aside className="w-full lg:w-[320px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
-      {/* Main Identity Card */}
-      <div className="w-full bg-black border border-white/5 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative overflow-hidden">
-        {/* Floating Decorative Accent Dot */}
-        <div className="absolute left-8 top-12 w-2 h-2 bg-primary rounded-full blur-[1px] opacity-60 animate-pulse" />
+      {/* 1. Sidebar Container */}
+      <div className="w-full bg-[#050505] border border-white/5 rounded-[3rem] py-10 px-6 flex flex-col items-center shadow-[0_0_50px_rgba(16,185,129,0.1)] relative overflow-hidden transition-all duration-500 hover:shadow-[0_0_60px_rgba(16,185,129,0.15)]">
         
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
-
-        {/* 1. Avatar Section */}
-        <div className="relative w-[110px] h-[110px] mb-8">
-          {/* Outer Glow */}
+        {/* 2. Avatar Section */}
+        <div className="relative w-[110px] h-[110px] flex-shrink-0">
           <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
-          
-          {/* Main Avatar Wrapper */}
-          <div className="relative w-full h-full rounded-full border-2 border-primary/40 p-1 bg-black z-10 overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-             <div className="relative w-full h-full rounded-full overflow-hidden transition-transform duration-500 hover:scale-110">
+          <div className="relative w-full h-full rounded-full border border-primary/40 p-1 bg-black z-10 overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+             <div className="relative w-full h-full rounded-full overflow-hidden">
               <Image
                 src="/profile-portfolio.jpeg"
                 alt="Swathi P V"
@@ -64,79 +53,78 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. Identity Header */}
-        <div className="flex flex-col items-center gap-1 mb-8 text-center relative">
-          <h1 className="text-4xl font-headline font-bold text-white tracking-tight">
+        {/* 3. Name Section (24px Margin-Top) */}
+        <div className="mt-6 flex flex-col items-center">
+          <h1 className="text-[36px] font-headline font-bold text-white tracking-tight text-center">
             Swathi P V
           </h1>
-          {/* Glowing line under name */}
-          <div className="w-12 h-0.5 bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,0.8)] mt-1 mb-4" />
-          
+        </div>
+
+        {/* 4. Title Section (8px Margin-Top) */}
+        <div className="mt-2 flex flex-col items-center">
           <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.4em]">
             AI SYSTEM ARCHITECT
           </div>
         </div>
 
-        {/* 3. Boarding Pass Location Card */}
-        <div className="w-full bg-primary rounded-[2.5rem] p-6 text-white shadow-[0_15px_35px_rgba(16,185,129,0.25)] mb-8 transition-transform hover:scale-[1.02] duration-300">
-          <div className="flex justify-between items-start">
+        {/* 5. Location Card (24px Margin-Top) */}
+        <div className="mt-6 w-[85%] bg-primary rounded-[2rem] p-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
+          <div className="w-full flex justify-between items-center mb-4">
             {/* Left: India */}
-            <div className="flex flex-col gap-0.5">
-              <div className="flex items-center gap-1.5">
+            <div className="flex flex-col items-start">
+              <div className="flex items-center gap-1.5 font-bold">
                 <IndiaFlag />
-                <span className="text-2xl font-bold tracking-tight">IND</span>
+                <span className="text-xl">IND</span>
               </div>
-              <span className="text-[9px] font-mono uppercase tracking-widest opacity-80 pl-6.5">INDIA</span>
+              <span className="text-[9px] font-mono uppercase tracking-widest opacity-80">INDIA</span>
             </div>
             
             {/* Center: Transit Icon */}
-            <div className="flex-1 flex justify-center pt-2 opacity-50">
+            <div className="opacity-70">
               <Plane className="w-5 h-5 rotate-45" />
             </div>
             
             {/* Right: Bengaluru */}
-            <div className="flex flex-col items-end gap-0.5">
-              <div className="flex items-center gap-1.5">
-                <span className="text-2xl font-bold tracking-tight">BLR</span>
+            <div className="flex flex-col items-end">
+              <div className="flex items-center gap-1.5 font-bold">
+                <span className="text-xl">BLR</span>
                 <KarnatakaFlag />
               </div>
-              <span className="text-[9px] font-mono uppercase tracking-widest opacity-80 pr-6.5 text-right">BENGALURU</span>
+              <span className="text-[9px] font-mono uppercase tracking-widest opacity-80">BENGALURU</span>
             </div>
           </div>
           
-          {/* Dashed Divider */}
-          <div className="mt-4 pt-4 border-t border-white/30 border-dashed text-center">
-            <div className="text-[10px] font-bold uppercase tracking-wider text-white leading-tight">
+          {/* Thin Divider Line */}
+          <div className="w-full h-px border-t border-white/20 mb-4" />
+          
+          {/* Bottom Status Text */}
+          <div className="text-center">
+            <div className="text-[9px] font-bold uppercase tracking-widest text-white/90">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
         </div>
 
-        {/* 4. Modular Expertise Roles Card */}
-        <div className="w-full bg-white/[0.02] border border-primary/20 rounded-[2.5rem] py-6 px-4 flex flex-col items-center gap-4 mb-8 relative group">
-          {/* Online indicator */}
-          <div className="absolute -right-1 top-1/2 -translate-y-1/2">
-             <div className="w-2.5 h-2.5 bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,1)]" />
-          </div>
-          
-          <div className="flex items-center gap-3 text-primary group-hover:translate-x-1 transition-transform">
+        {/* 6. Role Card (20px Margin-Top) */}
+        <div className="mt-5 w-[85%] bg-black border border-primary/20 rounded-[2rem] py-6 px-4 flex flex-col items-center gap-4 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
+          <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">Python Full Stack</span>
           </div>
           
-          <div className="flex items-center gap-3 text-purple-500 group-hover:translate-x-1 transition-transform">
+          <div className="flex items-center gap-3 text-purple-500">
             <Bot className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">Gen AI</span>
           </div>
           
-          <div className="flex items-center gap-3 text-orange-500 group-hover:translate-x-1 transition-transform">
+          <div className="flex items-center gap-3 text-orange-500">
             <Clapperboard className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">Content Creator</span>
           </div>
         </div>
 
-        {/* 5. Social Action Bar */}
-        <div className="flex flex-row justify-center gap-4 w-full">
+        {/* 7. Social Icon Row (20px Margin-Top) */}
+        <div className="mt-5 flex flex-row justify-center gap-4 w-full">
           {[
             { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu', label: 'GitHub' },
             { icon: LinkedInIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a', label: 'LinkedIn' },
@@ -149,7 +137,7 @@ export const Sidebar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/10 hover:border-primary/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all duration-300 shadow-lg group"
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/10 hover:border-primary/50 hover:bg-white/[0.08] hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-300 group"
             >
               <div className="transition-transform duration-300 group-hover:scale-110">
                 <social.icon />
