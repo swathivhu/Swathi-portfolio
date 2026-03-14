@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -14,9 +14,9 @@ export const Sidebar: React.FC = () => {
       <div className="flex-1 bg-[#0D0D0E] border border-white/5 shadow-2xl rounded-[2.5rem] p-6 xl:p-8 flex flex-col items-center justify-between text-center transition-all duration-500 hover:border-white/10 hover:shadow-black/40 group/card">
         
         {/* Top Section: Identity */}
-        <div className="flex flex-col items-center w-full space-y-6">
+        <div className="flex flex-col items-center w-full space-y-5">
           {/* Profile Image */}
-          <div className="relative w-20 h-20 md:w-24 md:h-24 xl:w-28 xl:h-28 rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 group-hover/card:scale-[1.02]">
+          <div className="relative w-20 h-20 md:w-24 md:h-24 xl:w-26 xl:h-26 rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 group-hover/card:scale-[1.02]">
             <Image
               src={profile?.imageUrl || ''}
               alt="Swathi P V"
@@ -26,7 +26,7 @@ export const Sidebar: React.FC = () => {
             />
           </div>
           
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className="space-y-1">
               <h1 className="text-2xl xl:text-4xl font-headline font-extrabold tracking-tighter text-white drop-shadow-2xl">
                 Swathi P V
@@ -36,17 +36,23 @@ export const Sidebar: React.FC = () => {
               </p>
             </div>
             
-            {/* Location Indicator */}
-            <div className="flex items-center justify-center gap-1.5 py-1 text-muted-foreground/70 transition-colors duration-300">
-              <MapPin className="w-3.5 h-3.5 text-secondary/60" />
-              <span className="text-sm font-semibold tracking-tight">Bangalore, India</span>
+            {/* Creative Location Indicator */}
+            <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-muted-foreground/70 shadow-inner hover:border-secondary/30 transition-colors">
+                <MapPin className="w-3 h-3 text-secondary/60" />
+                <span className="text-[10px] font-bold tracking-tight uppercase">Bangalore</span>
+              </div>
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-muted-foreground/70 shadow-inner hover:border-secondary/30 transition-colors">
+                <Globe className="w-3 h-3 text-secondary/60" />
+                <span className="text-[10px] font-bold tracking-tight uppercase">India</span>
+              </div>
             </div>
           </div>
           
           {/* Styled Tagline Badges */}
           <div className="flex flex-wrap justify-center gap-2 max-w-[280px]">
             {[
-              'Python Full Stack Developer',
+              'Python Full Stack',
               'Gen AI Enthusiast',
               'Content Creator'
             ].map((tag, i) => (
