@@ -93,7 +93,7 @@ export const Sidebar: React.FC = () => {
 
           {/* Main Action Button */}
           <div className="w-full space-y-4">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-black/20 hover:-translate-y-0.5">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-xl shadow-black/30 hover:-translate-y-1 active:translate-y-0">
               <Download className="w-3.5 h-3.5 mr-2" />
               DOWNLOAD CV
             </Button>
