@@ -18,53 +18,28 @@ export const CustomCursor: React.FC = () => {
       target.closest('button') ||
       target.closest('a') ||
       target.closest('.group') ||
-      target.closest('[role="button"]') ||
-      target.closest('[role="tab"]');
+      target.closest('[role="button"]');
     
     setIsPointer(!!isClickable);
   }, [isHidden]);
 
-  const handleMouseLeave = useCallback(() => {
-    setIsHidden(true);
-  }, []);
-
-  const handleMouseEnter = useCallback(() => {
-    setIsHidden(false);
-  }, []);
-
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseenter', handleMouseEnter);
-    window.addEventListener('mouseleave', handleMouseLeave);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseenter', handleMouseEnter);
-      window.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, [handleMouseMove, handleMouseEnter, handleMouseLeave]);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [handleMouseMove]);
 
   if (isHidden) return null;
 
   return (
     <>
-      {/* Central Pointer (Dot) - Locked to mouse speed */}
       <div 
-        className="custom-cursor custom-cursor-dot hidden lg:block"
+        className="fixed pointer-events-none z-[9999] w-4 h-4 rounded-full bg-primary/40 border border-primary/20 transition-[width,height] duration-200 hidden lg:block"
         style={{ 
           left: position.x, 
           top: position.y,
-        }}
-      />
-      {/* Synchronized Outer Ring - Locked to mouse speed */}
-      <div 
-        className={cn(
-          "custom-cursor custom-cursor-ring hidden lg:block",
-          isPointer && "active"
-        )}
-        style={{ 
-          left: position.x, 
-          top: position.y,
+          transform: 'translate(-50%, -50%)',
+          width: isPointer ? '32px' : '16px',
+          height: isPointer ? '32px' : '16px',
         }}
       />
     </>

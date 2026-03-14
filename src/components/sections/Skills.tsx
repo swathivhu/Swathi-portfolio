@@ -1,49 +1,49 @@
 "use client"
 
 import React from 'react';
-import { Cpu, Terminal, Globe, Workflow } from 'lucide-react';
+import { Cpu, Terminal, Globe } from 'lucide-react';
 
 const skillCategories = [
   {
     title: 'Core Architecture',
     icon: Terminal,
-    skills: ['Python', 'Rust', 'JavaScript', 'SQL', 'C++']
+    skills: ['Python', 'Rust', 'JavaScript', 'SQL']
   },
   {
     title: 'AI Engineering',
     icon: Cpu,
-    skills: ['GenAI', 'Prompt Engineering', 'LangChain', 'PyTorch', 'Hugging Face']
+    skills: ['GenAI', 'Prompt Eng', 'LangChain', 'PyTorch']
   },
   {
     title: 'Deployment',
     icon: Globe,
-    skills: ['Next.js', 'Firebase', 'FastAPI', 'Docker', 'Kubernetes']
+    skills: ['Next.js', 'Firebase', 'FastAPI', 'Docker']
   }
 ];
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-32">
+    <section id="skills" className="py-24">
       <h2 className="section-heading">
         <span className="section-number">02.</span> Technical Arsenal
         <div className="h-px bg-white/5 flex-1" />
       </h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {skillCategories.map((category) => (
-          <div key={category.title} className="space-y-8 glass-card p-10 rounded-[2.5rem] border-white/5 hover:border-primary/20 transition-all duration-500 group">
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-2xl bg-primary/10 text-primary group-hover:bg-glow-primary transition-all">
-                <category.icon className="w-6 h-6" />
+          <div key={category.title} className="glass-card p-8 rounded-2xl border-white/5 hover:border-primary/30 group">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
+                <category.icon className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-headline font-bold tracking-tight">{category.title}</h3>
+              <h3 className="text-lg font-bold text-white">{category.title}</h3>
             </div>
             
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
                 <div 
                   key={skill}
-                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-xs font-mono font-medium hover:border-secondary/50 hover:bg-secondary/5 transition-all cursor-default text-muted-foreground hover:text-secondary uppercase tracking-tighter"
+                  className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-[10px] font-mono font-medium text-muted-foreground uppercase tracking-tight"
                 >
                   {skill}
                 </div>
