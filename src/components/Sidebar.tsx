@@ -11,10 +11,10 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside className="w-full lg:w-80 h-auto lg:h-screen lg:fixed left-0 top-0 p-6 z-40">
-      <div className="bg-[#0D0D0E] border border-white/5 shadow-2xl h-full rounded-[2rem] p-8 flex flex-col items-center justify-between text-center transition-all duration-300">
+      <div className="bg-[#0D0D0E] border border-white/5 shadow-2xl h-full rounded-[2rem] p-8 flex flex-col items-center justify-between text-center transition-all duration-500 hover:-translate-y-1 hover:border-white/10 hover:shadow-black/40 group/card">
         <div className="flex flex-col items-center w-full">
           {/* Profile Image Container */}
-          <div className="relative w-36 h-36 md:w-40 md:h-40 mb-8 rounded-2xl overflow-hidden bg-zinc-900 border border-white/5">
+          <div className="relative w-36 h-36 md:w-40 md:h-40 mb-8 rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 group-hover/card:scale-[1.02]">
             <Image
               src={profile?.imageUrl || ''}
               alt="Swathi P V"
@@ -64,7 +64,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Footer Actions */}
         <div className="w-full space-y-4">
-          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-6 font-medium tracking-wide shadow-lg shadow-primary/10 transition-all">
+          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-6 font-medium tracking-wide shadow-lg shadow-primary/10 transition-all active:scale-[0.98]">
             <Download className="w-4 h-4 mr-2" />
             Download CV
           </Button>
