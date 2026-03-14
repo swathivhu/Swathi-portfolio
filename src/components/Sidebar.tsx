@@ -16,9 +16,9 @@ export const Sidebar: React.FC = () => {
         
         {/* Identity Section */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Profile Image with subtle border */}
+          {/* Profile Image with subtle border and shadow */}
           <div className="relative w-24 h-24 xl:w-28 xl:h-28 group">
-            <div className="absolute inset-0 rounded-full border border-white/10" />
+            <div className="absolute inset-0 rounded-full border border-white/10 shadow-inner" />
             <div className="relative w-full h-full rounded-full p-1 bg-[#0F172A]/40 border border-white/5 overflow-hidden">
               <div className="relative w-full h-full rounded-full overflow-hidden bg-muted">
                 <Image
@@ -49,7 +49,7 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Roles / Styled Badges with Gradient Text */}
+        {/* Roles / Styled Badges with Radial Gradient Text */}
         <div className="w-full py-4">
           <div className="flex flex-wrap justify-center gap-3">
             {[
@@ -62,7 +62,7 @@ export const Sidebar: React.FC = () => {
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#111827] border border-white/5 transition-all hover:border-primary/20 cursor-default shadow-sm"
               >
                 <role.icon className="w-3.5 h-3.5 text-primary" />
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-[#10B981] to-[#06B6D4]">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest bg-clip-text text-transparent bg-[radial-gradient(circle,_#10B981_20%,_#06B6D4_100%)]">
                   {role.label}
                 </span>
               </span>
@@ -72,7 +72,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Actions & Socials */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Social Icons: Refined Circular Style with subtle scale and border brightness */}
+          {/* Social Icons: Refined Circular Style with smooth hover lift and scaling */}
           <div className="flex flex-row justify-center gap-4">
             {[
               { icon: Github, href: 'https://github.com' },
@@ -84,7 +84,7 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/50 hover:scale-105 transition-all duration-300 group shadow-sm"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/50 hover:scale-110 hover:-translate-y-1 transition-all duration-300 group shadow-sm"
               >
                 <social.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
@@ -94,9 +94,9 @@ export const Sidebar: React.FC = () => {
           {/* Minimal Divider */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
-          {/* Main Action Button */}
+          {/* Main Action Button with soft shadow and lift */}
           <div className="w-full space-y-4">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-xl shadow-black/10 hover:-translate-y-1 active:translate-y-0">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-black/20 hover:-translate-y-1 active:translate-y-0">
               <Download className="w-3.5 h-3.5 mr-2" />
               DOWNLOAD CV
             </Button>
