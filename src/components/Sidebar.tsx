@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Download, Play, Code, Bot, Clapperboard } from 'lucide-react';
+import { Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 /**
@@ -29,16 +29,18 @@ const GmailIcon = () => (
 export const Sidebar: React.FC = () => {
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
-      <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
+      <div className="w-full h-full bg-black/60 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
-        {/* Profile Avatar Section - Solid Radial Line style from reference */}
-        <div className="relative w-[124px] h-[124px] group flex-shrink-0">
+        {/* Profile Avatar Section - Premium Animated Ring */}
+        <div className="relative w-[110px] h-[110px] group flex-shrink-0">
+          {/* Animated rotating gradient ring */}
+          <div className="absolute inset-0 rounded-full animate-spin-slow bg-gradient-to-tr from-primary/40 via-primary/10 to-transparent blur-[2px]" />
           
-          {/* Solid Green Radial Line */}
-          <div className="absolute inset-0 rounded-full border-2 border-primary shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-500" />
+          {/* Static ring */}
+          <div className="absolute inset-[3px] rounded-full border border-primary/40 shadow-[0_0_18px_rgba(16,185,129,0.25)] group-hover:shadow-[0_0_25px_rgba(16,185,129,0.45)] transition-all duration-500" />
           
           {/* Image container */}
-          <div className="relative w-full h-full rounded-full p-2 bg-black overflow-hidden">
+          <div className="relative w-full h-full rounded-full p-[3px] bg-black border border-white/5 overflow-hidden">
             <div className="relative w-full h-full rounded-full overflow-hidden">
               <Image
                 src="/profile-portfolio.jpeg"
@@ -50,35 +52,27 @@ export const Sidebar: React.FC = () => {
             </div>
           </div>
 
-          {/* Action Button Overlap - Play style icon from reference */}
-          <div className="absolute bottom-0 right-0 w-10 h-10 rounded-full bg-primary border-4 border-black flex items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-110 transition-transform">
-            <Play className="w-4 h-4 text-black fill-current" />
-          </div>
+          {/* Status Indicator - Online Status */}
+          <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-primary border-4 border-black z-10 shadow-[0_0_10px_rgba(16,185,129,0.5)] animate-pulse" />
         </div>
 
-        {/* Name & Accent Line */}
-        <div className="mt-8 flex flex-col items-center gap-4">
+        {/* Identity Details */}
+        <div className="mt-6 flex flex-col items-center gap-3">
           <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
-          {/* Short Horizontal Accent Bar */}
-          <div className="w-10 h-1 bg-primary rounded-full shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-        </div>
-
-        {/* Role Identity Card - Box style from reference */}
-        <div className="w-full flex items-center justify-center gap-4 mt-8 px-2">
-          {/* Hollow Circle Indicator */}
-          <div className="w-4 h-4 rounded-full border-2 border-primary flex-shrink-0" />
-          
-          {/* Roles Container */}
-          <div className="flex-1 py-4 px-6 rounded-3xl bg-primary/5 border border-primary/20 hover:border-primary/40 transition-colors">
-            <div className="text-[11px] font-bold uppercase text-primary text-center tracking-tight leading-relaxed">
-              Python Full-Stack | Gen AI | Content Creator
-            </div>
+          <div className="text-[11px] font-bold uppercase text-primary/80 tracking-widest text-center px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10">
+            Python Full-Stack | Gen AI
           </div>
         </div>
 
-        {/* Social Icons - Circular brand style */}
+        {/* Location Card */}
+        <div className="mt-6 w-full py-4 px-6 rounded-3xl bg-white/[0.03] border border-white/10 flex items-center justify-center gap-3">
+          <div className="w-2 h-2 rounded-full bg-primary" />
+          <span className="text-xs font-mono font-medium text-muted-foreground uppercase tracking-widest">Bengaluru, India</span>
+        </div>
+
+        {/* Social Action Row */}
         <div className="flex flex-row justify-center gap-4 mt-8">
           {[
             { icon: GithubIcon, href: 'https://github.com/swathivhu', hoverColor: 'hover:border-white/40' },
@@ -91,7 +85,7 @@ export const Sidebar: React.FC = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 ${social.hoverColor} hover:scale-110 hover:-translate-y-1 transition-all duration-300`}
+              className={`w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 ${social.hoverColor} hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-xl`}
             >
               <social.icon />
             </a>
@@ -105,7 +99,7 @@ export const Sidebar: React.FC = () => {
             DOWNLOAD CV
           </Button>
           <div className="mt-6 text-[8px] font-mono text-muted-foreground/30 uppercase text-center tracking-[0.3em] flex items-center justify-center gap-2">
-            Made with <span className="text-primary">❤️</span> by Swathi P V • {new Date().getFullYear()}
+            Professional AI Architect • {new Date().getFullYear()}
           </div>
         </div>
       </div>
