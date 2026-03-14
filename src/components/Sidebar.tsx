@@ -49,7 +49,7 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Roles / Styled Badges with Icons */}
+        {/* Roles / Styled Badges with Gradient Text */}
         <div className="w-full py-4">
           <div className="flex flex-wrap justify-center gap-3">
             {[
@@ -59,10 +59,12 @@ export const Sidebar: React.FC = () => {
             ].map((role, i) => (
               <span 
                 key={i}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-primary/[0.08] border border-primary/30 text-white transition-all hover:bg-primary/20 hover:border-primary/50 cursor-default shadow-sm shadow-primary/5"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#111827] border border-white/5 transition-all hover:border-primary/20 cursor-default shadow-sm"
               >
                 <role.icon className="w-3.5 h-3.5 text-primary" />
-                {role.label}
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-[#10B981] to-[#06B6D4]">
+                  {role.label}
+                </span>
               </span>
             ))}
           </div>
