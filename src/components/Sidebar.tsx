@@ -39,7 +39,7 @@ export const Sidebar: React.FC = () => {
           <div className="relative w-full h-full rounded-full border border-primary/40 p-1 bg-black z-10 overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.3)]">
              <div className="relative w-full h-full rounded-full overflow-hidden">
               <Image
-                src="/profile-portfolio.jpeg"
+                src="https://picsum.photos/seed/swathi-profile/200/200"
                 alt="Swathi P V"
                 fill
                 priority
@@ -65,10 +65,10 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 4. Location Card (mt-6 = 24px) - Exact Boarding Pass Style - Enlarged Width */}
+        {/* 4. Location Card (mt-6 = 24px) - Boarding Pass Style */}
         <div className="mt-6 w-[95%] bg-[#10b981] rounded-2xl py-3 px-8 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center pb-1">
-            {/* Left Section: IND INDIA */}
+            {/* Left Section: IND IN */}
             <div className="flex flex-col items-start leading-none">
               <div className="flex items-start gap-1">
                 <span className="text-xl font-bold leading-none">IND</span>
@@ -82,7 +82,7 @@ export const Sidebar: React.FC = () => {
               <Plane className="w-4 h-4 rotate-45" />
             </div>
             
-            {/* Right Section: KarnatakaFlag BLR BENGALURU */}
+            {/* Right Section: KarnatakaFlag BLR */}
             <div className="flex flex-col items-end leading-none">
               <div className="flex items-center">
                 <KarnatakaFlag />
@@ -106,18 +106,18 @@ export const Sidebar: React.FC = () => {
         {/* 5. Roles Card (mt-5 = 20px) - Enlarged Width */}
         <div className="mt-5 w-[95%] bg-[#0a0a0a] border border-primary/20 rounded-2xl py-4 px-6 flex flex-col items-center gap-3 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
           <div className="flex items-center gap-3">
-            <Code className="w-4 h-4 text-[#3B82F6]" />
+            <Code className="w-4 h-4 text-[#38BDF8]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#10B981]">PYTHON FULL STACK</span>
           </div>
           
           <div className="flex items-center gap-3">
             <Bot className="w-4 h-4 text-[#9333EA]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#A855F7]">GEN AI</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#10B981]">GEN AI</span>
           </div>
           
           <div className="flex items-center gap-3">
             <Clapperboard className="w-4 h-4 text-[#F97316]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#F97316]">CONTENT CREATOR</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#10B981]">CONTENT CREATOR</span>
           </div>
         </div>
 
