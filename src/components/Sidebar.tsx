@@ -41,7 +41,7 @@ export const Sidebar: React.FC = () => {
             </p>
           </div>
 
-          {/* Location Badge */}
+          {/* Location Marker Style */}
           <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/5 w-fit transition-colors hover:border-primary/20">
             <MapPin className="w-3.5 h-3.5 text-primary" />
             <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Bangalore, India</span>
