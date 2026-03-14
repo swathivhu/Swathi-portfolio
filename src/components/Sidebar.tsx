@@ -44,9 +44,9 @@ export const Sidebar: React.FC = () => {
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
-        {/* Profile Image Section - Visual Anchor */}
+        {/* Profile Image Section - Circular Avatar visual anchor */}
         <div className="relative w-40 h-40 xl:w-48 xl:h-48 group">
-          {/* Subtle Accent Ring / Glow */}
+          {/* Subtle Accent Ring / Glow Focal Point */}
           <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_25px_rgba(16,185,129,0.15)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_35px_rgba(16,185,129,0.25)]" />
           
           {/* Circular Image Container */}
@@ -66,7 +66,7 @@ export const Sidebar: React.FC = () => {
           <div className="absolute bottom-4 right-4 w-6 h-6 bg-primary rounded-full border-4 border-black shadow-lg" />
         </div>
         
-        {/* Name & Title Section (24px from image) */}
+        {/* Name & Title Section (24px from image, title 12px from name) */}
         <div className="mt-6 space-y-3 flex flex-col items-center">
           <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white">
             Swathi P V
@@ -77,7 +77,7 @@ export const Sidebar: React.FC = () => {
           </p>
         </div>
 
-        {/* Location Card (20px from title) */}
+        {/* Location Card (20px from title) - Boarding Pass Style */}
         <div className="w-full max-w-[240px] mt-5">
           <div className="bg-primary rounded-[1.2rem] p-3 text-white shadow-lg shadow-primary/20 relative overflow-hidden group">
             <div className="flex justify-between items-center mb-2">
@@ -113,24 +113,24 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Roles Pill (20px from location) */}
+        {/* Roles Pill (20px from location) - Radiant Emerald Container */}
         <div className="w-full px-2 mt-5">
           <div className="py-4 px-6 rounded-2xl bg-[#080808] border border-primary/40 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)]">
-            <div className="flex flex-col gap-1 text-[10px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] uppercase text-center">
+            <div className="flex flex-col gap-1.5 text-[10px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] uppercase text-center">
               <div className="flex items-center justify-center gap-2">
-                <Code className="w-3 h-3" /> Python Full Stack
+                <Code className="w-3 h-3 text-[#3776AB]" /> Python Full Stack
               </div>
               <div className="flex items-center justify-center gap-2">
-                <Bot className="w-3 h-3" /> Gen AI
+                <Bot className="w-3 h-3 text-[#9333EA]" /> Gen AI
               </div>
               <div className="flex items-center justify-center gap-2">
-                <Clapperboard className="w-3 h-3" /> Content Creator
+                <Clapperboard className="w-3 h-3 text-[#EA580C]" /> Content Creator
               </div>
             </div>
           </div>
         </div>
 
-        {/* Social Icons (24px from role card) */}
+        {/* Social Icons (24px from role card) - Brand Original Colors */}
         <div className="flex flex-row justify-center gap-4 mt-6">
           {[
             { icon: GithubIcon, href: 'https://github.com', hoverColor: 'hover:border-white/50' },
@@ -149,14 +149,14 @@ export const Sidebar: React.FC = () => {
           ))}
         </div>
 
-        {/* Action Button Section (28px from social icons) */}
-        <div className="w-full mt-7 space-y-4">
+        {/* Action Button Section (28px from social icons) - Final prominent action */}
+        <div className="w-full mt-7">
           <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-5 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:-translate-y-1 active:translate-y-0">
             <Download className="w-3.5 h-3.5 mr-2" />
             DOWNLOAD CV
           </Button>
           
-          <div className="text-[8px] font-mono text-muted-foreground/20 uppercase text-center tracking-[0.4em]">
+          <div className="mt-4 text-[8px] font-mono text-muted-foreground/20 uppercase text-center tracking-[0.4em]">
             © {new Date().getFullYear()} Professional Portfolio
           </div>
         </div>
