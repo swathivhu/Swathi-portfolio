@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Bot, Download } from 'lucide-react';
+import { ArrowRight, Bot } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -62,15 +62,6 @@ export const Hero: React.FC = () => {
               View Work
             </Button>
             
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-primary/20 hover:bg-primary/5 text-primary rounded-xl px-8 h-14 font-bold tracking-wider transition-all whitespace-nowrap"
-            >
-              <Download className="mr-2 w-4 h-4" />
-              Download Resume
-            </Button>
-
             <Button 
               variant="outline" 
               size="lg" 
