@@ -28,7 +28,7 @@ export const Sidebar: React.FC = () => {
           
           <div className="space-y-3">
             <div className="space-y-1">
-              <h1 className="text-2xl xl:text-4xl font-headline font-extrabold tracking-tighter text-white drop-shadow-2xl">
+              <h1 className="text-3xl xl:text-4xl font-headline font-extrabold tracking-tighter text-white drop-shadow-2xl">
                 Swathi P V
               </h1>
               <p className="text-secondary font-mono text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.4em] opacity-90">
@@ -65,8 +65,8 @@ export const Sidebar: React.FC = () => {
             ))}
           </div>
           
-          {/* Social Links - Horizontal Row */}
-          <div className="flex flex-row justify-center gap-2.5 w-full pt-1">
+          {/* Enhanced Social Links */}
+          <div className="flex flex-row justify-center gap-4 w-full pt-1">
             {[
               { icon: Github, href: 'https://github.com' },
               { icon: Linkedin, href: 'https://linkedin.com' },
@@ -77,9 +77,9 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:border-white/10 transition-all group/icon"
+                className="w-11 h-11 flex items-center justify-center rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-secondary/10 hover:border-secondary/40 hover:scale-110 hover:shadow-[0_0_15px_hsla(var(--secondary),0.3)] transition-all duration-300 group/icon"
               >
-                <social.icon className="w-4 h-4 text-muted-foreground group-hover/icon:text-white transition-colors" />
+                <social.icon className="w-5 h-5 text-muted-foreground group-hover/icon:text-white transition-colors" />
               </a>
             ))}
           </div>
