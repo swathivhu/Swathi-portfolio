@@ -24,30 +24,36 @@ export const Sidebar: React.FC = () => {
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center">
       
       {/* Top Status Indicator Dot */}
-      <div className="w-3 h-3 bg-primary rounded-full mb-4 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+      <div className="w-2 h-2 bg-primary rounded-full mb-3 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse" />
 
       {/* Main Identity Card Container */}
-      <div className="w-full h-full bg-black border border-white/5 rounded-[3.5rem] p-8 flex flex-col items-center shadow-2xl overflow-hidden relative">
+      <div className="w-full h-full bg-black border border-white/5 rounded-[3rem] p-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
-        {/* Profile Avatar Section */}
-        <div className="relative w-[120px] h-[120px] mb-6 flex-shrink-0">
-          <div className="absolute inset-0 rounded-full border-2 border-primary/20 shadow-[0_0_20px_rgba(16,185,129,0.3)]" />
-          <div className="relative w-full h-full rounded-full p-1.5 overflow-hidden">
-            <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 bg-black">
+        {/* Profile Avatar Section - Restored Styled Layout */}
+        <div className="relative w-[110px] h-[110px] mb-5 group flex-shrink-0">
+          {/* Emerald Accent Glow Ring */}
+          <div className="absolute inset-0 rounded-full bg-primary/20 blur-md group-hover:bg-primary/40 transition-all duration-500" />
+          
+          {/* Outer Border */}
+          <div className="absolute inset-0 rounded-full border border-white/10 shadow-[0_0_15px_rgba(16,185,129,0.2)]" />
+          
+          {/* Image Container */}
+          <div className="relative w-full h-full rounded-full p-1 overflow-hidden bg-black">
+            <div className="relative w-full h-full rounded-full overflow-hidden border border-white/5">
               <Image
                 src="/profile-portfolio.jpeg"
                 alt="Swathi P V"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
             </div>
           </div>
         </div>
 
         {/* Identity Details */}
-        <div className="flex flex-col items-center gap-2 mb-8">
-          <h1 className="text-4xl font-headline font-bold tracking-tight text-white text-center">
+        <div className="flex flex-col items-center gap-1.5 mb-6">
+          <h1 className="text-3xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
           <div className="text-[9px] font-mono font-bold uppercase text-primary tracking-[0.3em] text-center">
@@ -56,70 +62,70 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* Boarding Pass Style Location Card */}
-        <div className="w-full bg-primary rounded-[2.5rem] p-6 text-white shadow-[0_15px_35px_rgba(16,185,129,0.2)] mb-6">
-          <div className="flex justify-between items-center mb-4 px-2">
+        <div className="w-full bg-primary rounded-[2rem] p-5 text-white shadow-[0_10px_25px_rgba(16,185,129,0.2)] mb-5">
+          <div className="flex justify-between items-center mb-3 px-1">
             <div className="flex flex-col">
               <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold">IND</span>
-                <span className="text-[10px] font-bold opacity-70">IN</span>
+                <span className="text-xl font-bold leading-none">IND</span>
+                <span className="text-[8px] font-bold opacity-70">IN</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-70">INDIA</span>
+              <span className="text-[7px] font-mono uppercase tracking-widest opacity-70">INDIA</span>
             </div>
             
-            <Plane className="w-5 h-5 opacity-70 rotate-45" />
+            <Plane className="w-4 h-4 opacity-70 rotate-45" />
             
             <div className="flex flex-col items-end">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px]">
-                  <div className="h-1 bg-[#FF9933]" />
-                  <div className="h-1 bg-white" />
-                  <div className="h-1 bg-[#128807]" />
+              <div className="flex items-center gap-1.5">
+                <div className="w-4 h-2.5 flex flex-col overflow-hidden rounded-[1px]">
+                  <div className="h-[0.83px] bg-[#FF9933]" />
+                  <div className="h-[0.83px] bg-white" />
+                  <div className="h-[0.83px] bg-[#128807]" />
                 </div>
-                <span className="text-2xl font-bold">BLR</span>
+                <span className="text-xl font-bold leading-none">BLR</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-70">BENGALURU</span>
+              <span className="text-[7px] font-mono uppercase tracking-widest opacity-70">BENGALURU</span>
             </div>
           </div>
           
-          <div className="pt-4 border-t border-white/20 text-center">
-            <span className="text-[8px] font-bold uppercase tracking-widest opacity-90">
+          <div className="pt-3 border-t border-white/20 text-center">
+            <span className="text-[7px] font-bold uppercase tracking-widest opacity-90">
               IN BENGALURU, KARNATAKA, INDIA
             </span>
           </div>
         </div>
 
         {/* Expertise Modular Stack */}
-        <div className="w-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] p-6 flex flex-col items-center gap-4 mb-8">
-          <div className="flex items-center gap-3">
-            <Code className="w-4 h-4 text-primary" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-primary">PYTHON FULL STACK</span>
+        <div className="w-full bg-white/[0.03] border border-white/5 rounded-[2rem] p-4 flex flex-col items-center gap-3.5 mb-6">
+          <div className="flex items-center gap-2.5">
+            <Code className="w-3.5 h-3.5 text-primary" />
+            <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-primary">PYTHON FULL STACK</span>
           </div>
           
-          <div className="flex items-center gap-3">
-            <Bot className="w-4 h-4 text-purple-400" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-purple-400">GEN AI</span>
+          <div className="flex items-center gap-2.5">
+            <Bot className="w-3.5 h-3.5 text-purple-400" />
+            <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-purple-400">GEN AI</span>
           </div>
           
-          <div className="flex items-center gap-3">
-            <Clapperboard className="w-4 h-4 text-orange-400" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-400">CONTENT CREATOR</span>
+          <div className="flex items-center gap-2.5">
+            <Clapperboard className="w-3.5 h-3.5 text-orange-400" />
+            <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-orange-400">CONTENT CREATOR</span>
           </div>
         </div>
 
         {/* Social Actions Row */}
-        <div className="flex flex-row justify-center gap-4 mt-auto">
+        <div className="flex flex-row justify-center gap-3 mt-auto">
           {[
-            { icon: () => <Github className="w-5.5 h-5.5 text-white" />, href: 'https://github.com/swathivhu' },
+            { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu' },
             { icon: LinkedInIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a' },
             { icon: GmailIcon, href: 'mailto:swathipv.2501@gmail.com' },
-            { icon: () => <Download className="w-5.5 h-5.5 text-primary" />, href: '/Swathi-Resume.pdf' },
+            { icon: () => <Download className="w-5 h-5 text-primary" />, href: '/Swathi-Resume.pdf' },
           ].map((social, i) => (
             <a
               key={i}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] transition-all duration-300"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] transition-all duration-300"
             >
               <social.icon />
             </a>
