@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Download, MapPin, Code, Bot, Clapperboard } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -16,9 +16,9 @@ export const Sidebar: React.FC = () => {
         
         {/* Identity Section */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Profile Image with subtle border and shadow */}
-          <div className="relative w-24 h-24 xl:w-28 xl:h-28 group">
-            <div className="absolute inset-0 rounded-full border border-white/10 shadow-inner" />
+          {/* Profile Image with subtle precision border */}
+          <div className="relative w-28 h-28 xl:w-32 xl:h-32 group">
+            <div className="absolute inset-0 rounded-full border border-primary/20 shadow-xl" />
             <div className="relative w-full h-full rounded-full p-1 bg-[#0F172A]/40 border border-white/5 overflow-hidden">
               <div className="relative w-full h-full rounded-full overflow-hidden bg-muted">
                 <Image
@@ -30,14 +30,18 @@ export const Sidebar: React.FC = () => {
                 />
               </div>
             </div>
+            {/* Status Indicator Style */}
+            <div className="absolute bottom-1 right-2 w-5 h-5 bg-primary rounded-full border-4 border-[#111827] shadow-lg" />
           </div>
           
           {/* Name & Title */}
-          <div className="space-y-2">
+          <div className="space-y-3 flex flex-col items-center">
             <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white">
               Swathi P V
             </h1>
-            <p className="text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em]">
+            {/* Signature Underline Decor */}
+            <div className="w-8 h-1 bg-primary rounded-full" />
+            <p className="text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
               AI System Architect
             </p>
           </div>
@@ -49,30 +53,20 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Roles / Styled Badges with Radial Gradient Text */}
-        <div className="w-full py-4">
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              { label: 'Python Full Stack', icon: Code },
-              { label: 'Gen AI', icon: Bot },
-              { label: 'Content Creator', icon: Clapperboard }
-            ].map((role, i) => (
-              <span 
-                key={i}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#111827] border border-white/5 transition-all hover:border-primary/20 cursor-default shadow-sm"
-              >
-                <role.icon className="w-3.5 h-3.5 text-primary" />
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest bg-clip-text text-transparent bg-[radial-gradient(circle,_#10B981_20%,_#06B6D4_100%)]">
-                  {role.label}
-                </span>
-              </span>
-            ))}
+        {/* Roles: Single Radiant Pill (Reference Style) */}
+        <div className="w-full px-2">
+          <div className="py-3 px-6 rounded-2xl bg-[#0F172A] border border-primary/30 shadow-inner">
+            <div className="text-[11px] font-bold tracking-wider leading-relaxed text-primary">
+              Python Full Stack <span className="mx-2 text-white/20 font-light">|</span> 
+              Gen AI <span className="mx-2 text-white/20 font-light">|</span> 
+              Content Creator
+            </div>
           </div>
         </div>
 
         {/* Actions & Socials */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Social Icons: Refined Circular Style with smooth hover lift and scaling */}
+          {/* Social Icons: Refined Circular Style with smooth hover lift */}
           <div className="flex flex-row justify-center gap-4">
             {[
               { icon: Github, href: 'https://github.com' },
