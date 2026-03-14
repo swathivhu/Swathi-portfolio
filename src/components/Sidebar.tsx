@@ -2,18 +2,8 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Download, Plane, Code, Bot, Clapperboard } from 'lucide-react';
+import { Download, Play, Code, Bot, Clapperboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-/**
- * Karnataka Flag Component (Yellow & Red horizontal stripes)
- */
-const KarnatakaFlag = () => (
-  <div className="flex flex-col w-4 h-2.5 border-[0.5px] border-white/20 rounded-[1px] overflow-hidden">
-    <div className="h-1/2 bg-[#FFD700]" />
-    <div className="h-1/2 bg-[#ED1C14]" />
-  </div>
-);
 
 /**
  * Custom Brand Icons for GitHub, LinkedIn, and Gmail
@@ -41,20 +31,14 @@ export const Sidebar: React.FC = () => {
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
-        {/* Profile Avatar Section - Premium Animated Ring with Enhanced Radial Glow */}
-        <div className="relative w-[116px] h-[116px] group flex-shrink-0">
+        {/* Profile Avatar Section - Solid Radial Line style from reference */}
+        <div className="relative w-[124px] h-[124px] group flex-shrink-0">
           
-          {/* Enhanced Emerald Glow Bloom */}
-          <div className="absolute inset-0 rounded-full bg-primary/25 blur-2xl animate-pulse" />
-          
-          {/* Animated rotating gradient ring - Increased opacity */}
-          <div className="absolute inset-0 rounded-full animate-spin-slow bg-gradient-to-tr from-primary/60 via-primary/20 to-transparent blur-[3px]" />
-          
-          {/* Static ring with increased border and stronger shadow glow */}
-          <div className="absolute inset-[2px] rounded-full border-2 border-primary/50 shadow-[0_0_25px_rgba(16,185,129,0.4)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] transition-all duration-500" />
+          {/* Solid Green Radial Line */}
+          <div className="absolute inset-0 rounded-full border-2 border-primary shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-500" />
           
           {/* Image container */}
-          <div className="relative w-full h-full rounded-full p-[4px] bg-black border border-white/10 overflow-hidden">
+          <div className="relative w-full h-full rounded-full p-2 bg-black overflow-hidden">
             <div className="relative w-full h-full rounded-full overflow-hidden">
               <Image
                 src="/profile-portfolio.jpeg"
@@ -66,68 +50,36 @@ export const Sidebar: React.FC = () => {
             </div>
           </div>
 
-          {/* Online Status Dot - Attached to the bottom-right edge */}
-          <div className="absolute bottom-1 right-1 w-4.5 h-4.5 rounded-full bg-black border-2 border-black flex items-center justify-center z-10">
-            <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_12px_rgba(16,185,129,0.9)] animate-pulse" />
+          {/* Action Button Overlap - Play style icon from reference */}
+          <div className="absolute bottom-0 right-0 w-10 h-10 rounded-full bg-primary border-4 border-black flex items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-110 transition-transform">
+            <Play className="w-4 h-4 text-black fill-current" />
           </div>
         </div>
 
-        {/* Name */}
-        <div className="mt-6 flex flex-col items-center">
+        {/* Name & Accent Line */}
+        <div className="mt-8 flex flex-col items-center gap-4">
           <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
-          <p className="mt-3 text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
-            AI System Architect
-          </p>
+          {/* Short Horizontal Accent Bar */}
+          <div className="w-10 h-1 bg-primary rounded-full shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
         </div>
 
-        {/* Location Card */}
-        <div className="w-full max-w-[240px] mt-5">
-          <div className="bg-primary rounded-[1.2rem] p-3 text-white shadow-lg shadow-primary/20">
-            <div className="flex justify-between items-center mb-2">
-              <div>
-                <div className="flex items-center gap-1">
-                  <span className="text-base font-black">IND</span>
-                  <span className="text-[10px]">🇮🇳</span>
-                </div>
-                <div className="text-[7px] uppercase">India</div>
-              </div>
-              <Plane className="w-4 h-4 opacity-60 rotate-90" />
-              <div className="text-right">
-                <div className="flex items-center gap-1 justify-end">
-                  <KarnatakaFlag />
-                  <span className="text-base font-black">BLR</span>
-                </div>
-                <div className="text-[7px] uppercase">Bengaluru</div>
-              </div>
-            </div>
-            <div className="w-full h-px bg-white/20 mb-2"></div>
-            <div className="text-center text-[8px] font-bold uppercase">
-              In Bengaluru, Karnataka, India
+        {/* Role Identity Card - Box style from reference */}
+        <div className="w-full flex items-center justify-center gap-4 mt-8 px-2">
+          {/* Hollow Circle Indicator */}
+          <div className="w-4 h-4 rounded-full border-2 border-primary flex-shrink-0" />
+          
+          {/* Roles Container */}
+          <div className="flex-1 py-4 px-6 rounded-3xl bg-primary/5 border border-primary/20 hover:border-primary/40 transition-colors">
+            <div className="text-[11px] font-bold uppercase text-primary text-center tracking-tight leading-relaxed">
+              Python Full-Stack | Gen AI | Content Creator
             </div>
           </div>
         </div>
 
-        {/* Roles */}
-        <div className="w-full px-2 mt-5">
-          <div className="py-4 px-6 rounded-2xl bg-[#080808] border border-white/5 group-hover:border-primary/20 transition-colors">
-            <div className="flex flex-col gap-2 text-[10px] font-bold uppercase text-primary text-center">
-              <div className="flex items-center justify-center gap-2">
-                <Code className="w-3 h-3 text-[#3776AB]" /> Python Full Stack
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Bot className="w-3 h-3 text-[#9333EA]" /> Gen AI
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Clapperboard className="w-3 h-3 text-[#EA580C]" /> Content Creator
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Social Icons */}
-        <div className="flex flex-row justify-center gap-4 mt-6">
+        {/* Social Icons - Circular brand style */}
+        <div className="flex flex-row justify-center gap-4 mt-8">
           {[
             { icon: GithubIcon, href: 'https://github.com/swathivhu', hoverColor: 'hover:border-white/40' },
             { icon: LinkedinIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a', hoverColor: 'hover:border-[#0077B5]/50' },
@@ -139,21 +91,21 @@ export const Sidebar: React.FC = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-11 h-11 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 ${social.hoverColor} hover:scale-110 hover:-translate-y-1 transition-all duration-300`}
+              className={`w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 ${social.hoverColor} hover:scale-110 hover:-translate-y-1 transition-all duration-300`}
             >
               <social.icon />
             </a>
           ))}
         </div>
 
-        {/* Download Button */}
-        <div className="w-full mt-7">
-          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-5 text-[10px] font-bold tracking-[0.2em]">
+        {/* Action Button & Footer */}
+        <div className="w-full mt-auto pt-8">
+          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] shadow-lg shadow-primary/20">
             <Download className="w-3.5 h-3.5 mr-2" />
             DOWNLOAD CV
           </Button>
-          <div className="mt-4 text-[8px] font-mono text-muted-foreground/20 uppercase text-center tracking-[0.4em]">
-            © {new Date().getFullYear()} Professional Portfolio
+          <div className="mt-6 text-[8px] font-mono text-muted-foreground/30 uppercase text-center tracking-[0.3em] flex items-center justify-center gap-2">
+            Made with <span className="text-primary">❤️</span> by Swathi P V • {new Date().getFullYear()}
           </div>
         </div>
       </div>
