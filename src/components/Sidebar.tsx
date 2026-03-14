@@ -43,9 +43,21 @@ export const Sidebar: React.FC = () => {
             </div>
           </div>
           
-          <p className="text-muted-foreground text-[11px] xl:text-xs leading-relaxed max-w-[220px]">
-            Engineering the future through generative intelligence.
-          </p>
+          {/* Styled Tagline Badges */}
+          <div className="flex flex-wrap justify-center gap-2 max-w-[280px]">
+            {[
+              'Python Full Stack Developer',
+              'Gen AI Enthusiast',
+              'Content Creator'
+            ].map((tag, i) => (
+              <span 
+                key={i}
+                className="px-3 py-1.5 rounded-xl text-[9px] xl:text-[10px] font-mono font-bold uppercase tracking-widest bg-white/[0.02] border border-white/10 text-secondary/70 shadow-[0_0_15px_rgba(0,255,255,0.05)] hover:bg-secondary/5 hover:border-secondary/40 hover:text-secondary hover:shadow-[0_0_20px_rgba(0,255,255,0.15)] transition-all duration-500 cursor-default"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           
           {/* Social Links - Horizontal Row */}
           <div className="flex flex-row justify-center gap-2.5 w-full pt-1">
