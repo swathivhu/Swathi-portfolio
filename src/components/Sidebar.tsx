@@ -15,7 +15,7 @@ export const Sidebar: React.FC = () => {
       <div className="w-full h-full bg-[#111827]/60 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 flex flex-col items-center justify-between text-center shadow-2xl overflow-hidden relative">
         
         {/* Identity Section */}
-        <div className="w-full flex flex-col items-center gap-7">
+        <div className="w-full flex flex-col items-center gap-6">
           {/* Profile Image with subtle border */}
           <div className="relative w-24 h-24 xl:w-28 xl:h-28 group">
             <div className="absolute inset-0 rounded-full border border-white/10" />
@@ -50,16 +50,16 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* Roles / Styled Badges */}
-        <div className="w-full py-2">
+        <div className="w-full py-4">
           <div className="flex flex-wrap justify-center gap-2">
             {[
               'Python Full Stack',
-              'Gen AI Enthusiast',
+              'Gen AI',
               'Content Creator'
             ].map((tag, i) => (
               <span 
                 key={i}
-                className="px-3 py-1.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-widest bg-white/[0.02] border border-white/5 text-muted-foreground/60 transition-all hover:text-primary hover:border-primary/20 cursor-default"
+                className="px-4 py-2 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-white/[0.02] border border-white/5 text-muted-foreground/60 transition-all hover:text-primary hover:border-primary/20 cursor-default"
               >
                 {tag}
               </span>
@@ -68,7 +68,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* Actions & Socials */}
-        <div className="w-full flex flex-col items-center gap-7">
+        <div className="w-full flex flex-col items-center gap-6">
           {/* Social Icons: Refined Circular Style */}
           <div className="flex flex-row justify-center gap-4">
             {[
@@ -93,7 +93,7 @@ export const Sidebar: React.FC = () => {
 
           {/* Main Action Button */}
           <div className="w-full space-y-4">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-xl shadow-black/30 hover:-translate-y-1 active:translate-y-0">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-xl shadow-black/10 hover:-translate-y-1 active:translate-y-0">
               <Download className="w-3.5 h-3.5 mr-2" />
               DOWNLOAD CV
             </Button>
