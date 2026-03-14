@@ -91,7 +91,6 @@
 .custom-cursor {
   @apply fixed pointer-events-none z-[9999] rounded-full;
   transform: translate(-50%, -50%);
-  /* Removed transition-transform to eliminate lag */
 }
 
 .custom-cursor-dot {
