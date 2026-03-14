@@ -72,6 +72,7 @@ export const Sidebar: React.FC = () => {
         {/* 4. Location Card (Boarding Pass style) */}
         <div className="mt-6 w-[85%] bg-primary rounded-[2rem] p-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center mb-2">
+            {/* Left Section */}
             <div className="flex flex-col items-start">
               <div className="flex items-center font-bold">
                 <IndiaFlag />
@@ -80,10 +81,12 @@ export const Sidebar: React.FC = () => {
               <span className="text-[9px] font-mono uppercase tracking-widest opacity-80">INDIA</span>
             </div>
             
+            {/* Center Section */}
             <div className="opacity-70">
               <Plane className="w-5 h-5 rotate-45" />
             </div>
             
+            {/* Right Section */}
             <div className="flex flex-col items-end">
               <div className="flex items-center font-bold">
                 <span className="text-xl">BLR</span>
