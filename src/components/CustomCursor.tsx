@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 
 export const CustomCursor: React.FC = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isPointer, setIsPointer] = useState(false);
   const [isHidden, setIsHidden] = useState(true);
 
@@ -18,7 +18,8 @@ export const CustomCursor: React.FC = () => {
       target.closest('button') ||
       target.closest('a') ||
       target.closest('.group') ||
-      target.closest('[role="button"]');
+      target.closest('[role="button"]') ||
+      target.closest('[role="tab"]');
     
     setIsPointer(!!isClickable);
   }, [isHidden]);
@@ -47,23 +48,23 @@ export const CustomCursor: React.FC = () => {
 
   return (
     <>
-      {/* Central Pointer (Dot) */}
+      {/* Central Pointer (Dot) - Locked to mouse speed */}
       <div 
         className="custom-cursor custom-cursor-dot hidden lg:block"
         style={{ 
-          left: `${position.x}px`, 
-          top: `${position.y}px`,
+          left: position.x, 
+          top: position.y,
         }}
       />
-      {/* Synchronized Outer Ring */}
+      {/* Synchronized Outer Ring - Locked to mouse speed */}
       <div 
         className={cn(
           "custom-cursor custom-cursor-ring hidden lg:block",
           isPointer && "active"
         )}
         style={{ 
-          left: `${position.x}px`, 
-          top: `${position.y}px`,
+          left: position.x, 
+          top: position.y,
         }}
       />
     </>

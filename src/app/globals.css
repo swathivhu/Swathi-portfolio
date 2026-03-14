@@ -26,8 +26,8 @@
     --radius: 1.25rem;
   }
 
-  /* Hide default cursor globally for a true custom experience */
-  body, a, button, [role="button"] {
+  /* Hide default cursor globally */
+  body, a, button, [role="button"], .group {
     cursor: none !important;
   }
 }
@@ -89,20 +89,21 @@
 
 /* Custom Cursor Classes */
 .custom-cursor {
-  @apply fixed pointer-events-none z-[9999] rounded-full transition-transform duration-75 ease-out;
+  @apply fixed pointer-events-none z-[9999] rounded-full;
   transform: translate(-50%, -50%);
+  /* Removed transition-transform to eliminate lag */
 }
 
 .custom-cursor-dot {
-  @apply w-3 h-3 bg-secondary shadow-[0_0_15px_hsla(var(--secondary),0.9)];
+  @apply w-4 h-4 bg-secondary shadow-[0_0_20px_hsla(var(--secondary),1)];
 }
 
 .custom-cursor-ring {
-  @apply w-10 h-10 border border-secondary/30 bg-secondary/5 backdrop-blur-[1px] transition-all duration-200 ease-out;
+  @apply w-12 h-12 border border-secondary/40 bg-secondary/5 backdrop-blur-[1px] transition-[width,height,background-color,border-color] duration-200 ease-out;
 }
 
 .custom-cursor-ring.active {
-  @apply w-16 h-16 border-secondary/60 bg-secondary/20 scale-110 shadow-[0_0_25px_hsla(var(--secondary),0.5)];
+  @apply w-16 h-16 border-secondary/60 bg-secondary/20 shadow-[0_0_25px_hsla(var(--secondary),0.5)];
 }
 
 @keyframes float {
