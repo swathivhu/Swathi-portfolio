@@ -2,9 +2,19 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin, Plane, Code, Bot, Clapperboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+/**
+ * Karnataka Flag Component (Yellow & Red horizontal stripes)
+ */
+const KarnatakaFlag = () => (
+  <div className="flex flex-col w-5 h-3.5 border-[0.5px] border-white/20 rounded-[1px] overflow-hidden">
+    <div className="h-1/2 bg-[#FFD700]" />
+    <div className="h-1/2 bg-[#ED1C24]" />
+  </div>
+);
 
 export const Sidebar: React.FC = () => {
   const profile = PlaceHolderImages.find(img => img.id === 'profile');
@@ -16,9 +26,9 @@ export const Sidebar: React.FC = () => {
         
         {/* Identity Section */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Profile Image with subtle precision border and very soft glow */}
+          {/* Profile Image */}
           <div className="relative w-28 h-28 xl:w-32 xl:h-32 group">
-            <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_20px_rgba(16,185,129,0.1)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]" />
+            <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_15px_rgba(16,185,129,0.1)] transition-all duration-500" />
             <div className="relative w-full h-full rounded-full p-1 bg-black/40 border border-white/5 overflow-hidden">
               <div className="relative w-full h-full rounded-full overflow-hidden bg-muted">
                 <Image
@@ -30,7 +40,7 @@ export const Sidebar: React.FC = () => {
                 />
               </div>
             </div>
-            {/* Status Indicator Style */}
+            {/* Status Indicator */}
             <div className="absolute bottom-1 right-2 w-5 h-5 bg-primary rounded-full border-4 border-[#050505] shadow-lg" />
           </div>
           
@@ -39,34 +49,84 @@ export const Sidebar: React.FC = () => {
             <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white">
               Swathi P V
             </h1>
-            {/* Signature Underline Decor with soft glow */}
+            {/* Signature Underline Decor */}
             <div className="w-8 h-1 bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,0.3)]" />
             <p className="text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
               AI System Architect
             </p>
           </div>
 
-          {/* Location Marker Style */}
-          <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/5">
-            <MapPin className="w-3.5 h-3.5 text-primary" />
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Bengaluru, India</span>
+          {/* Boarding Pass Style Location Card */}
+          <div className="w-full max-w-[280px] mt-2">
+            <div className="bg-primary rounded-[1.5rem] p-4 text-white shadow-lg shadow-primary/20 relative overflow-hidden group">
+              {/* Top Row: Origin -> Destination */}
+              <div className="flex justify-between items-center mb-3">
+                <div className="text-left">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="text-lg font-black tracking-tighter">IND</span>
+                    <span className="text-xs">🇮🇳</span>
+                  </div>
+                  <div className="text-[8px] font-bold uppercase tracking-widest opacity-80">INDIA</div>
+                </div>
+
+                <div className="flex-1 flex justify-center">
+                  <Plane className="w-5 h-5 rotate-90 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </div>
+
+                <div className="text-right">
+                  <div className="flex items-center justify-end gap-1.5 mb-0.5">
+                    <KarnatakaFlag />
+                    <span className="text-lg font-black tracking-tighter">BLR</span>
+                  </div>
+                  <div className="text-[8px] font-bold uppercase tracking-widest opacity-80">BENGALURU</div>
+                </div>
+              </div>
+
+              {/* Separator Line */}
+              <div className="w-full h-px bg-white/20 mb-3 border-dashed border-b-[0.5px]" />
+
+              {/* Bottom Row: Status & Seat */}
+              <div className="flex justify-between items-end">
+                <div className="text-left">
+                  <div className="text-[7px] font-bold uppercase tracking-[0.2em] opacity-70 mb-0.5">STATUS</div>
+                  <div className="text-[10px] font-black uppercase tracking-wider">IN BENGALURU</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-[7px] font-bold uppercase tracking-[0.2em] opacity-70 mb-0.5">SEAT</div>
+                  <div className="text-[10px] font-black uppercase tracking-wider">REMOTE</div>
+                </div>
+              </div>
+              
+              {/* Full Location Label for Clarity */}
+              <div className="mt-3 pt-2 border-t border-white/10">
+                <p className="text-[8px] font-medium tracking-tight opacity-90">
+                  Bengaluru, Karnataka, India
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Roles: Radiant Pill Style */}
         <div className="w-full px-2">
-          <div className="py-3 px-6 rounded-2xl bg-[#080808] border border-primary/40 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)]">
-            <div className="text-[11px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
-              Python Full Stack <span className="mx-2 text-white/20 font-light">|</span> 
-              Gen AI <span className="mx-2 text-white/20 font-light">|</span> 
-              Content Creator
+          <div className="py-4 px-6 rounded-2xl bg-[#080808] border border-primary/40 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)]">
+            <div className="flex flex-col gap-1 text-[10px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] uppercase">
+              <div className="flex items-center justify-center gap-2">
+                <Code className="w-3 h-3" /> Python Full Stack
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <Bot className="w-3 h-3" /> Gen AI
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <Clapperboard className="w-3 h-3" /> Content Creator
+              </div>
             </div>
           </div>
         </div>
 
         {/* Actions & Socials */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Social Icons: Refined Circular Style */}
+          {/* Social Icons */}
           <div className="flex flex-row justify-center gap-4">
             {[
               { icon: Github, href: 'https://github.com' },
@@ -78,7 +138,7 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/50 hover:scale-110 hover:-translate-y-1 transition-all duration-300 group shadow-sm hover:shadow-primary/5"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/50 hover:scale-110 hover:-translate-y-1 transition-all duration-300 group"
               >
                 <social.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
@@ -88,7 +148,7 @@ export const Sidebar: React.FC = () => {
           {/* Minimal Divider */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
-          {/* Main Action Button with soft glow and lift */}
+          {/* Main Action Button */}
           <div className="w-full space-y-4">
             <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:-translate-y-1 active:translate-y-0">
               <Download className="w-3.5 h-3.5 mr-2" />
