@@ -12,14 +12,14 @@ export const Sidebar: React.FC = () => {
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
       {/* Sidebar Card: Premium Glass-morphism Design */}
-      <div className="w-full h-full bg-[#111827]/60 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 flex flex-col items-center justify-between text-center shadow-2xl overflow-hidden relative">
+      <div className="w-full h-full bg-[#050505]/60 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 flex flex-col items-center justify-between text-center shadow-2xl overflow-hidden relative">
         
         {/* Identity Section */}
         <div className="w-full flex flex-col items-center gap-6">
           {/* Profile Image with subtle precision border and very soft glow */}
           <div className="relative w-28 h-28 xl:w-32 xl:h-32 group">
             <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_20px_rgba(16,185,129,0.1)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]" />
-            <div className="relative w-full h-full rounded-full p-1 bg-[#0F172A]/40 border border-white/5 overflow-hidden">
+            <div className="relative w-full h-full rounded-full p-1 bg-black/40 border border-white/5 overflow-hidden">
               <div className="relative w-full h-full rounded-full overflow-hidden bg-muted">
                 <Image
                   src={profile?.imageUrl || ''}
@@ -31,7 +31,7 @@ export const Sidebar: React.FC = () => {
               </div>
             </div>
             {/* Status Indicator Style */}
-            <div className="absolute bottom-1 right-2 w-5 h-5 bg-primary rounded-full border-4 border-[#111827] shadow-lg" />
+            <div className="absolute bottom-1 right-2 w-5 h-5 bg-primary rounded-full border-4 border-[#050505] shadow-lg" />
           </div>
           
           {/* Name & Title */}
@@ -55,7 +55,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Roles: Radiant Pill Style */}
         <div className="w-full px-2">
-          <div className="py-3 px-6 rounded-2xl bg-[#0F172A] border border-primary/40 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)]">
+          <div className="py-3 px-6 rounded-2xl bg-[#080808] border border-primary/40 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)]">
             <div className="text-[11px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
               Python Full Stack <span className="mx-2 text-white/20 font-light">|</span> 
               Gen AI <span className="mx-2 text-white/20 font-light">|</span> 

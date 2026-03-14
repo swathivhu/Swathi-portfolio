@@ -29,7 +29,7 @@ export const BackgroundParticles: React.FC = () => {
         this.vx = (Math.random() - 0.5) * 0.15;
         this.vy = (Math.random() - 0.5) * 0.15;
         this.size = Math.random() * 1 + 0.5;
-        this.color = 'rgba(16, 185, 129, 0.05)';
+        this.color = 'rgba(16, 185, 129, 0.08)';
       }
 
       update(width: number, height: number) {
@@ -54,8 +54,8 @@ export const BackgroundParticles: React.FC = () => {
       canvas.width = width;
       canvas.height = height;
       particles = [];
-      const particleCount = Math.floor((width * height) / 30000);
-      for (let i = 0; i < Math.min(particleCount, 60); i++) {
+      const particleCount = Math.floor((width * height) / 25000);
+      for (let i = 0; i < Math.min(particleCount, 80); i++) {
         particles.push(new Particle(width, height));
       }
     };
@@ -81,7 +81,7 @@ export const BackgroundParticles: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#0F172A]">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-black">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
     </div>
   );
