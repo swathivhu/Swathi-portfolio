@@ -44,9 +44,9 @@ export const Sidebar: React.FC = () => {
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
-        {/* Profile Image Section - Circular Avatar visual anchor */}
+        {/* Profile Avatar Section - Visual Anchor (Top of card) */}
         <div className="relative w-40 h-40 xl:w-48 xl:h-48 group">
-          {/* Subtle Accent Ring / Glow Focal Point */}
+          {/* Subtle Accent Ring Focal Point */}
           <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_25px_rgba(16,185,129,0.15)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_35px_rgba(16,185,129,0.25)]" />
           
           {/* Circular Image Container */}
@@ -61,18 +61,15 @@ export const Sidebar: React.FC = () => {
               />
             </div>
           </div>
-          
-          {/* Status Indicator */}
-          <div className="absolute bottom-4 right-4 w-6 h-6 bg-primary rounded-full border-4 border-black shadow-lg" />
         </div>
         
-        {/* Name & Title Section (24px from image, title 12px from name) */}
-        <div className="mt-6 space-y-3 flex flex-col items-center">
-          <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white">
+        {/* Name Section (24px from image) */}
+        <div className="mt-6 flex flex-col items-center">
+          <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
-          <div className="w-8 h-1 bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,0.3)]" />
-          <p className="text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
+          {/* Title (12px from name) */}
+          <p className="mt-3 text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
             AI System Architect
           </p>
         </div>
@@ -156,6 +153,7 @@ export const Sidebar: React.FC = () => {
             DOWNLOAD CV
           </Button>
           
+          {/* Bottom Padding handled by container pb-6 (24px) */}
           <div className="mt-4 text-[8px] font-mono text-muted-foreground/20 uppercase text-center tracking-[0.4em]">
             © {new Date().getFullYear()} Professional Portfolio
           </div>
