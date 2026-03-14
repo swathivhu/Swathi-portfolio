@@ -95,7 +95,7 @@ export const Sidebar: React.FC = () => {
         {/* Roles Pill (20px from location) */}
         <div className="w-full px-2 mt-5">
           <div className="py-4 px-6 rounded-2xl bg-[#080808] border border-primary/40 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)]">
-            <div className="flex flex-col gap-1 text-[10px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] uppercase">
+            <div className="flex flex-col gap-1 text-[10px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] uppercase text-center">
               <div className="flex items-center justify-center gap-2">
                 <Code className="w-3 h-3" /> Python Full Stack
               </div>
@@ -130,7 +130,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Action Button Section (28px from social icons) */}
         <div className="w-full mt-7 space-y-4">
-          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:-translate-y-1 active:translate-y-0">
+          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-5 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:-translate-y-1 active:translate-y-0">
             <Download className="w-3.5 h-3.5 mr-2" />
             DOWNLOAD CV
           </Button>
