@@ -43,14 +43,17 @@ export const Sidebar: React.FC = () => {
 
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
 
-        {/* Profile Avatar Section - Premium Animated Ring with Status Dot */}
+        {/* Profile Avatar Section - Premium Animated Ring with Status Dot and Emerald Glow */}
         <div className="relative w-[110px] h-[110px] group flex-shrink-0">
+
+          {/* Soft Emerald Glow Bloom */}
+          <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
 
           {/* Animated rotating gradient ring */}
           <div className="absolute inset-0 rounded-full animate-spin-slow bg-gradient-to-tr from-primary/40 via-primary/10 to-transparent blur-[2px]" />
 
-          {/* Static ring */}
-          <div className="absolute inset-[3px] rounded-full border border-primary/40 shadow-[0_0_18px_rgba(16,185,129,0.25)] group-hover:shadow-[0_0_25px_rgba(16,185,129,0.45)] transition-all duration-500" />
+          {/* Static ring with shadow glow */}
+          <div className="absolute inset-[3px] rounded-full border border-primary/40 shadow-[0_0_20px_rgba(16,185,129,0.3)] group-hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-all duration-500" />
 
           {/* Image container */}
           <div className="relative w-full h-full rounded-full p-[3px] bg-black border border-white/5 overflow-hidden">
@@ -70,7 +73,7 @@ export const Sidebar: React.FC = () => {
           </div>
 
           {/* Online Status Dot - Attached to the bottom-right edge */}
-          <div className="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-black border-2 border-black flex items-center justify-center z-10">
+          <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-black border-2 border-black flex items-center justify-center z-10">
             <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse" />
           </div>
 
