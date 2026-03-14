@@ -70,8 +70,8 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 4. Location Card (Boarding Pass style) */}
-        <div className="mt-6 w-[85%] bg-primary rounded-[2rem] p-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
-          <div className="w-full flex justify-between items-center mb-2">
+        <div className="mt-6 w-[85%] bg-primary rounded-[2rem] py-4 px-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
+          <div className="w-full flex justify-between items-center mb-1">
             {/* Left Section */}
             <div className="flex flex-col items-start">
               <div className="flex items-center font-bold">
@@ -97,10 +97,10 @@ export const Sidebar: React.FC = () => {
           </div>
           
           {/* Thin Solid Divider with Subtle Opacity */}
-          <div className="w-full h-[1px] bg-white/20 my-4" />
+          <div className="w-full h-[1px] bg-white/20 my-3" />
           
           <div className="text-center">
-            <div className="text-[9px] font-bold uppercase tracking-widest text-white/80">
+            <div className="text-[9px] font-bold uppercase tracking-widest text-white/90">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
