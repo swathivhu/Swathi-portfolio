@@ -44,21 +44,26 @@ export const Sidebar: React.FC = () => {
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
-        {/* Profile Image Section */}
+        {/* Profile Image Section - Visual Anchor */}
         <div className="relative w-40 h-40 xl:w-48 xl:h-48 group">
-          <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-500" />
-          <div className="relative w-full h-full rounded-full p-1 bg-black/40 border border-white/5 overflow-hidden">
-            <div className="relative w-full h-full rounded-full overflow-hidden bg-muted">
+          {/* Subtle Accent Ring / Glow */}
+          <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_25px_rgba(16,185,129,0.15)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_35px_rgba(16,185,129,0.25)]" />
+          
+          {/* Circular Image Container */}
+          <div className="relative w-full h-full rounded-full p-1.5 bg-black/40 border border-white/5 overflow-hidden">
+            <div className="relative w-full h-full rounded-full overflow-hidden bg-muted border border-white/10">
               <Image
                 src={profile?.imageUrl || ''}
                 alt="Swathi P V"
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
                 data-ai-hint="tech developer portrait"
               />
             </div>
           </div>
-          <div className="absolute bottom-2 right-4 w-6 h-6 bg-primary rounded-full border-4 border-black shadow-lg" />
+          
+          {/* Status Indicator */}
+          <div className="absolute bottom-4 right-4 w-6 h-6 bg-primary rounded-full border-4 border-black shadow-lg" />
         </div>
         
         {/* Name & Title Section (24px from image) */}
