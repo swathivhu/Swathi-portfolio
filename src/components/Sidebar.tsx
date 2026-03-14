@@ -37,29 +37,25 @@ const GmailIcon = () => (
 );
 
 export const Sidebar: React.FC = () => {
-
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
-
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
-
-        {/* Profile Avatar Section - Premium Animated Ring with Status Dot and Emerald Glow */}
-        <div className="relative w-[110px] h-[110px] group flex-shrink-0">
-
-          {/* Soft Emerald Glow Bloom */}
-          <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
-
-          {/* Animated rotating gradient ring */}
-          <div className="absolute inset-0 rounded-full animate-spin-slow bg-gradient-to-tr from-primary/40 via-primary/10 to-transparent blur-[2px]" />
-
-          {/* Static ring with shadow glow */}
-          <div className="absolute inset-[3px] rounded-full border border-primary/40 shadow-[0_0_20px_rgba(16,185,129,0.3)] group-hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-all duration-500" />
-
+        
+        {/* Profile Avatar Section - Premium Animated Ring with Enhanced Radial Glow */}
+        <div className="relative w-[116px] h-[116px] group flex-shrink-0">
+          
+          {/* Enhanced Emerald Glow Bloom */}
+          <div className="absolute inset-0 rounded-full bg-primary/25 blur-2xl animate-pulse" />
+          
+          {/* Animated rotating gradient ring - Increased opacity */}
+          <div className="absolute inset-0 rounded-full animate-spin-slow bg-gradient-to-tr from-primary/60 via-primary/20 to-transparent blur-[3px]" />
+          
+          {/* Static ring with increased border and stronger shadow glow */}
+          <div className="absolute inset-[2px] rounded-full border-2 border-primary/50 shadow-[0_0_25px_rgba(16,185,129,0.4)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] transition-all duration-500" />
+          
           {/* Image container */}
-          <div className="relative w-full h-full rounded-full p-[3px] bg-black border border-white/5 overflow-hidden">
-
+          <div className="relative w-full h-full rounded-full p-[4px] bg-black border border-white/10 overflow-hidden">
             <div className="relative w-full h-full rounded-full overflow-hidden">
-
               <Image
                 src="/profile-portfolio.jpeg"
                 alt="Swathi P V"
@@ -67,16 +63,13 @@ export const Sidebar: React.FC = () => {
                 priority
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-
             </div>
-
           </div>
 
           {/* Online Status Dot - Attached to the bottom-right edge */}
-          <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-black border-2 border-black flex items-center justify-center z-10">
-            <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse" />
+          <div className="absolute bottom-1 right-1 w-4.5 h-4.5 rounded-full bg-black border-2 border-black flex items-center justify-center z-10">
+            <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_12px_rgba(16,185,129,0.9)] animate-pulse" />
           </div>
-
         </div>
 
         {/* Name */}
@@ -84,7 +77,6 @@ export const Sidebar: React.FC = () => {
           <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
-
           <p className="mt-3 text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
             AI System Architect
           </p>
@@ -93,9 +85,7 @@ export const Sidebar: React.FC = () => {
         {/* Location Card */}
         <div className="w-full max-w-[240px] mt-5">
           <div className="bg-primary rounded-[1.2rem] p-3 text-white shadow-lg shadow-primary/20">
-
             <div className="flex justify-between items-center mb-2">
-
               <div>
                 <div className="flex items-center gap-1">
                   <span className="text-base font-black">IND</span>
@@ -103,9 +93,7 @@ export const Sidebar: React.FC = () => {
                 </div>
                 <div className="text-[7px] uppercase">India</div>
               </div>
-
               <Plane className="w-4 h-4 opacity-60 rotate-90" />
-
               <div className="text-right">
                 <div className="flex items-center gap-1 justify-end">
                   <KarnatakaFlag />
@@ -113,51 +101,39 @@ export const Sidebar: React.FC = () => {
                 </div>
                 <div className="text-[7px] uppercase">Bengaluru</div>
               </div>
-
             </div>
-
             <div className="w-full h-px bg-white/20 mb-2"></div>
-
             <div className="text-center text-[8px] font-bold uppercase">
               In Bengaluru, Karnataka, India
             </div>
-
           </div>
         </div>
 
         {/* Roles */}
         <div className="w-full px-2 mt-5">
           <div className="py-4 px-6 rounded-2xl bg-[#080808] border border-white/5 group-hover:border-primary/20 transition-colors">
-
             <div className="flex flex-col gap-2 text-[10px] font-bold uppercase text-primary text-center">
-
               <div className="flex items-center justify-center gap-2">
                 <Code className="w-3 h-3 text-[#3776AB]" /> Python Full Stack
               </div>
-
               <div className="flex items-center justify-center gap-2">
                 <Bot className="w-3 h-3 text-[#9333EA]" /> Gen AI
               </div>
-
               <div className="flex items-center justify-center gap-2">
                 <Clapperboard className="w-3 h-3 text-[#EA580C]" /> Content Creator
               </div>
-
             </div>
-
           </div>
         </div>
 
         {/* Social Icons */}
         <div className="flex flex-row justify-center gap-4 mt-6">
-
           {[
             { icon: GithubIcon, href: 'https://github.com/swathivhu', hoverColor: 'hover:border-white/40' },
             { icon: LinkedinIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a', hoverColor: 'hover:border-[#0077B5]/50' },
             { icon: GmailIcon, href: 'mailto:swathipv.2501@gmail.com', hoverColor: 'hover:border-[#EA4335]/50' },
             { icon: () => <Download className="w-5 h-5 text-primary" />, href: '/Swathi-Resume.pdf', hoverColor: 'hover:border-primary/50' },
           ].map((social, i) => (
-
             <a
               key={i}
               href={social.href}
@@ -167,29 +143,20 @@ export const Sidebar: React.FC = () => {
             >
               <social.icon />
             </a>
-
           ))}
-
         </div>
 
         {/* Download Button */}
         <div className="w-full mt-7">
-
           <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-5 text-[10px] font-bold tracking-[0.2em]">
-
             <Download className="w-3.5 h-3.5 mr-2" />
             DOWNLOAD CV
-
           </Button>
-
           <div className="mt-4 text-[8px] font-mono text-muted-foreground/20 uppercase text-center tracking-[0.4em]">
             © {new Date().getFullYear()} Professional Portfolio
           </div>
-
         </div>
-
       </div>
-
     </aside>
   );
 };
