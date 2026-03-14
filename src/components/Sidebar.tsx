@@ -40,6 +40,9 @@ export const Sidebar: React.FC = () => {
       
       {/* Main Identity Card */}
       <div className="w-full bg-black border border-white/5 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative overflow-hidden">
+        {/* Floating Decorative Accent Dot */}
+        <div className="absolute left-8 top-12 w-2 h-2 bg-primary rounded-full blur-[1px] opacity-60 animate-pulse" />
+        
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
 
         {/* 1. Avatar Section */}
@@ -59,9 +62,6 @@ export const Sidebar: React.FC = () => {
               />
             </div>
           </div>
-          
-          {/* Floating Accent Dot */}
-          <div className="absolute -right-1 top-4 w-3 h-3 bg-primary rounded-full z-20 border-2 border-black animate-bounce shadow-lg shadow-primary/50" />
         </div>
 
         {/* 2. Identity Header */}
@@ -105,8 +105,7 @@ export const Sidebar: React.FC = () => {
           </div>
           
           {/* Dashed Divider */}
-          <div className="mt-4 pt-4 border-t border-white/30 border-dashed text-center space-y-1">
-            <div className="text-[7px] font-mono uppercase tracking-[0.3em] opacity-80">CURRENT STATUS</div>
+          <div className="mt-4 pt-4 border-t border-white/30 border-dashed text-center">
             <div className="text-[10px] font-bold uppercase tracking-wider text-white leading-tight">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
@@ -114,10 +113,10 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 4. Modular Expertise Roles Card */}
-        <div className="w-full bg-white/[0.02] border border-primary/20 rounded-[2.5rem] py-6 px-4 flex flex-col items-center gap-4 mb-8 relative group shadow-inner">
-          {/* Pulsing online indicator */}
+        <div className="w-full bg-white/[0.02] border border-primary/20 rounded-[2.5rem] py-6 px-4 flex flex-col items-center gap-4 mb-8 relative group">
+          {/* Online indicator */}
           <div className="absolute -right-1 top-1/2 -translate-y-1/2">
-             <div className="w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_rgba(16,185,129,1)]" />
+             <div className="w-2.5 h-2.5 bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,1)]" />
           </div>
           
           <div className="flex items-center gap-3 text-primary group-hover:translate-x-1 transition-transform">
@@ -150,9 +149,11 @@ export const Sidebar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/10 hover:border-primary/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all duration-300 shadow-lg"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/10 hover:border-primary/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all duration-300 shadow-lg group"
             >
-              <social.icon />
+              <div className="transition-transform duration-300 group-hover:scale-110">
+                <social.icon />
+              </div>
             </a>
           ))}
         </div>
