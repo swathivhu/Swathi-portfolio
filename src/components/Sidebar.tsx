@@ -36,7 +36,7 @@ export const Sidebar: React.FC = () => {
           </p>
           
           {/* Minimal Social Links */}
-          <div className="grid grid-cols-3 gap-4 w-full mb-10">
+          <div className="grid grid-cols-3 gap-4 w-full mb-2">
             {[
               { icon: Github, href: 'https://github.com' },
               { icon: Linkedin, href: 'https://linkedin.com' },
@@ -52,6 +52,13 @@ export const Sidebar: React.FC = () => {
                 <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-white transition-colors" />
               </a>
             ))}
+          </div>
+        </div>
+
+        {/* Visual Divider */}
+        <div className="w-full py-8">
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/20 to-transparent blur-sm" />
           </div>
         </div>
 
