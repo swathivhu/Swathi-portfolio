@@ -19,22 +19,26 @@ const GmailIcon = () => (
   </svg>
 );
 
-/**
- * Sidebar Identity Component
- * Pixel-perfect replica of the provided design reference.
- */
+const IndiaFlag = () => (
+  <div className="w-5 h-3.5 flex flex-col overflow-hidden rounded-[2px] shadow-sm">
+    <div className="h-1/3 bg-[#FF9933]" />
+    <div className="h-1/3 bg-white" />
+    <div className="h-1/3 bg-[#128807]" />
+  </div>
+);
+
 export const Sidebar: React.FC = () => {
   return (
-    <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
+    <aside className="w-full lg:w-80 xl:w-[400px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
-      {/* Main Identity Container */}
-      <div className="w-full bg-black border border-white/5 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative">
+      {/* Main Identity Card */}
+      <div className="w-full bg-black border border-white/10 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative">
         
-        {/* 1. Avatar Section with Emerald Bloom */}
-        <div className="relative w-[110px] h-[110px] mb-8 group">
-          <div className="absolute inset-0 rounded-full bg-primary/25 blur-xl group-hover:bg-primary/40 transition-all duration-500 animate-pulse" />
-          <div className="relative w-full h-full rounded-full border-2 border-primary/40 p-1 bg-black z-10">
-            <div className="relative w-full h-full rounded-full overflow-hidden">
+        {/* 1. Avatar Section with Emerald Glow */}
+        <div className="relative w-[120px] h-[120px] mb-8">
+          <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
+          <div className="relative w-full h-full rounded-full border-2 border-primary/40 p-1 bg-black z-10 overflow-hidden">
+             <div className="relative w-full h-full rounded-full overflow-hidden transition-transform duration-500 hover:scale-110">
               <Image
                 src="/profile-portfolio.jpeg"
                 alt="Swathi P V"
@@ -47,22 +51,22 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 2. Identity Header */}
-        <div className="flex flex-col items-center gap-2 mb-10">
+        <div className="flex flex-col items-center gap-1.5 mb-8">
           <h1 className="text-4xl font-headline font-bold text-white tracking-tight">
             Swathi P V
           </h1>
-          <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.4em] mt-1">
+          <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.5em] mt-1">
             AI SYSTEM ARCHITECT
           </div>
         </div>
 
-        {/* 3. High-Fidelity Location Boarding Pass */}
-        <div className="w-full bg-[#10b981] rounded-[2.5rem] p-6 text-white shadow-[0_15px_40px_rgba(16,185,129,0.35)] mb-8">
+        {/* 3. Boarding Pass Location Card */}
+        <div className="w-full bg-[#10b981] rounded-[2.5rem] p-6 text-white shadow-[0_10px_30px_rgba(16,185,129,0.3)] mb-8">
           <div className="flex justify-between items-start mb-1">
             <div className="flex flex-col">
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-bold">IND</span>
-                <span className="text-[10px] font-bold opacity-80">IN</span>
+                <span className="text-[10px] font-bold opacity-80 uppercase">IN</span>
               </div>
               <span className="text-[8px] font-mono uppercase tracking-widest opacity-70">INDIA</span>
             </div>
@@ -73,11 +77,7 @@ export const Sidebar: React.FC = () => {
             
             <div className="flex flex-col items-end">
               <div className="flex items-center gap-1.5">
-                <div className="w-5 h-3.5 flex flex-col overflow-hidden rounded-[2px] shadow-sm">
-                  <div className="h-1/3 bg-[#FF9933]" />
-                  <div className="h-1/3 bg-white" />
-                  <div className="h-1/3 bg-[#128807]" />
-                </div>
+                <IndiaFlag />
                 <span className="text-2xl font-bold">BLR</span>
               </div>
               <span className="text-[8px] font-mono uppercase tracking-widest opacity-70">BENGALURU</span>
@@ -92,10 +92,10 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 4. Modular Expertise Stack with Pulse */}
-        <div className="w-full bg-[#111827]/30 border border-primary/20 rounded-[2.5rem] py-8 px-4 flex flex-col items-center gap-5 mb-10 relative">
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center">
-             <div className="w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_15px_rgba(16,185,129,1)]" />
+        {/* 4. Modular Expertise Stack */}
+        <div className="w-full bg-transparent border border-primary/20 rounded-[2.5rem] py-8 px-4 flex flex-col items-center gap-5 mb-8 relative">
+          <div className="absolute -right-1.5 top-1/2 -translate-y-1/2">
+             <div className="w-3.5 h-3.5 bg-primary rounded-full shadow-[0_0_15px_rgba(16,185,129,0.8)]" />
           </div>
           
           <div className="flex items-center gap-3 text-primary">
@@ -114,7 +114,7 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 5. Precision Social Row */}
+        {/* 5. Social Action Bar */}
         <div className="flex flex-row justify-center gap-5 w-full">
           {[
             { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu' },
