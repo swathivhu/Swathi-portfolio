@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Github, Plane, Code, Bot, Clapperboard, Download } from 'lucide-react';
 
 /**
- * High-Fidelity Branded Icons for Social Bar
+ * High-Fidelity Branded Icons & Flags
  */
 const LinkedInIcon = () => (
   <svg role="img" viewBox="0 0 24 24" fill="#0077B5" className="w-5 h-5">
@@ -20,10 +20,17 @@ const GmailIcon = () => (
 );
 
 const IndiaFlag = () => (
-  <div className="w-5 h-3.5 flex flex-col overflow-hidden rounded-[2px] shadow-sm">
+  <div className="w-5 h-3.5 flex flex-col overflow-hidden rounded-[1px] shadow-sm border border-white/10">
     <div className="h-1/3 bg-[#FF9933]" />
     <div className="h-1/3 bg-white" />
     <div className="h-1/3 bg-[#128807]" />
+  </div>
+);
+
+const KarnatakaFlag = () => (
+  <div className="w-5 h-3.5 flex flex-col overflow-hidden rounded-[1px] shadow-sm border border-white/10">
+    <div className="h-1/2 bg-[#FFFF00]" />
+    <div className="h-1/2 bg-[#FF0000]" />
   </div>
 );
 
@@ -32,12 +39,16 @@ export const Sidebar: React.FC = () => {
     <aside className="w-full lg:w-80 xl:w-[420px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
       {/* Main Identity Card */}
-      <div className="w-full bg-black border border-white/5 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative">
-        
-        {/* 1. Avatar Section with Emerald Glow */}
+      <div className="w-full bg-black border border-white/5 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+
+        {/* 1. Avatar Section */}
         <div className="relative w-[110px] h-[110px] mb-8">
+          {/* Outer Glow */}
           <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
-          <div className="relative w-full h-full rounded-full border-2 border-primary/40 p-1 bg-black z-10 overflow-hidden">
+          
+          {/* Main Avatar Wrapper */}
+          <div className="relative w-full h-full rounded-full border-2 border-primary/40 p-1 bg-black z-10 overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.3)]">
              <div className="relative w-full h-full rounded-full overflow-hidden transition-transform duration-500 hover:scale-110">
               <Image
                 src="/profile-portfolio.jpeg"
@@ -48,86 +59,98 @@ export const Sidebar: React.FC = () => {
               />
             </div>
           </div>
+          
+          {/* Floating Accent Dot */}
+          <div className="absolute -right-1 top-4 w-3 h-3 bg-primary rounded-full z-20 border-2 border-black animate-bounce shadow-lg shadow-primary/50" />
         </div>
 
         {/* 2. Identity Header */}
-        <div className="flex flex-col items-center gap-2 mb-8 text-center">
+        <div className="flex flex-col items-center gap-1 mb-8 text-center relative">
           <h1 className="text-4xl font-headline font-bold text-white tracking-tight">
             Swathi P V
           </h1>
-          <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.5em] mt-1">
+          {/* Glowing line under name */}
+          <div className="w-12 h-0.5 bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,0.8)] mt-1 mb-4" />
+          
+          <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.4em]">
             AI SYSTEM ARCHITECT
           </div>
         </div>
 
         {/* 3. Boarding Pass Location Card */}
-        <div className="w-full bg-[#10b981] rounded-[2.5rem] p-6 text-white shadow-[0_10px_30px_rgba(16,185,129,0.3)] mb-8">
-          <div className="flex justify-between items-start mb-1">
-            <div className="flex flex-col">
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold">IND</span>
-                <span className="text-[10px] font-bold opacity-80 uppercase">IN</span>
+        <div className="w-full bg-primary rounded-[2.5rem] p-6 text-white shadow-[0_15px_35px_rgba(16,185,129,0.25)] mb-8 transition-transform hover:scale-[1.02] duration-300">
+          <div className="flex justify-between items-start">
+            {/* Left: India */}
+            <div className="flex flex-col gap-0.5">
+              <div className="flex items-center gap-1.5">
+                <IndiaFlag />
+                <span className="text-2xl font-bold tracking-tight">IND</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-90">INDIA</span>
+              <span className="text-[9px] font-mono uppercase tracking-widest opacity-80 pl-6.5">INDIA</span>
             </div>
             
-            <div className="flex-1 flex justify-center pt-2 opacity-40">
+            {/* Center: Transit Icon */}
+            <div className="flex-1 flex justify-center pt-2 opacity-50">
               <Plane className="w-5 h-5 rotate-45" />
             </div>
             
-            <div className="flex flex-col items-end">
+            {/* Right: Bengaluru */}
+            <div className="flex flex-col items-end gap-0.5">
               <div className="flex items-center gap-1.5">
-                <IndiaFlag />
-                <span className="text-2xl font-bold">BLR</span>
+                <span className="text-2xl font-bold tracking-tight">BLR</span>
+                <KarnatakaFlag />
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-90">BENGALURU</span>
+              <span className="text-[9px] font-mono uppercase tracking-widest opacity-80 pr-6.5 text-right">BENGALURU</span>
             </div>
           </div>
           
+          {/* Dashed Divider */}
           <div className="mt-4 pt-4 border-t border-white/30 border-dashed text-center space-y-1">
-            <div className="text-[7px] font-mono uppercase tracking-[0.2em] opacity-80">CURRENT STATUS</div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-white leading-tight">
+            <div className="text-[7px] font-mono uppercase tracking-[0.3em] opacity-80">CURRENT STATUS</div>
+            <div className="text-[10px] font-bold uppercase tracking-wider text-white leading-tight">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
         </div>
 
-        {/* 4. Modular Expertise Stack */}
-        <div className="w-full bg-transparent border border-primary/20 rounded-[2.5rem] py-8 px-4 flex flex-col items-center gap-5 mb-8 relative">
-          <div className="absolute -right-1.5 top-1/2 -translate-y-1/2">
-             <div className="w-3.5 h-3.5 bg-primary rounded-full shadow-[0_0_15px_rgba(16,185,129,0.8)]" />
+        {/* 4. Modular Expertise Roles Card */}
+        <div className="w-full bg-white/[0.02] border border-primary/20 rounded-[2.5rem] py-6 px-4 flex flex-col items-center gap-4 mb-8 relative group shadow-inner">
+          {/* Pulsing online indicator */}
+          <div className="absolute -right-1 top-1/2 -translate-y-1/2">
+             <div className="w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_rgba(16,185,129,1)]" />
           </div>
           
-          <div className="flex items-center gap-3 text-primary">
+          <div className="flex items-center gap-3 text-primary group-hover:translate-x-1 transition-transform">
             <Code className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-widest">PYTHON FULL STACK</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">Python Full Stack</span>
           </div>
           
-          <div className="flex items-center gap-3 text-purple-500">
+          <div className="flex items-center gap-3 text-purple-500 group-hover:translate-x-1 transition-transform">
             <Bot className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-widest">GEN AI</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">Gen AI</span>
           </div>
           
-          <div className="flex items-center gap-3 text-orange-500">
+          <div className="flex items-center gap-3 text-orange-500 group-hover:translate-x-1 transition-transform">
             <Clapperboard className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-widest">CONTENT CREATOR</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">Content Creator</span>
           </div>
         </div>
 
         {/* 5. Social Action Bar */}
-        <div className="flex flex-row justify-center gap-5 w-full">
+        <div className="flex flex-row justify-center gap-4 w-full">
           {[
-            { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu' },
-            { icon: LinkedInIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a' },
-            { icon: GmailIcon, href: 'mailto:swathipv.2501@gmail.com' },
-            { icon: () => <Download className="w-5 h-5 text-primary" />, href: '/Swathi-Resume.pdf' },
+            { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu', label: 'GitHub' },
+            { icon: LinkedInIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a', label: 'LinkedIn' },
+            { icon: GmailIcon, href: 'mailto:swathipv.2501@gmail.com', label: 'Gmail' },
+            { icon: () => <Download className="w-5 h-5 text-primary" />, href: '/Swathi-Resume.pdf', label: 'Resume' },
           ].map((social, i) => (
             <a
               key={i}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/40 hover:bg-white/[0.06] transition-all duration-300"
+              aria-label={social.label}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/10 hover:border-primary/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all duration-300 shadow-lg"
             >
               <social.icon />
             </a>
