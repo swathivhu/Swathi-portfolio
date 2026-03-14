@@ -37,6 +37,18 @@ const GmailIcon = () => (
   </svg>
 );
 
+/**
+ * Decorative Header Line Component with moving dot indicator
+ */
+const HeaderDecoration = () => (
+  <div className="w-full h-px bg-white/5 relative mb-8 overflow-hidden rounded-full">
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+    <div 
+      className="absolute top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-primary shadow-[0_0_8px_#10b981] animate-dot-move"
+    />
+  </div>
+);
+
 export const Sidebar: React.FC = () => {
   const profile = PlaceHolderImages.find(img => img.id === 'profile');
 
@@ -44,12 +56,13 @@ export const Sidebar: React.FC = () => {
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
-        {/* Profile Avatar Section - Visual Anchor (Top of card) */}
+        {/* Visual Identity Header - Decorative Line */}
+        <HeaderDecoration />
+
+        {/* Profile Avatar Section - Visual Anchor */}
         <div className="relative w-[100px] h-[100px] group flex-shrink-0">
-          {/* Subtle Accent Ring Focal Point */}
           <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_15px_rgba(16,185,129,0.1)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]" />
           
-          {/* Circular Image Container */}
           <div className="relative w-full h-full rounded-full p-1 bg-black/40 border border-white/5 overflow-hidden">
             <div className="relative w-full h-full rounded-full overflow-hidden bg-muted border border-white/10">
               <Image
@@ -154,7 +167,6 @@ export const Sidebar: React.FC = () => {
             DOWNLOAD CV
           </Button>
           
-          {/* Bottom Padding handled by container pb-6 (24px) */}
           <div className="mt-4 text-[8px] font-mono text-muted-foreground/20 uppercase text-center tracking-[0.4em]">
             © {new Date().getFullYear()} Professional Portfolio
           </div>

@@ -88,10 +88,17 @@ export default {
             height: '0',
           },
         },
+        'dot-move': {
+          '0%': { left: '-10%', opacity: '0' },
+          '20%': { opacity: '1' },
+          '80%': { opacity: '1' },
+          '100%': { left: '110%', opacity: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'dot-move': 'dot-move 5s linear infinite',
       },
     },
   },
