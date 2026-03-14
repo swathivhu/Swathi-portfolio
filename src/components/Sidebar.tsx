@@ -102,7 +102,7 @@ export const Sidebar: React.FC = () => {
             <div className="flex justify-center items-center">
               <div className="text-center">
                 <div className="text-[6px] font-bold uppercase tracking-[0.2em] opacity-70 mb-0.5">CURRENT STATUS</div>
-                <div className="text-[9px] font-black uppercase tracking-wider">IN BENGALURU, KA</div>
+                <div className="text-[8px] font-black uppercase tracking-wider leading-tight">IN BENGALURU, KARNATAKA, INDIA</div>
               </div>
             </div>
           </div>
