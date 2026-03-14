@@ -56,7 +56,7 @@ export const Projects: React.FC = () => {
       <div className="space-y-32">
         {projects.map((project) => (
           <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7 relative aspect-video rounded-2xl overflow-hidden border border-white/5 bg-muted">
+            <div className="lg:col-span-7 relative aspect-video rounded-2xl overflow-hidden border border-white/5 bg-[#111827]">
               <Image
                 src={project.image || ''}
                 alt={project.title}
@@ -100,7 +100,7 @@ export const Projects: React.FC = () => {
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  className="px-0 h-auto hover:bg-transparent text-primary hover:text-primary/80 font-bold tracking-wide"
+                  className="px-0 h-auto hover:bg-transparent text-primary hover:text-primary/80 font-bold tracking-wide transition-colors"
                   onClick={() => handleGenerateSummary(project.id, project.longDescription)}
                   disabled={loading[project.id]}
                 >
@@ -109,8 +109,8 @@ export const Projects: React.FC = () => {
                 </Button>
                 
                 <div className="flex items-center gap-6 ml-auto">
-                  <a href={project.github} className="text-muted-foreground hover:text-primary transition-colors"><Github className="w-5 h-5" /></a>
-                  <a href={project.demo} className="text-muted-foreground hover:text-primary transition-colors"><ExternalLink className="w-5 h-5" /></a>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github className="w-5 h-5" /></a>
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><ExternalLink className="w-5 h-5" /></a>
                 </div>
               </div>
             </div>

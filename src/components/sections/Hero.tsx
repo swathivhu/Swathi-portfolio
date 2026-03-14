@@ -21,14 +21,17 @@ export const Hero: React.FC = () => {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <div className="lg:col-span-7 space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">Innovation & Intelligence</span>
           </div>
           
@@ -54,7 +57,7 @@ export const Hero: React.FC = () => {
             <Button 
               size="lg" 
               onClick={() => scrollTo('projects')}
-              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-10 h-14 font-bold tracking-wider"
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-10 h-14 font-bold tracking-wider transition-all shadow-lg shadow-primary/5"
             >
               View Work
             </Button>
@@ -62,7 +65,7 @@ export const Hero: React.FC = () => {
               variant="outline" 
               size="lg" 
               onClick={() => scrollTo('contact')}
-              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-10 h-14 font-bold text-muted-foreground hover:text-white"
+              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-10 h-14 font-bold text-muted-foreground hover:text-white transition-all"
             >
               Contact Me
               <ArrowRight className="ml-2 w-4 h-4" />

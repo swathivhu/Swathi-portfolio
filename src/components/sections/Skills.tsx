@@ -31,9 +31,9 @@ export const Skills: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {skillCategories.map((category) => (
-          <div key={category.title} className="glass-card p-8 rounded-2xl border-white/5 hover:border-primary/30 group">
+          <div key={category.title} className="bg-[#111827] p-8 rounded-2xl border border-white/5 hover:border-primary/20 transition-all group">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
+              <div className="p-2.5 rounded-xl bg-primary/5 text-primary">
                 <category.icon className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-white">{category.title}</h3>
