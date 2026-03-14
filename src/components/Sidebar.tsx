@@ -20,7 +20,7 @@ const GmailIcon = () => (
 );
 
 const KarnatakaFlag = () => (
-  <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm">
+  <div className="w-4 h-2.5 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm">
     <div className="h-1/2 bg-[#FFFF00]" />
     <div className="h-1/2 bg-[#FF0000]" />
   </div>
@@ -67,28 +67,28 @@ export const Sidebar: React.FC = () => {
 
         {/* 4. Location Card (mt-6 = 24px) - Exact Boarding Pass Style - Enlarged Width */}
         <div className="mt-6 w-[95%] bg-[#10b981] rounded-[2.5rem] py-3 px-8 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
-          <div className="w-full flex justify-between items-center pb-2">
+          <div className="w-full flex justify-between items-center pb-1">
             {/* Left Section: IND IN INDIA */}
             <div className="flex flex-col items-start leading-none">
               <div className="flex items-start font-bold gap-1">
-                <span className="text-2xl leading-none">IND</span>
-                <span className="text-[10px] leading-none mt-1">IN</span>
+                <span className="text-xl leading-none">IND</span>
+                <span className="text-[9px] leading-none mt-0.5">IN</span>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest mt-1">INDIA</span>
+              <span className="text-[8px] font-bold uppercase tracking-widest mt-0.5">INDIA</span>
             </div>
             
             {/* Center Section: Airplane */}
             <div className="opacity-90">
-              <Plane className="w-5 h-5 rotate-45" />
+              <Plane className="w-4 h-4 rotate-45" />
             </div>
             
             {/* Right Section: KarnatakaFlag BLR BENGALURU */}
             <div className="flex flex-col items-end leading-none">
               <div className="flex items-center font-bold">
                 <KarnatakaFlag />
-                <span className="text-2xl leading-none ml-2">BLR</span>
+                <span className="text-xl leading-none ml-1.5">BLR</span>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest mt-1">BENGALURU</span>
+              <span className="text-[8px] font-bold uppercase tracking-widest mt-0.5">BENGALURU</span>
             </div>
           </div>
           
@@ -97,7 +97,7 @@ export const Sidebar: React.FC = () => {
           
           {/* Status Line */}
           <div className="text-center w-full">
-            <div className="text-[10px] font-bold uppercase tracking-tight text-white leading-none">
+            <div className="text-[9px] font-bold uppercase tracking-tight text-white leading-none">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
