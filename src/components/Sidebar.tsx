@@ -21,19 +21,15 @@ const GmailIcon = () => (
 
 export const Sidebar: React.FC = () => {
   return (
-    <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center">
+    <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
-      {/* Top Status Indicator Dot */}
-      <div className="w-1.5 h-1.5 bg-primary rounded-full mb-4 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse" />
-
       {/* Main Identity Card Container */}
-      <div className="w-full h-full max-h-[820px] bg-black border border-white/5 rounded-[3.5rem] p-8 flex flex-col items-center shadow-2xl overflow-hidden relative">
+      <div className="w-full h-auto max-h-[95vh] bg-black border border-white/5 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
         {/* 1. Profile Avatar Section with Glow */}
         <div className="relative w-[130px] h-[130px] mb-8 group flex-shrink-0">
-          <div className="absolute inset-[-10px] rounded-full bg-primary/10 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-1000" />
-          <div className="absolute inset-[-2px] rounded-full bg-primary/20 blur-md group-hover:bg-primary/40 transition-all duration-500" />
-          <div className="absolute inset-0 rounded-full border-2 border-primary/30 shadow-[0_0_20px_rgba(16,185,129,0.2)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] transition-all duration-500 z-10" />
+          <div className="absolute inset-[-4px] rounded-full bg-primary/20 blur-sm group-hover:bg-primary/40 transition-all duration-500" />
+          <div className="absolute inset-0 rounded-full border-2 border-primary/30 shadow-[0_0_20px_rgba(16,185,129,0.3)] z-10" />
           
           <div className="relative w-full h-full rounded-full p-1 overflow-hidden bg-black z-20">
             <div className="relative w-full h-full rounded-full overflow-hidden">
@@ -49,7 +45,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 2. & 3. Identity Details (Name & Title) */}
-        <div className="flex flex-col items-center gap-2 mb-8 flex-shrink-0">
+        <div className="flex flex-col items-center gap-2 mb-10 flex-shrink-0">
           <h1 className="text-5xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
@@ -59,12 +55,12 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 4. Flight Style Location Card */}
-        <div className="w-full bg-primary rounded-[2.5rem] p-5 text-white shadow-[0_15px_35px_rgba(16,185,129,0.25)] mb-6 flex-shrink-0">
+        <div className="w-full bg-primary rounded-[2.5rem] p-5 text-white shadow-[0_15px_35px_rgba(16,185,129,0.25)] mb-8 flex-shrink-0">
           <div className="flex justify-between items-start mb-4 px-1">
             <div className="flex flex-col">
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-bold leading-none">IND</span>
-                <span className="text-[10px] font-bold opacity-80">IN</span>
+                <span className="text-[10px] font-bold opacity-80 uppercase">IN</span>
               </div>
               <span className="text-[8px] font-mono uppercase tracking-widest opacity-80 mt-1">INDIA</span>
             </div>
@@ -94,7 +90,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 5. Expertise Modular Stack */}
-        <div className="w-full bg-white/[0.04] border border-white/5 rounded-[2.5rem] p-6 flex flex-col items-center gap-4 mb-8 flex-shrink-0">
+        <div className="w-full bg-white/[0.04] border border-white/5 rounded-[2.5rem] p-7 flex flex-col items-center gap-5 mb-10 flex-shrink-0">
           <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
@@ -112,7 +108,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 6. Social Actions Row */}
-        <div className="flex flex-row justify-center gap-4 w-full mt-auto flex-shrink-0">
+        <div className="flex flex-row justify-center gap-4 w-full flex-shrink-0">
           {[
             { icon: () => <Github className="w-5.5 h-5.5 text-white" />, href: 'https://github.com/swathivhu' },
             { icon: LinkedInIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a' },
