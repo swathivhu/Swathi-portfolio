@@ -52,14 +52,17 @@ export const Sidebar: React.FC = () => {
               />
             </div>
           </div>
+          
+          {/* Online Status Indicator anchored to bottom-right */}
+          <div className="absolute bottom-1 right-1 w-3.5 h-3.5 bg-primary border-2 border-black rounded-full shadow-[0_0_8px_rgba(16,185,129,0.6)] z-20" />
         </div>
 
-        {/* Identity Details */}
-        <div className="flex flex-col items-center gap-1.5 mb-6">
-          <h1 className="text-3xl font-headline font-bold tracking-tight text-white text-center">
+        {/* Identity Details - Restored Name Section */}
+        <div className="flex flex-col items-center gap-2 mb-6">
+          <h1 className="text-4xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
-          <div className="text-[9px] font-mono font-bold uppercase text-primary tracking-[0.3em] text-center">
+          <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.4em] text-center">
             AI SYSTEM ARCHITECT
           </div>
         </div>
