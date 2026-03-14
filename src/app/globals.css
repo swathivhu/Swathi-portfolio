@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
+    --background: 240 10% 4%;
     --foreground: 210 40% 98%;
-    --card: 217 33% 17%;
+    --card: 240 10% 7%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 11%;
+    --popover: 240 10% 4%;
     --popover-foreground: 210 40% 98%;
-    --primary: 244 100% 69%;
+    --primary: 263 100% 70%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 172 100% 48%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 217 33% 25%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 240 10% 4%;
+    --muted: 240 10% 15%;
     --muted-foreground: 215 20% 65%;
-    --accent: 172 100% 48%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 4%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 25%;
-    --input: 217 33% 25%;
-    --ring: 244 100% 69%;
-    --radius: 1rem;
+    --border: 240 10% 12%;
+    --input: 240 10% 12%;
+    --ring: 263 100% 70%;
+    --radius: 1.25rem;
   }
 }
 
@@ -32,75 +32,73 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body overflow-x-hidden;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline tracking-tight;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-card/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+    @apply bg-card/60 backdrop-blur-2xl border border-white/5 shadow-2xl transition-all duration-500;
   }
   
   .glow-border {
-    @apply relative overflow-hidden;
+    @apply relative;
   }
   
   .glow-border::before {
     content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-to-r from-primary via-secondary to-primary opacity-0 transition-opacity duration-500;
+    @apply absolute -inset-[1px] -z-10 rounded-[inherit] bg-gradient-to-r from-primary/50 via-secondary/50 to-primary/50 opacity-0 transition-opacity duration-500 blur-sm;
   }
   
   .glow-border:hover::before {
-    @apply opacity-20;
+    @apply opacity-100;
   }
 
   .text-glow-primary {
-    text-shadow: 0 0 10px hsla(var(--primary), 0.5);
+    text-shadow: 0 0 20px hsla(var(--primary), 0.4);
   }
 
   .text-glow-secondary {
-    text-shadow: 0 0 10px hsla(var(--secondary), 0.5);
+    text-shadow: 0 0 20px hsla(var(--secondary), 0.4);
   }
 
   .bg-glow-primary {
-    box-shadow: 0 0 20px hsla(var(--primary), 0.3);
+    box-shadow: 0 0 30px -5px hsla(var(--primary), 0.3);
   }
 
   .bg-glow-secondary {
-    box-shadow: 0 0 20px hsla(var(--secondary), 0.3);
+    box-shadow: 0 0 30px -5px hsla(var(--secondary), 0.3);
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold mb-16 flex items-center gap-6;
+  }
+
+  .section-number {
+    @apply text-sm font-mono text-secondary/70 tracking-tighter;
   }
 }
 
 .custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid hsl(var(--secondary));
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
+  @apply fixed pointer-events-none z-[9999] rounded-full mix-blend-difference transition-all duration-300;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out, width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-.custom-cursor-follower {
-  width: 8px;
-  height: 8px;
-  background-color: hsl(var(--primary));
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease-out;
 }
 
 @keyframes float {
-  0% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-20px) translateX(10px); }
-  100% { transform: translateY(0px) translateX(0px); }
+  0% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(2deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
+}
+
+.tech-grid {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 40px 40px;
 }

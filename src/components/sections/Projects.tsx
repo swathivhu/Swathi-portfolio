@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Github, ExternalLink, Sparkles } from 'lucide-react';
+import { Github, ExternalLink, Sparkles, Code2, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { generateProjectSummary } from '@/ai/flows/generate-project-summary-flow';
@@ -10,18 +10,18 @@ import { generateProjectSummary } from '@/ai/flows/generate-project-summary-flow
 const projects = [
   {
     id: 'p1',
-    title: 'AI Educational Video Generator',
-    description: 'A revolutionary platform that creates comprehensive educational videos using Generative AI tools like Suno AI, NotebookLM, and ElevenLabs. It automates scripting, voiceover, and visual generation.',
+    title: 'Neural Vision Pipeline',
+    description: 'Automated video synthesis engine orchestrating Suno AI, NotebookLM, and ElevenLabs. Transforms raw concepts into production-quality educational media.',
     longDescription: 'This project leverages a multi-agent AI system to orchestrate various generative models. It uses NotebookLM for structured research, ElevenLabs for high-fidelity voice cloning, and Suno AI for background score generation, all stitched together with a Python backend for automated video composition.',
-    tags: ['Python', 'Generative AI', 'MoviePy', 'ElevenLabs'],
+    tags: ['Python', 'Generative AI', 'MoviePy', 'FastAPI'],
     github: 'https://github.com',
     demo: 'https://demo.com',
     image: PlaceHolderImages.find(img => img.id === 'project-ai-video')?.imageUrl
   },
   {
     id: 'p2',
-    title: 'Smart AI Content Orchestrator',
-    description: 'An intelligent dashboard for managing multiple AI content generation tasks simultaneously, utilizing prompt engineering and automated workflows.',
+    title: 'Cognitive Content Hub',
+    description: 'Autonomous dashboard managing multi-modal AI workflows. Intelligent prompt chaining ensures consistent brand voice across fragmented channels.',
     longDescription: 'Built with Next.js and Firebase, this tool manages complex prompts for different LLMs, ensuring consistency across generated blog posts, social media captions, and email campaigns. It uses LangChain for prompt chaining and Firebase for real-time task tracking.',
     tags: ['Next.js', 'LangChain', 'OpenAI', 'Firebase'],
     github: 'https://github.com',
@@ -47,73 +47,80 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20">
-      <h2 className="text-3xl font-headline font-bold mb-12 flex items-center gap-4">
-        <span className="text-secondary">03.</span> Featured Projects
-        <div className="h-px bg-white/10 flex-1" />
+    <section id="projects" className="py-32">
+      <h2 className="section-heading">
+        <span className="section-number">03.</span> Featured Systems
+        <div className="h-px bg-white/5 flex-1" />
       </h2>
       
-      <div className="grid grid-cols-1 gap-12">
-        {projects.map((project) => (
-          <div key={project.id} className="glass-card rounded-3xl overflow-hidden group hover:border-primary/30 transition-all duration-500">
-            <div className="grid grid-cols-1 lg:grid-cols-5 h-full">
-              <div className="lg:col-span-2 relative h-64 lg:h-full overflow-hidden">
+      <div className="grid grid-cols-1 gap-20">
+        {projects.map((project, idx) => (
+          <div key={project.id} className="group relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              {/* Image side */}
+              <div className={`lg:col-span-7 relative aspect-video rounded-3xl overflow-hidden glass-card border-white/10 glow-border ${idx % 2 !== 0 ? 'lg:order-last' : ''}`}>
                 <Image
                   src={project.image || ''}
                   alt={project.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  data-ai-hint="ai project dashboard"
                 />
+                <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500" />
               </div>
               
-              <div className="lg:col-span-3 p-8 flex flex-col justify-between">
-                <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-headline font-bold group-hover:text-glow-primary transition-all">
-                      {project.title}
-                    </h3>
-                    <div className="flex gap-3">
-                      <a href={project.github} className="hover:text-secondary transition-colors"><Github className="w-5 h-5" /></a>
-                      <a href={project.demo} className="hover:text-secondary transition-colors"><ExternalLink className="w-5 h-5" /></a>
-                    </div>
+              {/* Content side */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-secondary/10 text-secondary">
+                    <Layers className="w-5 h-5" />
                   </div>
-                  
-                  <p className="text-muted-foreground mb-6 line-clamp-3">
-                    {project.description}
-                  </p>
-
-                  {summaries[project.id] && (
-                    <div className="mb-6 p-4 bg-secondary/10 border border-secondary/20 rounded-xl animate-in fade-in slide-in-from-top-4">
-                      <p className="text-sm font-medium text-secondary mb-1 flex items-center gap-2">
-                        <Sparkles className="w-4 h-4" /> AI Summary:
-                      </p>
-                      <p className="text-sm italic">{summaries[project.id]}</p>
-                    </div>
-                  )}
-                  
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="text-xs font-medium px-2 py-1 rounded-md bg-white/5 border border-white/10 text-muted-foreground">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Enterprise AI</span>
                 </div>
                 
-                <div className="flex gap-4">
+                <h3 className="text-4xl font-headline font-bold text-glow-primary leading-tight">
+                  {project.title}
+                </h3>
+                
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {project.description}
+                </p>
+
+                {summaries[project.id] && (
+                  <div className="p-5 bg-primary/5 border border-primary/10 rounded-2xl animate-in fade-in slide-in-from-top-2">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Sparkles className="w-4 h-4 text-primary" />
+                      <span className="text-xs font-bold uppercase tracking-widest text-primary/80">LLM Analysis</span>
+                    </div>
+                    <p className="text-sm italic leading-relaxed text-muted-foreground">"{summaries[project.id]}"</p>
+                  </div>
+                )}
+                
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground uppercase tracking-wider">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="flex items-center gap-6 pt-6">
                   <Button 
-                    variant="outline" 
+                    variant="ghost" 
                     size="sm"
-                    className="border-primary/50 text-primary hover:bg-primary/10 rounded-lg"
+                    className="p-0 h-auto hover:bg-transparent text-secondary hover:text-secondary/80 font-bold group/btn"
                     onClick={() => handleGenerateSummary(project.id, project.longDescription)}
                     disabled={loading[project.id]}
                   >
-                    {loading[project.id] ? "Generating..." : "Generate AI Insight"}
-                    <Sparkles className="ml-2 w-4 h-4" />
+                    <Sparkles className={`w-4 h-4 mr-2 ${loading[project.id] ? 'animate-spin' : ''}`} />
+                    {loading[project.id] ? "Synthesizing..." : "AI INSIGHT"}
+                    <div className="h-0.5 w-0 group-hover/btn:w-full bg-secondary transition-all duration-300 ml-2" />
                   </Button>
-                  <Button size="sm" className="bg-secondary text-background hover:bg-secondary/90 rounded-lg">
-                    Live Demo
-                  </Button>
+                  
+                  <div className="flex items-center gap-4 ml-auto">
+                    <a href={project.github} className="p-3 glass-card rounded-xl hover:text-secondary transition-colors"><Github className="w-5 h-5" /></a>
+                    <a href={project.demo} className="p-3 glass-card rounded-xl hover:text-secondary transition-colors"><ExternalLink className="w-5 h-5" /></a>
+                  </div>
                 </div>
               </div>
             </div>
