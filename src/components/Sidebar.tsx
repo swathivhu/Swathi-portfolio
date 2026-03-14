@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Github, Plane, Code, Bot, Clapperboard, Download } from 'lucide-react';
 
 /**
- * Custom High-Fidelity Icons for the Social Row
+ * Custom High-Fidelity Icons to match the reference image exactly
  */
 const LinkedInIcon = () => (
   <svg role="img" viewBox="0 0 24 24" fill="#0077B5" className="w-5 h-5">
@@ -27,14 +27,13 @@ export const Sidebar: React.FC = () => {
       <div className="w-1.5 h-1.5 bg-primary rounded-full mb-4 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse" />
 
       {/* Main Identity Card Container */}
-      <div className="w-full h-full max-h-[850px] bg-black border border-white/5 rounded-[3.5rem] p-8 flex flex-col items-center shadow-2xl overflow-hidden relative">
+      <div className="w-full h-full max-h-[820px] bg-black border border-white/5 rounded-[3.5rem] p-8 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
         {/* 1. Profile Avatar Section with Glow */}
-        <div className="relative w-[140px] h-[140px] mb-10 group flex-shrink-0">
-          {/* Emerald Glow Ring */}
-          <div className="absolute inset-[-12px] rounded-full bg-primary/10 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-1000" />
+        <div className="relative w-[130px] h-[130px] mb-8 group flex-shrink-0">
+          <div className="absolute inset-[-10px] rounded-full bg-primary/10 blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-1000" />
           <div className="absolute inset-[-2px] rounded-full bg-primary/20 blur-md group-hover:bg-primary/40 transition-all duration-500" />
-          <div className="absolute inset-0 rounded-full border-2 border-primary/30 shadow-[0_0_25px_rgba(16,185,129,0.3)] group-hover:shadow-[0_0_45px_rgba(16,185,129,0.5)] transition-all duration-500 z-10" />
+          <div className="absolute inset-0 rounded-full border-2 border-primary/30 shadow-[0_0_20px_rgba(16,185,129,0.2)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] transition-all duration-500 z-10" />
           
           <div className="relative w-full h-full rounded-full p-1 overflow-hidden bg-black z-20">
             <div className="relative w-full h-full rounded-full overflow-hidden">
@@ -50,7 +49,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 2. & 3. Identity Details (Name & Title) */}
-        <div className="flex flex-col items-center gap-3 mb-10 flex-shrink-0">
+        <div className="flex flex-col items-center gap-2 mb-8 flex-shrink-0">
           <h1 className="text-5xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
@@ -60,73 +59,72 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 4. Flight Style Location Card */}
-        <div className="w-full bg-primary rounded-[2.5rem] p-6 text-white shadow-[0_15px_35px_rgba(16,185,129,0.25)] mb-8 flex-shrink-0">
-          <div className="flex justify-between items-center mb-4 px-2">
+        <div className="w-full bg-primary rounded-[2.5rem] p-5 text-white shadow-[0_15px_35px_rgba(16,185,129,0.25)] mb-6 flex-shrink-0">
+          <div className="flex justify-between items-start mb-4 px-1">
             <div className="flex flex-col">
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-bold leading-none">IND</span>
                 <span className="text-[10px] font-bold opacity-80">IN</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-80">INDIA</span>
+              <span className="text-[8px] font-mono uppercase tracking-widest opacity-80 mt-1">INDIA</span>
             </div>
             
-            <div className="relative flex-1 flex justify-center">
+            <div className="flex-1 flex justify-center pt-1">
               <Plane className="w-5 h-5 opacity-60 rotate-45" />
             </div>
             
             <div className="flex flex-col items-end">
               <div className="flex items-center gap-1.5">
-                {/* Indian Flag Strip */}
-                <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[2px] shadow-sm">
+                <div className="w-4.5 h-3 flex flex-col overflow-hidden rounded-[2px] shadow-sm">
                   <div className="h-1/3 bg-[#FF9933]" />
                   <div className="h-1/3 bg-white" />
                   <div className="h-1/3 bg-[#128807]" />
                 </div>
                 <span className="text-2xl font-bold leading-none">BLR</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-80">BENGALURU</span>
+              <span className="text-[8px] font-mono uppercase tracking-widest opacity-80 mt-1">BENGALURU</span>
             </div>
           </div>
           
-          <div className="pt-4 border-t border-white/20 text-center">
-            <span className="text-[9px] font-bold uppercase tracking-widest opacity-100">
+          <div className="pt-3 border-t border-white/20 text-center">
+            <span className="text-[8px] font-bold uppercase tracking-widest opacity-100">
               IN BENGALURU, KARNATAKA, INDIA
             </span>
           </div>
         </div>
 
-        {/* 5. Expertise Modular Stack (Role Card) */}
-        <div className="w-full bg-white/[0.04] border border-white/5 rounded-[2.5rem] p-6 flex flex-col items-center gap-5 mb-10 flex-shrink-0">
+        {/* 5. Expertise Modular Stack */}
+        <div className="w-full bg-white/[0.04] border border-white/5 rounded-[2.5rem] p-6 flex flex-col items-center gap-4 mb-8 flex-shrink-0">
           <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.1em]">PYTHON FULL STACK</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
           </div>
           
           <div className="flex items-center gap-3 text-[#A855F7]">
             <Bot className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.1em]">GEN AI</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">GEN AI</span>
           </div>
           
           <div className="flex items-center gap-3 text-[#F97316]">
             <Clapperboard className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.1em]">CONTENT CREATOR</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">CONTENT CREATOR</span>
           </div>
         </div>
 
         {/* 6. Social Actions Row */}
-        <div className="flex flex-row justify-center gap-5 w-full mt-auto mb-2 flex-shrink-0">
+        <div className="flex flex-row justify-center gap-4 w-full mt-auto flex-shrink-0">
           {[
-            { icon: () => <Github className="w-6 h-6 text-white" />, href: 'https://github.com/swathivhu' },
+            { icon: () => <Github className="w-5.5 h-5.5 text-white" />, href: 'https://github.com/swathivhu' },
             { icon: LinkedInIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a' },
             { icon: GmailIcon, href: 'mailto:swathipv.2501@gmail.com' },
-            { icon: () => <Download className="w-6 h-6 text-primary" />, href: '/Swathi-Resume.pdf' },
+            { icon: () => <Download className="w-5.5 h-5.5 text-primary" />, href: '/Swathi-Resume.pdf' },
           ].map((social, i) => (
             <a
               key={i}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:border-white/10 transition-all duration-300 shadow-lg"
+              className="w-13 h-13 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:border-white/10 transition-all duration-300 shadow-lg"
             >
               <social.icon />
             </a>
