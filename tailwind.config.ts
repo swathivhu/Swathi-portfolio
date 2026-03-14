@@ -99,6 +99,7 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'dot-move': 'dot-move 5s linear infinite',
+        'spin-slow': 'spin 8s linear infinite',
       },
     },
   },

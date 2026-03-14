@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import { Download, Plane, Code, Bot, Clapperboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 /**
  * Karnataka Flag Component (Yellow & Red horizontal stripes)
@@ -27,7 +26,7 @@ const GithubIcon = () => (
 
 const LinkedinIcon = () => (
   <svg role="img" viewBox="0 0 24 24" fill="#0077B5" className="w-5 h-5">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
   </svg>
 );
 
@@ -38,126 +37,151 @@ const GmailIcon = () => (
 );
 
 export const Sidebar: React.FC = () => {
-  const profile = PlaceHolderImages.find(img => img.id === 'profile');
 
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
+
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
-        
-        {/* Profile Avatar Section - Visual Anchor & Starting Point */}
-        <div className="relative w-[100px] h-[100px] group flex-shrink-0">
-          <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_15px_rgba(16,185,129,0.1)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]" />
-          
-          <div className="relative w-full h-full rounded-full p-1 bg-black/40 border border-white/5 overflow-hidden">
-            <div className="relative w-full h-full rounded-full overflow-hidden bg-muted border border-white/10">
+
+        {/* Profile Avatar Section - Premium Animated Ring */}
+        <div className="relative w-[110px] h-[110px] group flex-shrink-0">
+
+          {/* Animated rotating gradient ring */}
+          <div className="absolute inset-0 rounded-full animate-spin-slow bg-gradient-to-tr from-primary/40 via-primary/10 to-transparent blur-[2px]" />
+
+          {/* Static ring */}
+          <div className="absolute inset-[3px] rounded-full border border-primary/40 shadow-[0_0_18px_rgba(16,185,129,0.25)] group-hover:shadow-[0_0_25px_rgba(16,185,129,0.45)] transition-all duration-500" />
+
+          {/* Image container */}
+          <div className="relative w-full h-full rounded-full p-[3px] bg-black border border-white/5 overflow-hidden">
+
+            <div className="relative w-full h-full rounded-full overflow-hidden">
+
               <Image
-                src={profile?.imageUrl || ''}
+                src="/profile-portfolio.jpeg"
                 alt="Swathi P V"
                 fill
+                priority
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
-                data-ai-hint="tech developer portrait"
               />
+
             </div>
+
           </div>
+
         </div>
-        
-        {/* Name Section (24px from image) */}
+
+        {/* Name */}
         <div className="mt-6 flex flex-col items-center">
           <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white text-center">
             Swathi P V
           </h1>
-          {/* Title (12px from name) */}
+
           <p className="mt-3 text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
             AI System Architect
           </p>
         </div>
 
-        {/* Location Card (20px from title) - Boarding Pass Style */}
+        {/* Location Card */}
         <div className="w-full max-w-[240px] mt-5">
-          <div className="bg-primary rounded-[1.2rem] p-3 text-white shadow-lg shadow-primary/20 relative overflow-hidden group">
+          <div className="bg-primary rounded-[1.2rem] p-3 text-white shadow-lg shadow-primary/20">
+
             <div className="flex justify-between items-center mb-2">
-              <div className="text-left">
-                <div className="flex items-center gap-1 mb-0.5">
-                  <span className="text-base font-black tracking-tighter">IND</span>
+
+              <div>
+                <div className="flex items-center gap-1">
+                  <span className="text-base font-black">IND</span>
                   <span className="text-[10px]">🇮🇳</span>
                 </div>
-                <div className="text-[7px] font-bold uppercase tracking-widest opacity-80">INDIA</div>
+                <div className="text-[7px] uppercase">India</div>
               </div>
 
-              <div className="flex-1 flex justify-center">
-                <Plane className="w-3.5 h-3.5 rotate-90 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-              </div>
+              <Plane className="w-4 h-4 opacity-60 rotate-90" />
 
               <div className="text-right">
-                <div className="flex items-center justify-end gap-1 mb-0.5">
+                <div className="flex items-center gap-1 justify-end">
                   <KarnatakaFlag />
-                  <span className="text-base font-black tracking-tighter">BLR</span>
+                  <span className="text-base font-black">BLR</span>
                 </div>
-                <div className="text-[7px] font-bold uppercase tracking-widest opacity-80">BENGALURU</div>
+                <div className="text-[7px] uppercase">Bengaluru</div>
               </div>
+
             </div>
 
-            <div className="w-full h-px bg-white/20 mb-2 border-dashed border-b-[0.5px]" />
+            <div className="w-full h-px bg-white/20 mb-2"></div>
 
-            <div className="flex justify-center items-center">
-              <div className="text-center">
-                <div className="text-[6px] font-bold uppercase tracking-[0.2em] opacity-70 mb-0.5">CURRENT STATUS</div>
-                <div className="text-[8px] font-black uppercase tracking-wider leading-tight">IN BENGALURU, KARNATAKA, INDIA</div>
-              </div>
+            <div className="text-center text-[8px] font-bold uppercase">
+              In Bengaluru, Karnataka, India
             </div>
+
           </div>
         </div>
 
-        {/* Roles Pill (20px from location) - Radiant Emerald Container */}
+        {/* Roles */}
         <div className="w-full px-2 mt-5">
-          <div className="py-4 px-6 rounded-2xl bg-[#080808] border border-primary/40 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)]">
-            <div className="flex flex-col gap-1.5 text-[10px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] uppercase text-center">
+          <div className="py-4 px-6 rounded-2xl bg-[#080808] border border-white/5 group-hover:border-primary/20 transition-colors">
+
+            <div className="flex flex-col gap-2 text-[10px] font-bold uppercase text-primary text-center">
+
               <div className="flex items-center justify-center gap-2">
                 <Code className="w-3 h-3 text-[#3776AB]" /> Python Full Stack
               </div>
+
               <div className="flex items-center justify-center gap-2">
                 <Bot className="w-3 h-3 text-[#9333EA]" /> Gen AI
               </div>
+
               <div className="flex items-center justify-center gap-2">
                 <Clapperboard className="w-3 h-3 text-[#EA580C]" /> Content Creator
               </div>
+
             </div>
+
           </div>
         </div>
 
-        {/* Social Icons (24px from role card) - Brand Original Colors + Download Icon */}
+        {/* Social Icons */}
         <div className="flex flex-row justify-center gap-4 mt-6">
+
           {[
-            { icon: GithubIcon, href: 'https://github.com/swathivhu', hoverColor: 'hover:border-white/50' },
+            { icon: GithubIcon, href: 'https://github.com/swathivhu', hoverColor: 'hover:border-white/40' },
             { icon: LinkedinIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a', hoverColor: 'hover:border-[#0077B5]/50' },
             { icon: GmailIcon, href: 'mailto:swathipv.2501@gmail.com', hoverColor: 'hover:border-[#EA4335]/50' },
             { icon: () => <Download className="w-5 h-5 text-primary" />, href: '/Swathi-Resume.pdf', hoverColor: 'hover:border-primary/50' },
           ].map((social, i) => (
-            <a 
+
+            <a
               key={i}
-              href={social.href} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className={`w-11 h-11 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 ${social.hoverColor} hover:scale-110 hover:-translate-y-1 transition-all duration-300 group`}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-11 h-11 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 ${social.hoverColor} hover:scale-110 hover:-translate-y-1 transition-all duration-300`}
             >
               <social.icon />
             </a>
+
           ))}
+
         </div>
 
-        {/* Action Button Section (28px from social icons) - Final prominent action */}
+        {/* Download Button */}
         <div className="w-full mt-7">
-          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-5 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:-translate-y-1 active:translate-y-0">
+
+          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-5 text-[10px] font-bold tracking-[0.2em]">
+
             <Download className="w-3.5 h-3.5 mr-2" />
             DOWNLOAD CV
+
           </Button>
-          
+
           <div className="mt-4 text-[8px] font-mono text-muted-foreground/20 uppercase text-center tracking-[0.4em]">
             © {new Date().getFullYear()} Professional Portfolio
           </div>
+
         </div>
 
       </div>
+
     </aside>
   );
 };
