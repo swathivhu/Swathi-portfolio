@@ -94,6 +94,11 @@
   100% { transform: translateY(0px) rotate(0deg); }
 }
 
+@keyframes translate-y {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+
 .animate-float {
   animation: float 8s ease-in-out infinite;
 }
