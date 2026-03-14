@@ -51,7 +51,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Roles / Styled Badges */}
         <div className="w-full py-4">
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-3">
             {[
               'Python Full Stack',
               'Gen AI',
@@ -59,7 +59,7 @@ export const Sidebar: React.FC = () => {
             ].map((tag, i) => (
               <span 
                 key={i}
-                className="px-4 py-2 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-white/[0.02] border border-white/5 text-muted-foreground/60 transition-all hover:text-primary hover:border-primary/20 cursor-default"
+                className="px-5 py-2.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-primary/[0.08] border border-primary/30 text-white transition-all hover:bg-primary/20 hover:border-primary/50 cursor-default shadow-sm shadow-primary/5"
               >
                 {tag}
               </span>
