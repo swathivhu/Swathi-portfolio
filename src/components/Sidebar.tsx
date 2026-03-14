@@ -127,12 +127,13 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Social Icons (24px from role card) - Brand Original Colors */}
+        {/* Social Icons (24px from role card) - Brand Original Colors + Download Icon */}
         <div className="flex flex-row justify-center gap-4 mt-6">
           {[
             { icon: GithubIcon, href: 'https://github.com', hoverColor: 'hover:border-white/50' },
             { icon: LinkedinIcon, href: 'https://linkedin.com', hoverColor: 'hover:border-[#0077B5]/50' },
             { icon: GmailIcon, href: 'mailto:swathi@example.com', hoverColor: 'hover:border-[#EA4335]/50' },
+            { icon: () => <Download className="w-5 h-5 text-primary" />, href: '#', hoverColor: 'hover:border-primary/50' },
           ].map((social, i) => (
             <a 
               key={i}
