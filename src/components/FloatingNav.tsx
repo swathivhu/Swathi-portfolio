@@ -21,21 +21,21 @@ export const FloatingNav: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-6 right-6 z-50 flex flex-row gap-2 md:flex-col glass-card p-2 rounded-full md:rounded-2xl">
+    <div className="fixed top-8 right-8 z-50 flex flex-row gap-2 md:flex-col glass-card p-2 rounded-2xl">
       <TooltipProvider delayDuration={0}>
         {navItems.map((item) => (
           <Tooltip key={item.id}>
             <TooltipTrigger asChild>
               <button
                 onClick={() => scrollTo(item.id)}
-                className="p-2 md:p-3 hover:bg-white/10 rounded-full transition-colors group"
+                className="p-3 hover:bg-white/[0.05] rounded-xl transition-all group"
                 aria-label={item.label}
               >
-                <item.icon className="w-5 h-5 md:w-6 md:h-6 text-muted-foreground group-hover:text-secondary transition-colors" />
+                <item.icon className="w-5.5 h-5.5 text-muted-foreground group-hover:text-primary transition-colors" />
               </button>
             </TooltipTrigger>
-            <TooltipContent side="left">
-              <p>{item.label}</p>
+            <TooltipContent side="left" className="bg-card border-white/10 text-primary font-bold">
+              <p className="text-[10px] uppercase tracking-widest">{item.label}</p>
             </TooltipContent>
           </Tooltip>
         ))}

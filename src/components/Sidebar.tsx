@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Download, MapPin, Globe } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -10,17 +10,16 @@ export const Sidebar: React.FC = () => {
   const profile = PlaceHolderImages.find(img => img.id === 'profile');
 
   return (
-    <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col">
-      <div className="flex-1 bg-card/30 backdrop-blur-xl border border-white/5 rounded-[2rem] p-8 flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden">
+    <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
+      <div className="w-full h-full bg-card/30 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden">
         
-        {/* Top Section: Profile Image & Identity */}
-        <div className="w-full space-y-5">
-          <div className="relative mx-auto w-20 h-20 xl:w-24 xl:h-24">
-            {/* Minimal Pulse Ring */}
-            <div className="absolute -inset-1 rounded-full border border-primary/20 animate-pulse-ring" />
+        {/* Top: Profile Identity */}
+        <div className="w-full space-y-6">
+          <div className="relative mx-auto w-24 h-24 xl:w-28 xl:h-28">
+            {/* Minimal Mono-color Rotating Ring */}
+            <div className="absolute -inset-1 rounded-full border border-primary/20 animate-spin-slow" />
             
-            {/* Image Container */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/20 p-1 bg-background shadow-lg z-10">
+            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/30 p-1 bg-background z-10">
               <div className="relative w-full h-full rounded-full overflow-hidden">
                 <Image
                   src={profile?.imageUrl || ''}
@@ -33,24 +32,24 @@ export const Sidebar: React.FC = () => {
             </div>
           </div>
           
-          <div className="space-y-1">
-            <h1 className="text-3xl font-headline font-bold tracking-tight text-white leading-tight">
+          <div className="space-y-2">
+            <h1 className="text-4xl xl:text-5xl font-headline font-extrabold tracking-tight text-white leading-tight">
               Swathi P V
             </h1>
-            <p className="text-primary font-mono text-[10px] font-bold uppercase tracking-[0.1em]">
+            <p className="text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em]">
               AI System Architect
             </p>
           </div>
 
-          {/* Location Badge */}
+          {/* Location Badge: Minimal Style */}
           <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 w-fit mx-auto">
-            <MapPin className="w-3 h-3 text-primary/70" />
-            <span className="text-[10px] font-bold text-muted-foreground uppercase">Bangalore, India</span>
+            <MapPin className="w-3.5 h-3.5 text-primary/70" />
+            <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Bangalore, India</span>
           </div>
         </div>
 
-        {/* Middle Section: Tagline Badges */}
-        <div className="w-full py-4">
+        {/* Middle: Role Badges: Minimal Indigo Border */}
+        <div className="w-full">
           <div className="flex flex-wrap justify-center gap-2">
             {[
               'Python Full Stack',
@@ -59,7 +58,7 @@ export const Sidebar: React.FC = () => {
             ].map((tag, i) => (
               <span 
                 key={i}
-                className="px-3 py-1 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider bg-primary/5 border border-primary/20 text-primary transition-all cursor-default"
+                className="px-4 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-transparent border border-primary/30 text-primary transition-colors cursor-default"
               >
                 {tag}
               </span>
@@ -67,10 +66,10 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Section: Socials & Action */}
-        <div className="w-full space-y-6">
-          {/* Social Icons */}
-          <div className="flex flex-row justify-center gap-4">
+        {/* Bottom: Socials & Main Action */}
+        <div className="w-full space-y-8">
+          {/* Social Icons: Simple Circular Containers */}
+          <div className="flex flex-row justify-center gap-5">
             {[
               { icon: Github, href: 'https://github.com' },
               { icon: Linkedin, href: 'https://linkedin.com' },
@@ -81,23 +80,23 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/5 hover:border-primary/50 hover:bg-primary/5 transition-all group"
+                className="w-11 h-11 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/5 hover:border-primary/50 hover:bg-primary/5 transition-all group"
               >
-                <social.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                <social.icon className="w-4.5 h-4.5 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
             ))}
           </div>
 
           <div className="w-full h-px bg-white/5" />
 
-          <div className="space-y-3">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-6 text-xs font-bold tracking-widest transition-all">
-              <Download className="w-3 h-3 mr-2" />
+          <div className="space-y-4">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-7 text-xs font-bold tracking-[0.15em] transition-all shadow-lg shadow-primary/10">
+              <Download className="w-4 h-4 mr-2" />
               DOWNLOAD CV
             </Button>
             
-            <div className="text-[8px] font-mono text-muted-foreground/40 uppercase tracking-[0.2em]">
-              Available for Collaboration
+            <div className="text-[9px] font-mono text-muted-foreground/40 uppercase tracking-[0.3em]">
+              © {new Date().getFullYear()} Professional AI Portfolio
             </div>
           </div>
         </div>

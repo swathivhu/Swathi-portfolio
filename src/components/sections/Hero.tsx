@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, Bot } from 'lucide-react';
+import { ArrowRight, Bot } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -30,9 +30,8 @@ export const Hero: React.FC = () => {
     <section id="hero" className="min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <div className="lg:col-span-7 space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
-            <Sparkles className="w-3 h-3 text-primary" />
-            <span className="text-[9px] font-mono uppercase tracking-widest text-primary font-bold">Innovation & Intelligence</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">Innovation & Intelligence</span>
           </div>
           
           <div className="space-y-4">
@@ -57,7 +56,7 @@ export const Hero: React.FC = () => {
             <Button 
               size="lg" 
               onClick={() => scrollTo('projects')}
-              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8"
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-10 h-14 font-bold tracking-wider shadow-lg shadow-primary/20"
             >
               View Work
             </Button>
@@ -65,7 +64,7 @@ export const Hero: React.FC = () => {
               variant="outline" 
               size="lg" 
               onClick={() => scrollTo('contact')}
-              className="border-white/10 hover:bg-white/5 rounded-xl px-8"
+              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-10 h-14 font-bold text-muted-foreground hover:text-white"
             >
               Contact Me
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -75,10 +74,10 @@ export const Hero: React.FC = () => {
 
         <div className="lg:col-span-5 hidden lg:flex justify-center">
           <div className="relative w-72 h-72 flex items-center justify-center">
-            <div className="absolute inset-0 border border-primary/10 rounded-full" />
-            <div className="absolute inset-8 border border-primary/5 rounded-full" />
-            <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center">
-              <Bot className="w-12 h-12 text-primary/60" />
+            <div className="absolute inset-0 border border-white/5 rounded-full" />
+            <div className="absolute inset-8 border border-white/5 rounded-full" />
+            <div className="w-32 h-32 rounded-full bg-primary/5 flex items-center justify-center border border-primary/20">
+              <Bot className="w-12 h-12 text-primary/40" />
             </div>
           </div>
         </div>

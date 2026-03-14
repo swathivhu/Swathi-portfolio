@@ -68,10 +68,10 @@ export const Projects: React.FC = () => {
             
             <div className="lg:col-span-5 space-y-6">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                <div className="p-2.5 rounded-xl bg-primary/5 text-primary border border-primary/10">
                   <Layers className="w-4 h-4" />
                 </div>
-                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">Project Module</span>
+                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">Module {project.id === 'p1' ? '01' : '02'}</span>
               </div>
               
               <h3 className="text-3xl font-bold text-white leading-tight">
@@ -84,33 +84,33 @@ export const Projects: React.FC = () => {
 
               {summaries[project.id] && (
                 <div className="p-5 bg-primary/5 border border-primary/10 rounded-xl">
-                  <p className="text-sm italic text-primary/90">"{summaries[project.id]}"</p>
+                  <p className="text-sm italic text-primary font-medium">"{summaries[project.id]}"</p>
                 </div>
               )}
               
               <div className="flex flex-wrap gap-2">
                 {project.tags.map(tag => (
-                  <span key={tag} className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground uppercase">
+                  <span key={tag} className="text-[10px] font-mono font-bold px-3 py-1 rounded-lg bg-white/5 border border-white/5 text-muted-foreground uppercase tracking-wider">
                     {tag}
                   </span>
                 ))}
               </div>
               
-              <div className="flex items-center gap-6 pt-4">
+              <div className="flex items-center gap-8 pt-4">
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  className="px-0 h-auto hover:bg-transparent text-primary hover:text-primary/80 font-bold"
+                  className="px-0 h-auto hover:bg-transparent text-primary hover:text-primary/80 font-bold tracking-wide"
                   onClick={() => handleGenerateSummary(project.id, project.longDescription)}
                   disabled={loading[project.id]}
                 >
-                  <Sparkles className={`w-3 h-3 mr-2 ${loading[project.id] ? 'animate-spin' : ''}`} />
-                  {loading[project.id] ? "Processing..." : "AI Summary"}
+                  <Sparkles className={`w-3.5 h-3.5 mr-2 ${loading[project.id] ? 'animate-spin' : ''}`} />
+                  {loading[project.id] ? "Processing..." : "AI Insights"}
                 </Button>
                 
-                <div className="flex items-center gap-4 ml-auto">
-                  <a href={project.github} className="text-muted-foreground hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-                  <a href={project.demo} className="text-muted-foreground hover:text-white transition-colors"><ExternalLink className="w-5 h-5" /></a>
+                <div className="flex items-center gap-6 ml-auto">
+                  <a href={project.github} className="text-muted-foreground hover:text-primary transition-colors"><Github className="w-5 h-5" /></a>
+                  <a href={project.demo} className="text-muted-foreground hover:text-primary transition-colors"><ExternalLink className="w-5 h-5" /></a>
                 </div>
               </div>
             </div>

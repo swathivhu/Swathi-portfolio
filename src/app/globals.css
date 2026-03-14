@@ -26,37 +26,11 @@
     --radius: 0.75rem;
   }
 
-  /* Standard Cursor */
-  body, a, button, [role="button"], .group {
-    cursor: auto;
-  }
-
-  html {
-    @apply scroll-smooth;
-    height: auto;
-    min-height: 100%;
-  }
-
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-background;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 min-h-screen;
     overflow-x: hidden;
-    overflow-y: auto;
   }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
   }
@@ -86,12 +60,11 @@
   }
 }
 
-@keyframes pulse-ring {
-  0% { transform: scale(0.95); opacity: 0.3; }
-  50% { transform: scale(1.05); opacity: 0.1; }
-  100% { transform: scale(0.95); opacity: 0.3; }
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 4s ease-in-out infinite;
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
 }
