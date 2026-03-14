@@ -19,10 +19,6 @@ const GmailIcon = () => (
   </svg>
 );
 
-const IndiaFlag = () => (
-  <span className="text-base mr-1">🇮🇳</span>
-);
-
 const KarnatakaFlag = () => (
   <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm">
     <div className="h-1/2 bg-[#FFFF00]" />
@@ -32,7 +28,7 @@ const KarnatakaFlag = () => (
 
 export const Sidebar: React.FC = () => {
   return (
-    <aside className="w-full lg:w-[320px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
+    <aside className="w-full lg:w-[350px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
       {/* Sidebar Container */}
       <div className="w-full bg-[#050505] border border-white/5 rounded-[3.5rem] py-10 px-6 flex flex-col items-center shadow-[0_0_50px_rgba(16,185,129,0.1)] relative overflow-hidden">
@@ -69,8 +65,8 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 4. Location Card (mt-6 = 24px) - Exact Boarding Pass Style */}
-        <div className="mt-6 w-[88%] bg-[#10b981] rounded-[2.5rem] py-4 px-6 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
+        {/* 4. Location Card (mt-6 = 24px) - Exact Boarding Pass Style - Enlarged Width */}
+        <div className="mt-6 w-[95%] bg-[#10b981] rounded-[2.5rem] py-3 px-8 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center pb-2">
             {/* Left Section: IND IN INDIA */}
             <div className="flex flex-col items-start leading-none">
@@ -107,8 +103,8 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 5. Roles Card (mt-5 = 20px) */}
-        <div className="mt-5 w-[88%] bg-[#0a0a0a] border border-primary/20 rounded-[2.5rem] py-5 px-4 flex flex-col items-center gap-3 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
+        {/* 5. Roles Card (mt-5 = 20px) - Enlarged Width */}
+        <div className="mt-5 w-[95%] bg-[#0a0a0a] border border-primary/20 rounded-[2.5rem] py-4 px-6 flex flex-col items-center gap-3 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
           <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
