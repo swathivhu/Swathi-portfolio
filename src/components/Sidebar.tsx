@@ -12,7 +12,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const KarnatakaFlag = () => (
   <div className="flex flex-col w-4 h-2.5 border-[0.5px] border-white/20 rounded-[1px] overflow-hidden">
     <div className="h-1/2 bg-[#FFD700]" />
-    <div className="h-1/2 bg-[#ED1C24]" />
+    <div className="h-1/2 bg-[#ED1C14]" />
   </div>
 );
 
@@ -42,11 +42,11 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
-      <div className="w-full h-full bg-[#050505]/60 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
+      <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
         {/* Profile Image Section */}
-        <div className="relative w-28 h-28 xl:w-32 xl:h-32 group">
-          <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_15px_rgba(16,185,129,0.1)] transition-all duration-500" />
+        <div className="relative w-40 h-40 xl:w-48 xl:h-48 group">
+          <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-500" />
           <div className="relative w-full h-full rounded-full p-1 bg-black/40 border border-white/5 overflow-hidden">
             <div className="relative w-full h-full rounded-full overflow-hidden bg-muted">
               <Image
@@ -58,7 +58,7 @@ export const Sidebar: React.FC = () => {
               />
             </div>
           </div>
-          <div className="absolute bottom-1 right-2 w-5 h-5 bg-primary rounded-full border-4 border-[#050505] shadow-lg" />
+          <div className="absolute bottom-2 right-4 w-6 h-6 bg-primary rounded-full border-4 border-black shadow-lg" />
         </div>
         
         {/* Name & Title Section (24px from image) */}
