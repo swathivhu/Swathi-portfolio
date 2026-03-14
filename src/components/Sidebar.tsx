@@ -35,7 +35,7 @@ export const Sidebar: React.FC = () => {
       <div className="w-full bg-black border border-white/10 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative">
         
         {/* 1. Avatar Section with Emerald Glow */}
-        <div className="relative w-[120px] h-[120px] mb-8">
+        <div className="relative w-[120px] h-[120px] mb-6">
           <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
           <div className="relative w-full h-full rounded-full border-2 border-primary/40 p-1 bg-black z-10 overflow-hidden">
              <div className="relative w-full h-full rounded-full overflow-hidden transition-transform duration-500 hover:scale-110">
@@ -51,7 +51,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 2. Identity Header */}
-        <div className="flex flex-col items-center gap-1.5 mb-8">
+        <div className="flex flex-col items-center gap-1.5 mb-6 text-center">
           <h1 className="text-4xl font-headline font-bold text-white tracking-tight">
             Swathi P V
           </h1>
@@ -61,7 +61,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 3. Boarding Pass Location Card */}
-        <div className="w-full bg-[#10b981] rounded-[2.5rem] p-6 text-white shadow-[0_10px_30px_rgba(16,185,129,0.3)] mb-8">
+        <div className="w-full bg-[#10b981] rounded-[2.5rem] p-6 text-white shadow-[0_10px_30px_rgba(16,185,129,0.3)] mb-6">
           <div className="flex justify-between items-start mb-1">
             <div className="flex flex-col">
               <div className="flex items-baseline gap-1">
@@ -93,7 +93,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 4. Modular Expertise Stack */}
-        <div className="w-full bg-transparent border border-primary/20 rounded-[2.5rem] py-8 px-4 flex flex-col items-center gap-5 mb-8 relative">
+        <div className="w-full bg-transparent border border-primary/20 rounded-[2.5rem] py-8 px-4 flex flex-col items-center gap-5 mb-6 relative">
           <div className="absolute -right-1.5 top-1/2 -translate-y-1/2">
              <div className="w-3.5 h-3.5 bg-primary rounded-full shadow-[0_0_15px_rgba(16,185,129,0.8)]" />
           </div>
