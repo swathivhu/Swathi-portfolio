@@ -24,7 +24,7 @@ const IndiaFlag = () => (
 );
 
 const KarnatakaFlag = () => (
-  <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm ml-1.5">
+  <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm">
     <div className="h-1/2 bg-[#FFFF00]" />
     <div className="h-1/2 bg-[#FF0000]" />
   </div>
@@ -69,45 +69,46 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 4. Location Card (mt-6 = 24px) */}
-        <div className="mt-6 w-[85%] bg-primary rounded-[2.5rem] py-2 px-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
-          <div className="w-full flex justify-between items-center py-0.5">
-            {/* Left Section */}
+        {/* 4. Location Card (mt-6 = 24px) - Exact Boarding Pass Style */}
+        <div className="mt-6 w-[88%] bg-[#10b981] rounded-[2.5rem] py-4 px-6 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
+          <div className="w-full flex justify-between items-center pb-2">
+            {/* Left Section: IND IN INDIA */}
             <div className="flex flex-col items-start leading-none">
-              <div className="flex items-center font-bold">
-                <IndiaFlag />
-                <span className="text-xl leading-none">IND</span>
+              <div className="flex items-start font-bold gap-1">
+                <span className="text-2xl leading-none">IND</span>
+                <span className="text-[10px] leading-none mt-1">IN</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-80 mt-0.5">INDIA</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest mt-1">INDIA</span>
             </div>
             
-            {/* Center Section */}
-            <div className="opacity-70">
-              <Plane className="w-4 h-4 rotate-45" />
+            {/* Center Section: Airplane */}
+            <div className="opacity-90">
+              <Plane className="w-5 h-5 rotate-45" />
             </div>
             
-            {/* Right Section */}
+            {/* Right Section: KarnatakaFlag BLR BENGALURU */}
             <div className="flex flex-col items-end leading-none">
               <div className="flex items-center font-bold">
-                <span className="text-xl leading-none">BLR</span>
                 <KarnatakaFlag />
+                <span className="text-2xl leading-none ml-2">BLR</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-80 mt-0.5">BENGALURU</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest mt-1">BENGALURU</span>
             </div>
           </div>
           
           {/* Thin Solid Divider */}
-          <div className="w-full h-[0.5px] bg-white/20 my-1.5" />
+          <div className="w-full h-[0.5px] bg-white/30 my-2" />
           
+          {/* Status Line */}
           <div className="text-center w-full">
-            <div className="text-[9px] font-bold uppercase tracking-widest text-white/90 leading-none pb-1">
+            <div className="text-[10px] font-bold uppercase tracking-tight text-white leading-none">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
         </div>
 
         {/* 5. Roles Card (mt-5 = 20px) */}
-        <div className="mt-5 w-[85%] bg-[#0a0a0a] border border-primary/20 rounded-[2.5rem] py-3.5 px-4 flex flex-col items-center gap-2.5 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
+        <div className="mt-5 w-[88%] bg-[#0a0a0a] border border-primary/20 rounded-[2.5rem] py-5 px-4 flex flex-col items-center gap-3 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
           <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
@@ -124,8 +125,8 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 6. Social Icon Row (mt-5 = 20px) */}
-        <div className="mt-5 flex flex-row justify-center gap-4 w-full">
+        {/* 6. Social Icon Row (mt-6 = 24px) */}
+        <div className="mt-6 flex flex-row justify-center gap-4 w-full">
           {[
             { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu', label: 'GitHub' },
             { icon: LinkedInIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a', label: 'LinkedIn' },
