@@ -12,15 +12,15 @@ export const Sidebar: React.FC = () => {
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
       {/* Sidebar Card: Premium Glass-morphism Design */}
-      <div className="w-full h-full bg-[#111827]/60 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 flex flex-col items-center justify-between text-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden relative">
+      <div className="w-full h-full bg-[#111827]/60 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 flex flex-col items-center justify-between text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative">
         
         {/* Identity Section */}
         <div className="w-full flex flex-col items-center gap-7">
-          {/* Profile Image with subtle emerald ring */}
-          <div className="relative w-24 h-24 xl:w-28 xl:h-28 flex items-center justify-center group">
-            <div className="absolute inset-[-2px] rounded-full border border-primary/20 animate-[spin_10s_linear_infinite] opacity-50" />
-            <div className="relative w-full h-full rounded-full overflow-hidden border border-white/5 p-1 bg-[#0F172A]/80 z-10">
-              <div className="relative w-full h-full rounded-full overflow-hidden">
+          {/* Profile Image with precision border */}
+          <div className="relative w-24 h-24 xl:w-28 xl:h-28 group">
+            <div className="absolute inset-0 rounded-full border border-primary/20 shadow-[0_0_20px_rgba(16,185,129,0.05)]" />
+            <div className="relative w-full h-full rounded-full p-1 bg-[#0F172A]/40 border border-white/5 overflow-hidden">
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-muted">
                 <Image
                   src={profile?.imageUrl || ''}
                   alt="Swathi P V"
@@ -43,7 +43,7 @@ export const Sidebar: React.FC = () => {
           </div>
 
           {/* Location Badge */}
-          <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/5 transition-colors hover:bg-white/[0.05]">
+          <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/5">
             <MapPin className="w-3.5 h-3.5 text-primary" />
             <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Bengaluru, India</span>
           </div>
@@ -81,7 +81,7 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/5 hover:border-primary/30 transition-all group"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/5 hover:border-primary/30 transition-all group shadow-sm"
               >
                 <social.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
@@ -93,7 +93,7 @@ export const Sidebar: React.FC = () => {
 
           {/* Main Action Button */}
           <div className="w-full space-y-4">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-black/20 hover:-translate-y-0.5">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-md shadow-black/20 hover:-translate-y-0.5">
               <Download className="w-3.5 h-3.5 mr-2" />
               DOWNLOAD CV
             </Button>
