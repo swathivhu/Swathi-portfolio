@@ -30,7 +30,7 @@ export const Hero: React.FC = () => {
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        <div className="lg:col-span-7 space-y-8">
+        <div className="lg:col-span-7 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">Innovation & Intelligence</span>
           </div>
@@ -41,7 +41,7 @@ export const Hero: React.FC = () => {
               <span className="text-primary">Digital Systems</span>
             </h1>
             
-            <div className="h-10 flex items-center">
+            <div className="h-10 flex items-center justify-center lg:justify-start">
               <p className="text-xl font-medium text-muted-foreground tracking-tight">
                 Crafting <span className="text-white font-mono">{displayText}</span>
                 <span className="inline-block w-1 h-6 ml-2 bg-primary"></span>
@@ -53,11 +53,11 @@ export const Hero: React.FC = () => {
             I bridge the gap between human creativity and machine intelligence, building production-grade AI solutions that transform complex data into meaningful experiences.
           </p>
           
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 w-full">
             <Button 
               size="lg" 
               onClick={() => scrollTo('projects')}
-              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 h-14 font-bold tracking-wider transition-all shadow-lg shadow-primary/5"
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 h-14 font-bold tracking-wider transition-all shadow-lg shadow-primary/5 whitespace-nowrap"
             >
               View Work
             </Button>
@@ -65,7 +65,7 @@ export const Hero: React.FC = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="border-primary/20 hover:bg-primary/5 text-primary rounded-xl px-8 h-14 font-bold tracking-wider transition-all"
+              className="border-primary/20 hover:bg-primary/5 text-primary rounded-xl px-8 h-14 font-bold tracking-wider transition-all whitespace-nowrap"
             >
               <Download className="mr-2 w-4 h-4" />
               Download Resume
@@ -75,7 +75,7 @@ export const Hero: React.FC = () => {
               variant="outline" 
               size="lg" 
               onClick={() => scrollTo('contact')}
-              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-8 h-14 font-bold text-muted-foreground hover:text-white transition-all"
+              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-8 h-14 font-bold text-muted-foreground hover:text-white transition-all whitespace-nowrap"
             >
               Contact Me
               <ArrowRight className="ml-2 w-4 h-4" />
