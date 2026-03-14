@@ -15,17 +15,24 @@ export const Sidebar: React.FC = () => {
         
         {/* Top Section: Profile Image & Identity */}
         <div className="w-full space-y-6">
-          <div className="relative mx-auto w-20 h-20 xl:w-24 xl:h-24 rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 p-1 group-hover/card:scale-105 transition-transform duration-700 shadow-2xl">
-            <div className="relative w-full h-full rounded-2xl overflow-hidden">
-              <Image
-                src={profile?.imageUrl || ''}
-                alt="Swathi P V"
-                fill
-                className="object-cover"
-                data-ai-hint="tech developer portrait"
-              />
+          <div className="relative mx-auto w-20 h-20 xl:w-24 xl:h-24 group/profile">
+            {/* Animated Neural Ring */}
+            <div className="absolute -inset-1.5 rounded-[2rem] bg-gradient-to-tr from-secondary via-primary to-secondary opacity-40 blur-[3px] animate-[spin_10s_linear_infinite] pointer-events-none" />
+            <div className="absolute -inset-1.5 rounded-[2rem] bg-gradient-to-bl from-primary via-secondary to-primary opacity-20 blur-[6px] animate-[spin_15s_linear_infinite_reverse] pointer-events-none" />
+            
+            {/* Image Container */}
+            <div className="relative w-full h-full rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 p-1 group-hover/card:scale-105 transition-transform duration-700 shadow-2xl z-10">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                <Image
+                  src={profile?.imageUrl || ''}
+                  alt="Swathi P V"
+                  fill
+                  className="object-cover"
+                  data-ai-hint="tech developer portrait"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none" />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none" />
           </div>
           
           <div className="space-y-2">
