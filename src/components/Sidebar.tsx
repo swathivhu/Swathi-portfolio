@@ -10,8 +10,8 @@ export const Sidebar: React.FC = () => {
   const profile = PlaceHolderImages.find(img => img.id === 'profile');
 
   return (
-    <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-auto lg:h-screen left-auto top-0 py-12 lg:pt-32 lg:pb-12 z-40 overflow-hidden">
-      <div className="bg-[#0D0D0E] border border-white/5 shadow-2xl h-full rounded-[2.5rem] p-8 xl:p-10 flex flex-col items-center justify-between text-center transition-all duration-500 hover:-translate-y-1 hover:border-white/10 hover:shadow-black/40 group/card">
+    <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 py-12 lg:pt-32 lg:pb-12 z-40 overflow-y-auto no-scrollbar">
+      <div className="bg-[#0D0D0E] border border-white/5 shadow-2xl min-h-full rounded-[2.5rem] p-8 xl:p-10 flex flex-col items-center justify-between text-center transition-all duration-500 hover:-translate-y-1 hover:border-white/10 hover:shadow-black/40 group/card">
         <div className="flex flex-col items-center w-full">
           {/* Profile Image Container */}
           <div className="relative w-36 h-36 md:w-40 md:h-40 xl:w-48 xl:h-48 mb-10 rounded-3xl overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 group-hover/card:scale-[1.02]">
@@ -55,10 +55,10 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Visual Divider */}
+        {/* Visual Divider - Purple to Cyan Gradient */}
         <div className="w-full py-10">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/20 to-transparent blur-sm" />
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 via-secondary/30 to-transparent relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 via-secondary/10 to-transparent blur-sm" />
           </div>
         </div>
 
