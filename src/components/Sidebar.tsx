@@ -128,10 +128,10 @@ export const Sidebar: React.FC = () => {
         {/* Social Icons (24px from role card) - Brand Original Colors + Download Icon */}
         <div className="flex flex-row justify-center gap-4 mt-6">
           {[
-            { icon: GithubIcon, href: 'https://github.com', hoverColor: 'hover:border-white/50' },
-            { icon: LinkedinIcon, href: 'https://linkedin.com', hoverColor: 'hover:border-[#0077B5]/50' },
-            { icon: GmailIcon, href: 'mailto:swathi@example.com', hoverColor: 'hover:border-[#EA4335]/50' },
-            { icon: () => <Download className="w-5 h-5 text-primary" />, href: '#', hoverColor: 'hover:border-primary/50' },
+            { icon: GithubIcon, href: 'https://github.com/swathivhu', hoverColor: 'hover:border-white/50' },
+            { icon: LinkedinIcon, href: 'https://linkedin.com/in/swathi-p-v-1ba07733a', hoverColor: 'hover:border-[#0077B5]/50' },
+            { icon: GmailIcon, href: 'mailto:swathipv.2501@gmail.com', hoverColor: 'hover:border-[#EA4335]/50' },
+            { icon: () => <Download className="w-5 h-5 text-primary" />, href: '/Swathi-Resume.pdf', hoverColor: 'hover:border-primary/50' },
           ].map((social, i) => (
             <a 
               key={i}
