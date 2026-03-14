@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin, Code, Bot, Clapperboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -49,19 +49,20 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Roles / Styled Badges */}
+        {/* Roles / Styled Badges with Icons */}
         <div className="w-full py-4">
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              'Python Full Stack',
-              'Gen AI',
-              'Content Creator'
-            ].map((tag, i) => (
+              { label: 'Python Full Stack', icon: Code },
+              { label: 'Gen AI', icon: Bot },
+              { label: 'Content Creator', icon: Clapperboard }
+            ].map((role, i) => (
               <span 
                 key={i}
-                className="px-5 py-2.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-primary/[0.08] border border-primary/30 text-white transition-all hover:bg-primary/20 hover:border-primary/50 cursor-default shadow-sm shadow-primary/5"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-primary/[0.08] border border-primary/30 text-white transition-all hover:bg-primary/20 hover:border-primary/50 cursor-default shadow-sm shadow-primary/5"
               >
-                {tag}
+                <role.icon className="w-3.5 h-3.5 text-primary" />
+                {role.label}
               </span>
             ))}
           </div>
