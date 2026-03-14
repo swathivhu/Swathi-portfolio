@@ -11,12 +11,12 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-4 lg:p-6 z-40 flex flex-col">
-      <div className="flex-1 bg-[#0D0D0E] border border-white/5 shadow-2xl rounded-[2rem] p-6 xl:p-8 flex flex-col items-center justify-between text-center transition-all duration-500 hover:border-white/10 hover:shadow-black/40 group/card">
+      <div className="flex-1 bg-[#0D0D0E] border border-white/5 shadow-2xl rounded-[2.5rem] p-6 xl:p-8 flex flex-col items-center justify-between text-center transition-all duration-500 hover:border-white/10 hover:shadow-black/40 group/card">
         
         {/* Top Section: Identity */}
-        <div className="flex flex-col items-center w-full">
-          {/* Profile Image - Compact Size */}
-          <div className="relative w-28 h-28 md:w-32 md:h-32 xl:w-36 xl:h-36 mb-6 rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 group-hover/card:scale-[1.02]">
+        <div className="flex flex-col items-center w-full space-y-4">
+          {/* Profile Image - Reduced Size for better fit */}
+          <div className="relative w-24 h-24 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 group-hover/card:scale-[1.02]">
             <Image
               src={profile?.imageUrl || ''}
               alt="Swathi P V"
@@ -26,19 +26,19 @@ export const Sidebar: React.FC = () => {
             />
           </div>
           
-          <div className="space-y-1.5 mb-4">
+          <div className="space-y-1">
             <h1 className="text-xl xl:text-2xl font-headline font-bold tracking-tight text-white">Swathi P V</h1>
-            <p className="text-secondary font-mono text-[9px] xl:text-[10px] uppercase tracking-[0.3em] opacity-80">
+            <p className="text-secondary font-mono text-[10px] uppercase tracking-[0.3em] opacity-90">
               AI System Architect
             </p>
           </div>
           
-          <p className="text-muted-foreground text-xs xl:text-sm leading-relaxed mb-6 max-w-[200px]">
+          <p className="text-muted-foreground text-xs xl:text-sm leading-relaxed max-w-[220px]">
             Engineering the future through generative intelligence.
           </p>
           
-          {/* Minimal Social Links */}
-          <div className="grid grid-cols-3 gap-3 w-full max-w-[180px]">
+          {/* Social Links - Horizontal Row */}
+          <div className="flex flex-row justify-center gap-3 w-full">
             {[
               { icon: Github, href: 'https://github.com' },
               { icon: Linkedin, href: 'https://linkedin.com' },
@@ -49,7 +49,7 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center justify-center aspect-square rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:border-white/10 transition-all group"
+                className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:border-white/10 transition-all group"
               >
                 <social.icon className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors" />
               </a>
@@ -57,11 +57,9 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Middle Section: Divider */}
-        <div className="w-full py-4">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 via-secondary/30 to-transparent relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 via-secondary/10 to-transparent blur-sm" />
-          </div>
+        {/* Middle Section: Minimal Divider */}
+        <div className="w-full py-2">
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 via-secondary/20 to-transparent relative" />
         </div>
 
         {/* Bottom Section: Actions & Footer */}
