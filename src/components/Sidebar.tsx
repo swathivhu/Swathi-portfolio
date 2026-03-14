@@ -29,13 +29,13 @@ const IndiaFlag = () => (
 
 export const Sidebar: React.FC = () => {
   return (
-    <aside className="w-full lg:w-80 xl:w-[400px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
+    <aside className="w-full lg:w-80 xl:w-[420px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
       {/* Main Identity Card */}
-      <div className="w-full bg-black border border-white/10 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative">
+      <div className="w-full bg-black border border-white/5 rounded-[3.5rem] py-10 px-8 flex flex-col items-center shadow-2xl relative">
         
         {/* 1. Avatar Section with Emerald Glow */}
-        <div className="relative w-[120px] h-[120px] mb-6">
+        <div className="relative w-[110px] h-[110px] mb-8">
           <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
           <div className="relative w-full h-full rounded-full border-2 border-primary/40 p-1 bg-black z-10 overflow-hidden">
              <div className="relative w-full h-full rounded-full overflow-hidden transition-transform duration-500 hover:scale-110">
@@ -51,7 +51,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 2. Identity Header */}
-        <div className="flex flex-col items-center gap-1.5 mb-6 text-center">
+        <div className="flex flex-col items-center gap-2 mb-8 text-center">
           <h1 className="text-4xl font-headline font-bold text-white tracking-tight">
             Swathi P V
           </h1>
@@ -60,18 +60,18 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 3. Boarding Pass Location Card */}
-        <div className="w-full bg-[#10b981] rounded-[2.5rem] p-6 text-white shadow-[0_10px_30px_rgba(16,185,129,0.3)] mb-6">
+        {/* 3. Boarding Pass Location Card - Precise Sizing from Figure */}
+        <div className="w-full bg-[#10b981] rounded-[2.5rem] p-6 text-white shadow-[0_10px_30px_rgba(16,185,129,0.3)] mb-8">
           <div className="flex justify-between items-start mb-1">
             <div className="flex flex-col">
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-bold">IND</span>
                 <span className="text-[10px] font-bold opacity-80 uppercase">IN</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-70">INDIA</span>
+              <span className="text-[8px] font-mono uppercase tracking-widest opacity-90">INDIA</span>
             </div>
             
-            <div className="flex-1 flex justify-center pt-2 opacity-60">
+            <div className="flex-1 flex justify-center pt-2 opacity-40">
               <Plane className="w-5 h-5 rotate-45" />
             </div>
             
@@ -80,20 +80,20 @@ export const Sidebar: React.FC = () => {
                 <IndiaFlag />
                 <span className="text-2xl font-bold">BLR</span>
               </div>
-              <span className="text-[8px] font-mono uppercase tracking-widest opacity-70">BENGALURU</span>
+              <span className="text-[8px] font-mono uppercase tracking-widest opacity-90">BENGALURU</span>
             </div>
           </div>
           
-          <div className="mt-4 pt-4 border-t border-white/20 border-dashed text-center space-y-1">
-            <div className="text-[8px] font-mono uppercase tracking-[0.2em] opacity-80">CURRENT STATUS</div>
-            <div className="text-[10px] font-bold uppercase tracking-widest">
+          <div className="mt-4 pt-4 border-t border-white/30 border-dashed text-center space-y-1">
+            <div className="text-[7px] font-mono uppercase tracking-[0.2em] opacity-80">CURRENT STATUS</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-white">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
         </div>
 
         {/* 4. Modular Expertise Stack */}
-        <div className="w-full bg-transparent border border-primary/20 rounded-[2.5rem] py-8 px-4 flex flex-col items-center gap-5 mb-6 relative">
+        <div className="w-full bg-transparent border border-primary/20 rounded-[2.5rem] py-8 px-4 flex flex-col items-center gap-5 mb-8 relative">
           <div className="absolute -right-1.5 top-1/2 -translate-y-1/2">
              <div className="w-3.5 h-3.5 bg-primary rounded-full shadow-[0_0_15px_rgba(16,185,129,0.8)]" />
           </div>
