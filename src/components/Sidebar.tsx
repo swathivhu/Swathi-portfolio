@@ -16,9 +16,9 @@ export const Sidebar: React.FC = () => {
         
         {/* Identity Section */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Profile Image with subtle precision border */}
+          {/* Profile Image with subtle precision border and very soft glow */}
           <div className="relative w-28 h-28 xl:w-32 xl:h-32 group">
-            <div className="absolute inset-0 rounded-full border border-primary/20 shadow-xl" />
+            <div className="absolute inset-0 rounded-full border border-primary/30 shadow-[0_0_20px_rgba(16,185,129,0.1)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]" />
             <div className="relative w-full h-full rounded-full p-1 bg-[#0F172A]/40 border border-white/5 overflow-hidden">
               <div className="relative w-full h-full rounded-full overflow-hidden bg-muted">
                 <Image
@@ -39,8 +39,8 @@ export const Sidebar: React.FC = () => {
             <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white">
               Swathi P V
             </h1>
-            {/* Signature Underline Decor */}
-            <div className="w-8 h-1 bg-primary rounded-full" />
+            {/* Signature Underline Decor with soft glow */}
+            <div className="w-8 h-1 bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,0.3)]" />
             <p className="text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
               AI System Architect
             </p>
@@ -53,10 +53,10 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Roles: Single Radiant Pill (Reference Style) */}
+        {/* Roles: Radiant Pill Style */}
         <div className="w-full px-2">
-          <div className="py-3 px-6 rounded-2xl bg-[#0F172A] border border-primary/30 shadow-inner">
-            <div className="text-[11px] font-bold tracking-wider leading-relaxed text-primary">
+          <div className="py-3 px-6 rounded-2xl bg-[#0F172A] border border-primary/40 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)]">
+            <div className="text-[11px] font-bold tracking-wider leading-relaxed text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
               Python Full Stack <span className="mx-2 text-white/20 font-light">|</span> 
               Gen AI <span className="mx-2 text-white/20 font-light">|</span> 
               Content Creator
@@ -66,7 +66,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Actions & Socials */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Social Icons: Refined Circular Style with smooth hover lift */}
+          {/* Social Icons: Refined Circular Style */}
           <div className="flex flex-row justify-center gap-4">
             {[
               { icon: Github, href: 'https://github.com' },
@@ -78,7 +78,7 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/50 hover:scale-110 hover:-translate-y-1 transition-all duration-300 group shadow-sm"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/50 hover:scale-110 hover:-translate-y-1 transition-all duration-300 group shadow-sm hover:shadow-primary/5"
               >
                 <social.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
@@ -88,9 +88,9 @@ export const Sidebar: React.FC = () => {
           {/* Minimal Divider */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
-          {/* Main Action Button with soft shadow and lift */}
+          {/* Main Action Button with soft glow and lift */}
           <div className="w-full space-y-4">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-black/20 hover:-translate-y-1 active:translate-y-0">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-6 text-[10px] font-bold tracking-[0.2em] transition-all shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:-translate-y-1 active:translate-y-0">
               <Download className="w-3.5 h-3.5 mr-2" />
               DOWNLOAD CV
             </Button>
