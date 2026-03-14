@@ -31,13 +31,13 @@ export default function Home() {
       {/* Root Layout Container: Centered with max-width for consistent alignment */}
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row relative min-h-screen">
         
-        {/* Fixed Left Sidebar Column Spacer */}
-        <div className="w-full lg:w-80 xl:w-96 flex-shrink-0 lg:relative">
+        {/* Fixed Left Sidebar Column: Maintains space while aside is fixed */}
+        <div className="w-full lg:w-80 xl:w-96 flex-shrink-0">
           <Sidebar />
         </div>
         
         {/* Scrollable Right Content Column */}
-        <div className="flex-1 w-full lg:pl-16 xl:pl-24 relative z-10 py-12 lg:py-0">
+        <div className="flex-1 w-full lg:pl-16 xl:pl-24 relative z-10">
           <Hero />
           <SectionDivider />
           <About />
