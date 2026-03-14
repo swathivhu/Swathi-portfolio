@@ -70,7 +70,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 4. Location Card (Boarding Pass style) */}
-        <div className="mt-6 w-[85%] bg-primary rounded-[2rem] py-4 px-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
+        <div className="mt-6 w-[85%] bg-primary rounded-[2rem] py-3 px-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center mb-1">
             {/* Left Section */}
             <div className="flex flex-col items-start">
@@ -97,7 +97,7 @@ export const Sidebar: React.FC = () => {
           </div>
           
           {/* Thin Solid Divider with Subtle Opacity */}
-          <div className="w-full h-[1px] bg-white/20 my-3" />
+          <div className="w-full h-[1px] bg-white/20 my-2" />
           
           <div className="text-center">
             <div className="text-[9px] font-bold uppercase tracking-widest text-white/90">
@@ -106,8 +106,8 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 5. Roles Card */}
-        <div className="mt-5 w-[85%] bg-[#0a0a0a] border border-primary/20 rounded-[2rem] py-6 px-4 flex flex-col items-center gap-4 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
+        {/* 5. Roles Card - Reduced mt to bring it upward */}
+        <div className="mt-3 w-[85%] bg-[#0a0a0a] border border-primary/20 rounded-[2rem] py-6 px-4 flex flex-col items-center gap-4 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
           <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
