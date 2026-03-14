@@ -47,79 +47,79 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-32">
+    <section id="projects" className="py-40">
       <h2 className="section-heading">
         <span className="section-number">03.</span> Featured Systems
         <div className="h-px bg-white/5 flex-1" />
       </h2>
       
-      <div className="grid grid-cols-1 gap-20">
+      <div className="grid grid-cols-1 gap-32 lg:gap-48">
         {projects.map((project, idx) => (
           <div key={project.id} className="group relative">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
               {/* Image side */}
-              <div className={`lg:col-span-7 relative aspect-video rounded-3xl overflow-hidden glass-card border-white/10 glow-border ${idx % 2 !== 0 ? 'lg:order-last' : ''}`}>
+              <div className={`lg:col-span-7 relative aspect-video rounded-[3rem] overflow-hidden glass-card border-white/10 glow-border ${idx % 2 !== 0 ? 'lg:order-last' : ''}`}>
                 <Image
                   src={project.image || ''}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
                   data-ai-hint="ai project dashboard"
                 />
-                <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500" />
+                <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-700" />
               </div>
               
               {/* Content side */}
-              <div className="lg:col-span-5 space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-secondary/10 text-secondary">
-                    <Layers className="w-5 h-5" />
+              <div className="lg:col-span-5 space-y-8">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-secondary/10 text-secondary">
+                    <Layers className="w-6 h-6" />
                   </div>
-                  <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Enterprise AI</span>
+                  <span className="text-sm font-mono text-muted-foreground uppercase tracking-[0.2em]">Enterprise AI</span>
                 </div>
                 
-                <h3 className="text-4xl font-headline font-bold text-glow-primary leading-tight">
+                <h3 className="text-4xl md:text-5xl font-headline font-bold text-glow-primary leading-tight">
                   {project.title}
                 </h3>
                 
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   {project.description}
                 </p>
 
                 {summaries[project.id] && (
-                  <div className="p-5 bg-primary/5 border border-primary/10 rounded-2xl animate-in fade-in slide-in-from-top-2">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Sparkles className="w-4 h-4 text-primary" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-primary/80">LLM Analysis</span>
+                  <div className="p-8 bg-primary/5 border border-primary/10 rounded-[2rem] animate-in fade-in slide-in-from-top-4 duration-500">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Sparkles className="w-5 h-5 text-primary" />
+                      <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary/80">LLM Analysis</span>
                     </div>
-                    <p className="text-sm italic leading-relaxed text-muted-foreground">"{summaries[project.id]}"</p>
+                    <p className="text-lg italic leading-relaxed text-muted-foreground">"{summaries[project.id]}"</p>
                   </div>
                 )}
                 
-                <div className="flex flex-wrap gap-2 pt-2">
+                <div className="flex flex-wrap gap-3 pt-4">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground uppercase tracking-wider">
+                    <span key={tag} className="text-xs font-mono font-bold px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-muted-foreground/80 uppercase tracking-widest">
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <div className="flex items-center gap-6 pt-6">
+                <div className="flex items-center gap-8 pt-10">
                   <Button 
                     variant="ghost" 
-                    size="sm"
-                    className="p-0 h-auto hover:bg-transparent text-secondary hover:text-secondary/80 font-bold group/btn"
+                    size="lg"
+                    className="p-0 h-auto hover:bg-transparent text-secondary hover:text-secondary/80 text-lg font-bold group/btn"
                     onClick={() => handleGenerateSummary(project.id, project.longDescription)}
                     disabled={loading[project.id]}
                   >
-                    <Sparkles className={`w-4 h-4 mr-2 ${loading[project.id] ? 'animate-spin' : ''}`} />
+                    <Sparkles className={`w-5 h-5 mr-3 ${loading[project.id] ? 'animate-spin' : ''}`} />
                     {loading[project.id] ? "Synthesizing..." : "AI INSIGHT"}
-                    <div className="h-0.5 w-0 group-hover/btn:w-full bg-secondary transition-all duration-300 ml-2" />
+                    <div className="h-0.5 w-0 group-hover/btn:w-full bg-secondary transition-all duration-300 ml-3" />
                   </Button>
                   
-                  <div className="flex items-center gap-4 ml-auto">
-                    <a href={project.github} className="p-3 glass-card rounded-xl hover:text-secondary transition-colors"><Github className="w-5 h-5" /></a>
-                    <a href={project.demo} className="p-3 glass-card rounded-xl hover:text-secondary transition-colors"><ExternalLink className="w-5 h-5" /></a>
+                  <div className="flex items-center gap-5 ml-auto">
+                    <a href={project.github} className="p-4 glass-card rounded-2xl hover:text-secondary hover:scale-110 transition-all"><Github className="w-6 h-6" /></a>
+                    <a href={project.demo} className="p-4 glass-card rounded-2xl hover:text-secondary hover:scale-110 transition-all"><ExternalLink className="w-6 h-6" /></a>
                   </div>
                 </div>
               </div>

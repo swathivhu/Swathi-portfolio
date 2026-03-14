@@ -14,9 +14,10 @@ import { Contact } from '@/components/sections/Contact';
 
 /**
  * A minimal, modern section divider with a subtle purple-to-cyan gradient.
+ * Increased padding to create significant breathing room between sections.
  */
 const SectionDivider = () => (
-  <div className="w-full py-12 flex justify-center items-center opacity-20">
+  <div className="w-full py-24 flex justify-center items-center opacity-10">
     <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-primary via-secondary to-transparent" />
   </div>
 );
@@ -28,12 +29,12 @@ export default function Home() {
       <BackgroundParticles />
       <FloatingNav />
       
-      <div className="container mx-auto px-6 lg:px-0 flex flex-col lg:flex-row">
+      <div className="container mx-auto px-8 lg:px-12 flex flex-col lg:flex-row">
         {/* Fixed Left Sidebar */}
         <Sidebar />
         
-        {/* Scrollable Right Content Area */}
-        <div className="w-full lg:ml-80 lg:pl-12 relative z-10">
+        {/* Scrollable Right Content Area with increased horizontal padding */}
+        <div className="w-full lg:ml-80 lg:pl-20 relative z-10">
           <Hero />
           <SectionDivider />
           <About />

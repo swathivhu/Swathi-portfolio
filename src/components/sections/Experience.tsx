@@ -21,36 +21,37 @@ const experiences = [
 
 export const Experience: React.FC = () => {
   return (
-    <section id="experience" className="py-32">
+    <section id="experience" className="py-40">
       <h2 className="section-heading">
         <span className="section-number">04.</span> Experience
         <div className="h-px bg-white/5 flex-1" />
       </h2>
       
-      <div className="space-y-12">
+      <div className="space-y-24">
         {experiences.map((exp, idx) => (
-          <div key={idx} className="relative pl-12 group">
-            <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-primary via-white/10 to-transparent" />
-            <div className="absolute left-[-4px] top-0 w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_hsla(var(--primary),1)] group-hover:scale-150 transition-transform" />
+          <div key={idx} className="relative pl-16 group">
+            {/* Timeline accent line */}
+            <div className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-primary via-white/10 to-transparent" />
+            <div className="absolute left-[-6px] top-2 w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_15px_hsla(var(--primary),1)] group-hover:scale-150 transition-transform duration-500" />
             
-            <div className="space-y-4">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                <div>
-                  <h3 className="text-2xl font-headline font-bold text-white group-hover:text-glow-primary transition-all">{exp.role}</h3>
-                  <p className="text-secondary font-mono text-sm uppercase tracking-widest">{exp.company}</p>
+            <div className="space-y-8">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div className="space-y-1">
+                  <h3 className="text-3xl font-headline font-bold text-white group-hover:text-glow-primary transition-all duration-500">{exp.role}</h3>
+                  <p className="text-secondary font-mono text-base uppercase tracking-[0.25em]">{exp.company}</p>
                 </div>
-                <span className="text-xs font-mono text-muted-foreground bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                <span className="text-sm font-mono text-muted-foreground bg-white/5 px-5 py-2 rounded-full border border-white/10">
                   {exp.period}
                 </span>
               </div>
               
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl">
                 {exp.description}
               </p>
               
-              <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex flex-wrap gap-4 pt-4">
                 {exp.tech.map(t => (
-                  <span key={t} className="text-[10px] font-mono font-bold px-3 py-1 bg-white/[0.03] border border-white/5 rounded-lg text-muted-foreground/60">
+                  <span key={t} className="text-xs font-mono font-bold px-4 py-2 bg-white/[0.03] border border-white/5 rounded-xl text-muted-foreground/60 uppercase tracking-widest">
                     {t}
                   </span>
                 ))}
