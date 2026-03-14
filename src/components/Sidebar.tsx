@@ -11,15 +11,12 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-6 z-40 flex flex-col items-center">
-      <div className="w-full h-full bg-card/30 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden">
+      <div className="w-full h-full bg-card border border-white/5 rounded-[2.5rem] p-8 flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden shadow-2xl">
         
         {/* Top: Profile Identity */}
         <div className="w-full space-y-6">
           <div className="relative mx-auto w-24 h-24 xl:w-28 xl:h-28">
-            {/* Minimal Mono-color Rotating Ring */}
-            <div className="absolute -inset-1 rounded-full border border-primary/20 animate-spin-slow" />
-            
-            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/30 p-1 bg-background z-10">
+            <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 p-1 bg-background z-10">
               <div className="relative w-full h-full rounded-full overflow-hidden">
                 <Image
                   src={profile?.imageUrl || ''}
@@ -42,13 +39,13 @@ export const Sidebar: React.FC = () => {
           </div>
 
           {/* Location Badge: Minimal Style */}
-          <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 w-fit mx-auto">
-            <MapPin className="w-3.5 h-3.5 text-primary/70" />
+          <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/5 w-fit mx-auto">
+            <MapPin className="w-3.5 h-3.5 text-primary" />
             <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Bangalore, India</span>
           </div>
         </div>
 
-        {/* Middle: Role Badges: Minimal Indigo Border */}
+        {/* Middle: Role Badges: Minimal Emerald Border */}
         <div className="w-full">
           <div className="flex flex-wrap justify-center gap-2">
             {[
@@ -90,7 +87,7 @@ export const Sidebar: React.FC = () => {
           <div className="w-full h-px bg-white/5" />
 
           <div className="space-y-4">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-7 text-xs font-bold tracking-[0.15em] transition-all shadow-lg shadow-primary/10">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-7 text-xs font-bold tracking-[0.15em] transition-all">
               <Download className="w-4 h-4 mr-2" />
               DOWNLOAD CV
             </Button>

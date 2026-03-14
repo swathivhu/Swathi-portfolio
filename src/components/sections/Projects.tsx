@@ -61,7 +61,7 @@ export const Projects: React.FC = () => {
                 src={project.image || ''}
                 alt={project.title}
                 fill
-                className="object-cover"
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 data-ai-hint="ai project dashboard"
               />
             </div>
@@ -83,7 +83,7 @@ export const Projects: React.FC = () => {
               </p>
 
               {summaries[project.id] && (
-                <div className="p-5 bg-primary/5 border border-primary/10 rounded-xl">
+                <div className="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
                   <p className="text-sm italic text-primary font-medium">"{summaries[project.id]}"</p>
                 </div>
               )}

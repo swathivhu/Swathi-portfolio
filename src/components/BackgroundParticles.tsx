@@ -26,10 +26,10 @@ export const BackgroundParticles: React.FC = () => {
       constructor(width: number, height: number) {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.2;
-        this.vy = (Math.random() - 0.5) * 0.2;
+        this.vx = (Math.random() - 0.5) * 0.15;
+        this.vy = (Math.random() - 0.5) * 0.15;
         this.size = Math.random() * 1 + 0.5;
-        this.color = 'rgba(99, 102, 241, 0.1)';
+        this.color = 'rgba(16, 185, 129, 0.05)';
       }
 
       update(width: number, height: number) {
@@ -54,8 +54,8 @@ export const BackgroundParticles: React.FC = () => {
       canvas.width = width;
       canvas.height = height;
       particles = [];
-      const particleCount = Math.floor((width * height) / 25000);
-      for (let i = 0; i < Math.min(particleCount, 80); i++) {
+      const particleCount = Math.floor((width * height) / 30000);
+      for (let i = 0; i < Math.min(particleCount, 60); i++) {
         particles.push(new Particle(width, height));
       }
     };

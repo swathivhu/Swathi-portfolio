@@ -6,12 +6,10 @@ import { ArrowRight, Bot } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
-  const [isMounted, setIsMounted] = useState(false);
   
   const fullTitleText = "Generative AI Systems";
   
   useEffect(() => {
-    setIsMounted(true);
     let i = 0;
     const titleInterval = setInterval(() => {
       setDisplayText(fullTitleText.substring(0, i));
@@ -43,7 +41,7 @@ export const Hero: React.FC = () => {
             <div className="h-10 flex items-center">
               <p className="text-xl font-medium text-muted-foreground tracking-tight">
                 Crafting <span className="text-white font-mono">{displayText}</span>
-                <span className="inline-block w-1 h-6 ml-2 bg-primary animate-pulse"></span>
+                <span className="inline-block w-1 h-6 ml-2 bg-primary"></span>
               </p>
             </div>
           </div>
@@ -56,7 +54,7 @@ export const Hero: React.FC = () => {
             <Button 
               size="lg" 
               onClick={() => scrollTo('projects')}
-              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-10 h-14 font-bold tracking-wider shadow-lg shadow-primary/20"
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-10 h-14 font-bold tracking-wider"
             >
               View Work
             </Button>
@@ -76,7 +74,7 @@ export const Hero: React.FC = () => {
           <div className="relative w-72 h-72 flex items-center justify-center">
             <div className="absolute inset-0 border border-white/5 rounded-full" />
             <div className="absolute inset-8 border border-white/5 rounded-full" />
-            <div className="w-32 h-32 rounded-full bg-primary/5 flex items-center justify-center border border-primary/20">
+            <div className="w-32 h-32 rounded-full bg-white/[0.02] flex items-center justify-center border border-white/10">
               <Bot className="w-12 h-12 text-primary/40" />
             </div>
           </div>
