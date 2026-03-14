@@ -63,7 +63,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 3. Title Section */}
-        <div className="mt-3 flex flex-col items-center">
+        <div className="mt-2 flex flex-col items-center">
           <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.4em]">
             AI SYSTEM ARCHITECT
           </div>
@@ -73,7 +73,7 @@ export const Sidebar: React.FC = () => {
         <div className="mt-6 w-[85%] bg-primary rounded-[2rem] py-3 px-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center mb-1">
             {/* Left Section */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start leading-tight">
               <div className="flex items-center font-bold">
                 <IndiaFlag />
                 <span className="text-xl">IND</span>
@@ -87,7 +87,7 @@ export const Sidebar: React.FC = () => {
             </div>
             
             {/* Right Section */}
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-end leading-tight">
               <div className="flex items-center font-bold">
                 <span className="text-xl">BLR</span>
                 <KarnatakaFlag />
@@ -96,7 +96,7 @@ export const Sidebar: React.FC = () => {
             </div>
           </div>
           
-          {/* Thin Solid Divider with Subtle Opacity */}
+          {/* Thin Solid Divider */}
           <div className="w-full h-[1px] bg-white/20 my-2" />
           
           <div className="text-center">
@@ -106,7 +106,7 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 5. Roles Card - Reduced mt to bring it upward */}
+        {/* 5. Roles Card */}
         <div className="mt-3 w-[85%] bg-[#0a0a0a] border border-primary/20 rounded-[2rem] py-6 px-4 flex flex-col items-center gap-4 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
           <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
