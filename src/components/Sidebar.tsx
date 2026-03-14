@@ -70,7 +70,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Actions & Socials */}
         <div className="w-full flex flex-col items-center gap-6">
-          {/* Social Icons: Refined Circular Style */}
+          {/* Social Icons: Refined Circular Style with subtle scale and border brightness */}
           <div className="flex flex-row justify-center gap-4">
             {[
               { icon: Github, href: 'https://github.com' },
@@ -82,7 +82,7 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/40 hover:-translate-y-1 transition-all group shadow-sm"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/10 hover:border-primary/50 hover:scale-105 transition-all duration-300 group shadow-sm"
               >
                 <social.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
