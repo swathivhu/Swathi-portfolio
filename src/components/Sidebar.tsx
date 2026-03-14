@@ -66,15 +66,15 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* 4. Location Card (mt-6 = 24px) - Exact Boarding Pass Style - Enlarged Width */}
-        <div className="mt-6 w-[95%] bg-[#10b981] rounded-[2.5rem] py-3 px-8 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
+        <div className="mt-6 w-[95%] bg-[#10b981] rounded-2xl py-3 px-8 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center pb-1">
             {/* Left Section: IND IN INDIA */}
             <div className="flex flex-col items-start leading-none">
-              <div className="flex items-start font-bold gap-1">
-                <span className="text-xl leading-none">IND</span>
-                <span className="text-[9px] leading-none mt-0.5">IN</span>
+              <div className="flex items-start gap-1">
+                <span className="text-xl font-bold leading-none">IND</span>
+                <span className="text-[9px] font-normal leading-none mt-0.5 opacity-90">IN</span>
               </div>
-              <span className="text-[8px] font-bold uppercase tracking-widest mt-0.5">INDIA</span>
+              <span className="text-[8px] font-normal uppercase tracking-widest mt-0.5">INDIA</span>
             </div>
             
             {/* Center Section: Airplane */}
@@ -84,11 +84,11 @@ export const Sidebar: React.FC = () => {
             
             {/* Right Section: KarnatakaFlag BLR BENGALURU */}
             <div className="flex flex-col items-end leading-none">
-              <div className="flex items-center font-bold">
+              <div className="flex items-center">
                 <KarnatakaFlag />
-                <span className="text-xl leading-none ml-1.5">BLR</span>
+                <span className="text-xl font-bold leading-none ml-1.5">BLR</span>
               </div>
-              <span className="text-[8px] font-bold uppercase tracking-widest mt-0.5">BENGALURU</span>
+              <span className="text-[8px] font-normal uppercase tracking-widest mt-0.5">BENGALURU</span>
             </div>
           </div>
           
@@ -97,14 +97,14 @@ export const Sidebar: React.FC = () => {
           
           {/* Status Line */}
           <div className="text-center w-full">
-            <div className="text-[9px] font-bold uppercase tracking-tight text-white leading-none">
+            <div className="text-[9px] font-normal uppercase tracking-tight text-white leading-none">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
         </div>
 
         {/* 5. Roles Card (mt-5 = 20px) - Enlarged Width */}
-        <div className="mt-5 w-[95%] bg-[#0a0a0a] border border-primary/20 rounded-[2.5rem] py-4 px-6 flex flex-col items-center gap-3 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
+        <div className="mt-5 w-[95%] bg-[#0a0a0a] border border-primary/20 rounded-2xl py-4 px-6 flex flex-col items-center gap-3 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
           <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
