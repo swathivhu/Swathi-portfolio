@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Github, Plane, Code, Bot, Clapperboard, Download } from 'lucide-react';
 
 /**
- * High-Fidelity Branded Icons & Flags
+ * High-Fidelity Branded Icons
  */
 const LinkedInIcon = () => (
   <svg role="img" viewBox="0 0 24 24" fill="#0077B5" className="w-5 h-5">
@@ -24,7 +24,7 @@ const IndiaFlag = () => (
 );
 
 const KarnatakaFlag = () => (
-  <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm ml-1">
+  <div className="w-5 h-3 flex flex-col overflow-hidden rounded-[1px] border border-white/20 shadow-sm ml-1.5">
     <div className="h-1/2 bg-[#FFFF00]" />
     <div className="h-1/2 bg-[#FF0000]" />
   </div>
@@ -35,9 +35,9 @@ export const Sidebar: React.FC = () => {
     <aside className="w-full lg:w-[320px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
       {/* Sidebar Container */}
-      <div className="w-full bg-[#050505] border border-white/5 rounded-[3rem] py-8 px-6 flex flex-col items-center shadow-[0_0_50px_rgba(16,185,129,0.1)] relative overflow-hidden">
+      <div className="w-full bg-[#050505] border border-white/5 rounded-[3.5rem] py-10 px-6 flex flex-col items-center shadow-[0_0_50px_rgba(16,185,129,0.1)] relative overflow-hidden">
         
-        {/* 1. Avatar Section */}
+        {/* 1. Avatar Section (Size: 110px) */}
         <div className="relative w-[110px] h-[110px] flex-shrink-0">
           <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl" />
           <div className="relative w-full h-full rounded-full border border-primary/40 p-1 bg-black z-10 overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.3)]">
@@ -53,7 +53,7 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. Name Section */}
+        {/* 2. Name Section (mt-6 = 24px) */}
         <div className="mt-6 flex flex-col items-center">
           <h1 className="text-[36px] font-headline font-bold text-white tracking-tight text-center leading-none">
             Swathi P V
@@ -62,16 +62,16 @@ export const Sidebar: React.FC = () => {
           <div className="w-12 h-[2px] bg-primary mt-2 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
         </div>
 
-        {/* 3. Title Section */}
+        {/* 3. Title Section (mt-2 = 8px) */}
         <div className="mt-2 flex flex-col items-center">
           <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.4em]">
             AI SYSTEM ARCHITECT
           </div>
         </div>
 
-        {/* 4. Location Card (Boarding Pass style) */}
-        <div className="mt-6 w-[85%] bg-primary rounded-[2rem] py-1.5 px-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
-          <div className="w-full flex justify-between items-center">
+        {/* 4. Location Card (mt-6 = 24px) */}
+        <div className="mt-6 w-[85%] bg-primary rounded-[2.5rem] py-2 px-5 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
+          <div className="w-full flex justify-between items-center py-0.5">
             {/* Left Section */}
             <div className="flex flex-col items-start leading-none">
               <div className="flex items-center font-bold">
@@ -97,17 +97,17 @@ export const Sidebar: React.FC = () => {
           </div>
           
           {/* Thin Solid Divider */}
-          <div className="w-full h-[0.5px] bg-white/20 my-1" />
+          <div className="w-full h-[0.5px] bg-white/20 my-1.5" />
           
           <div className="text-center w-full">
-            <div className="text-[9px] font-bold uppercase tracking-widest text-white/90 leading-none pb-0.5">
+            <div className="text-[9px] font-bold uppercase tracking-widest text-white/90 leading-none pb-1">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
         </div>
 
-        {/* 5. Roles Card */}
-        <div className="mt-3 w-[85%] bg-[#0a0a0a] border border-primary/20 rounded-[2rem] py-4 px-4 flex flex-col items-center gap-2.5 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
+        {/* 5. Roles Card (mt-5 = 20px) */}
+        <div className="mt-5 w-[85%] bg-[#0a0a0a] border border-primary/20 rounded-[2.5rem] py-3.5 px-4 flex flex-col items-center gap-2.5 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
           <div className="flex items-center gap-3 text-primary">
             <Code className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
@@ -124,7 +124,7 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 6. Social Icon Row */}
+        {/* 6. Social Icon Row (mt-5 = 20px) */}
         <div className="mt-5 flex flex-row justify-center gap-4 w-full">
           {[
             { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu', label: 'GitHub' },
