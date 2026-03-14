@@ -12,6 +12,15 @@ import { Education } from '@/components/sections/Education';
 import { AICreations } from '@/components/sections/AICreations';
 import { Contact } from '@/components/sections/Contact';
 
+/**
+ * A minimal, modern section divider with a subtle purple-to-cyan gradient.
+ */
+const SectionDivider = () => (
+  <div className="w-full py-12 flex justify-center items-center opacity-20">
+    <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-primary via-secondary to-transparent" />
+  </div>
+);
+
 export default function Home() {
   return (
     <main className="relative min-h-screen">
@@ -26,12 +35,19 @@ export default function Home() {
         {/* Scrollable Right Content Area */}
         <div className="w-full lg:ml-80 lg:pl-12 relative z-10">
           <Hero />
+          <SectionDivider />
           <About />
+          <SectionDivider />
           <Skills />
+          <SectionDivider />
           <Projects />
+          <SectionDivider />
           <Experience />
+          <SectionDivider />
           <Education />
+          <SectionDivider />
           <AICreations />
+          <SectionDivider />
           <Contact />
         </div>
       </div>
