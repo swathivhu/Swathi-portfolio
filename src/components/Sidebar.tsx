@@ -93,6 +93,9 @@ export const Sidebar: React.FC = () => {
             ))}
           </div>
 
+          {/* Subtle Divider Line */}
+          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
           <div className="space-y-4">
             <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl py-7 text-xs font-bold tracking-[0.2em] bg-glow-primary shadow-2xl transition-all active:scale-[0.98] group/btn">
               <Download className="w-4 h-4 mr-2 group-hover/btn:animate-bounce" />
