@@ -25,6 +25,11 @@
     --ring: 263 100% 70%;
     --radius: 1.25rem;
   }
+
+  /* Hide default cursor globally for a true custom experience */
+  body, a, button, [role="button"] {
+    cursor: none !important;
+  }
 }
 
 @layer base {
@@ -32,7 +37,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 overflow-x-hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
@@ -82,9 +87,22 @@
   }
 }
 
+/* Custom Cursor Classes */
 .custom-cursor {
-  @apply fixed pointer-events-none z-[9999] rounded-full mix-blend-difference transition-all duration-300;
+  @apply fixed pointer-events-none z-[9999] rounded-full transition-transform duration-100 ease-out;
   transform: translate(-50%, -50%);
+}
+
+.custom-cursor-dot {
+  @apply w-1.5 h-1.5 bg-secondary shadow-[0_0_10px_hsla(var(--secondary),0.8)];
+}
+
+.custom-cursor-ring {
+  @apply w-8 h-8 border border-secondary/30 bg-secondary/5 backdrop-blur-[2px] transition-all duration-300 ease-out;
+}
+
+.custom-cursor-ring.active {
+  @apply w-14 h-14 border-secondary/60 bg-secondary/20 scale-110 shadow-[0_0_20px_hsla(var(--secondary),0.4)];
 }
 
 @keyframes float {
