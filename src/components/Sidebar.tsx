@@ -99,10 +99,7 @@ export const Sidebar: React.FC = () => {
           {/* Thin Solid Divider with Subtle Opacity */}
           <div className="w-full h-[1px] bg-white/20 my-4" />
           
-          <div className="text-center space-y-1">
-            <div className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/90">
-              CURRENT STATUS
-            </div>
+          <div className="text-center">
             <div className="text-[9px] font-bold uppercase tracking-widest text-white/80">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
