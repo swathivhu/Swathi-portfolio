@@ -10,7 +10,7 @@ export const Sidebar: React.FC = () => {
   const profile = PlaceHolderImages.find(img => img.id === 'profile');
 
   return (
-    <aside className="w-full lg:w-80 h-auto lg:h-screen lg:fixed left-0 top-0 p-6 z-40">
+    <aside className="w-full lg:w-80 h-auto lg:h-screen lg:fixed left-0 top-0 p-6 z-40 overflow-hidden">
       <div className="bg-[#0D0D0E] border border-white/5 shadow-2xl h-full rounded-[2rem] p-8 flex flex-col items-center justify-between text-center transition-all duration-500 hover:-translate-y-1 hover:border-white/10 hover:shadow-black/40 group/card">
         <div className="flex flex-col items-center w-full">
           {/* Profile Image Container */}

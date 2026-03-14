@@ -30,6 +30,21 @@
   body, a, button, [role="button"], .group {
     cursor: none !important;
   }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* Custom scrollbar for a premium look */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-primary/40 transition-colors;
+  }
 }
 
 @layer base {
