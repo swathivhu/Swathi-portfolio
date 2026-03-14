@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Play, Maximize2, Sparkles } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -27,6 +27,16 @@ const creations = [
 ];
 
 export const AICreations: React.FC = () => {
+  const [seeds, setSeeds] = useState<Record<number, number>>({});
+
+  useEffect(() => {
+    const generatedSeeds: Record<number, number> = {};
+    creations.forEach((item) => {
+      generatedSeeds[item.id] = Math.floor(Math.random() * 999999);
+    });
+    setSeeds(generatedSeeds);
+  }, []);
+
   return (
     <section id="ai-creations" className="py-32">
       <h2 className="section-heading">
@@ -56,7 +66,9 @@ export const AICreations: React.FC = () => {
                 </div>
                 <div className="text-center space-y-1">
                   <p className="text-xs font-mono text-secondary uppercase tracking-[0.2em]">{item.type}</p>
-                  <p className="text-sm text-muted-foreground italic">Latent seed: {Math.floor(Math.random() * 999999)}</p>
+                  <p className="text-sm text-muted-foreground italic">
+                    Latent seed: {seeds[item.id] !== undefined ? seeds[item.id] : '...'}
+                  </p>
                 </div>
               </div>
             </div>
