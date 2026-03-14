@@ -50,16 +50,16 @@ export const Hero: React.FC = () => {
       <div className="absolute -left-20 top-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute right-0 bottom-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[150px] pointer-events-none" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center relative z-10">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-16 xl:gap-24 items-center relative z-10">
         {/* Left Content Column */}
-        <div className="lg:col-span-7 space-y-12">
+        <div className="xl:col-span-7 space-y-12">
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-card border-white/10">
             <Sparkles className="w-4 h-4 text-secondary" />
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-secondary/80">Innovation & Intelligence</span>
           </div>
           
           <div className="space-y-6">
-            <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-headline font-bold leading-[0.85] tracking-tighter">
+            <h1 className="text-6xl md:text-8xl xl:text-[7.5rem] font-headline font-bold leading-[0.85] tracking-tighter">
               Architecting <br />
               <span className="text-glow-primary bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-secondary">Digital Souls</span>
             </h1>
@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right AI Assistant Column */}
-        <div className="lg:col-span-5 flex flex-col items-center justify-center relative py-12">
+        <div className="xl:col-span-5 flex flex-col items-center justify-center relative py-12">
           <div className="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center animate-float">
             <div className="absolute inset-0 border border-primary/20 rounded-full animate-[spin_10s_linear_infinite]" />
             <div className="absolute inset-6 border border-secondary/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {isMounted && (
-            <div className="mt-12 relative max-w-sm">
+            <div className="mt-12 relative w-full max-w-sm">
               <div className="glass-card p-8 rounded-[2.5rem] border-primary/20 shadow-[0_0_30px_rgba(var(--primary),0.1)] relative">
                 <div className="absolute -top-4 -left-4 p-3 bg-primary rounded-2xl shadow-lg shadow-primary/20">
                   <MessageSquare className="w-5 h-5 text-white" />

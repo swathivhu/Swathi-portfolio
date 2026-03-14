@@ -53,12 +53,12 @@ export const Projects: React.FC = () => {
         <div className="h-px bg-white/5 flex-1" />
       </h2>
       
-      <div className="grid grid-cols-1 gap-32 lg:gap-48">
+      <div className="grid grid-cols-1 gap-40 xl:gap-56">
         {projects.map((project, idx) => (
           <div key={project.id} className="group relative">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-16 xl:gap-24 items-center">
               {/* Image side */}
-              <div className={`lg:col-span-7 relative aspect-video rounded-[3rem] overflow-hidden glass-card border-white/10 glow-border ${idx % 2 !== 0 ? 'lg:order-last' : ''}`}>
+              <div className={`xl:col-span-7 relative aspect-video rounded-[3rem] overflow-hidden glass-card border-white/10 glow-border ${idx % 2 !== 0 ? 'xl:order-last' : ''}`}>
                 <Image
                   src={project.image || ''}
                   alt={project.title}
@@ -70,7 +70,7 @@ export const Projects: React.FC = () => {
               </div>
               
               {/* Content side */}
-              <div className="lg:col-span-5 space-y-8">
+              <div className="xl:col-span-5 space-y-8">
                 <div className="flex items-center gap-4">
                   <div className="p-3 rounded-xl bg-secondary/10 text-secondary">
                     <Layers className="w-6 h-6" />
@@ -78,7 +78,7 @@ export const Projects: React.FC = () => {
                   <span className="text-sm font-mono text-muted-foreground uppercase tracking-[0.2em]">Enterprise AI</span>
                 </div>
                 
-                <h3 className="text-4xl md:text-5xl font-headline font-bold text-glow-primary leading-tight">
+                <h3 className="text-4xl md:text-5xl xl:text-6xl font-headline font-bold text-glow-primary leading-tight">
                   {project.title}
                 </h3>
                 
@@ -87,7 +87,7 @@ export const Projects: React.FC = () => {
                 </p>
 
                 {summaries[project.id] && (
-                  <div className="p-8 bg-primary/5 border border-primary/10 rounded-[2rem] animate-in fade-in slide-in-from-top-4 duration-500">
+                  <div className="p-8 bg-primary/5 border border-primary/10 rounded-[2.5rem] animate-in fade-in slide-in-from-top-4 duration-500">
                     <div className="flex items-center gap-3 mb-4">
                       <Sparkles className="w-5 h-5 text-primary" />
                       <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary/80">LLM Analysis</span>

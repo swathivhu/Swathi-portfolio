@@ -14,8 +14,8 @@ export const About: React.FC = () => {
         <div className="h-px bg-white/5 flex-1" />
       </h2>
       
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 lg:gap-32 items-center">
-        <div className="lg:col-span-5 relative aspect-square rounded-[3rem] overflow-hidden group border border-white/5">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-24 xl:gap-32 items-center">
+        <div className="xl:col-span-5 relative aspect-square rounded-[3rem] overflow-hidden group border border-white/5">
           <div className="absolute inset-0 bg-primary/10 z-10 group-hover:opacity-0 transition-opacity duration-700" />
           <Image
             src={profile?.imageUrl || ''}
@@ -26,9 +26,9 @@ export const About: React.FC = () => {
           />
         </div>
         
-        <div className="lg:col-span-7 space-y-12">
+        <div className="xl:col-span-7 space-y-12">
           <div className="space-y-6">
-            <h3 className="text-4xl md:text-5xl font-headline font-bold text-glow-primary leading-tight">
+            <h3 className="text-4xl md:text-5xl xl:text-6xl font-headline font-bold text-glow-primary leading-tight">
               Generative AI Architect & Python Specialist
             </h3>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">

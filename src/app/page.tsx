@@ -14,7 +14,6 @@ import { Contact } from '@/components/sections/Contact';
 
 /**
  * A minimal, modern section divider with a subtle purple-to-cyan gradient.
- * Increased padding to create significant breathing room between sections.
  */
 const SectionDivider = () => (
   <div className="w-full py-24 flex justify-center items-center opacity-10">
@@ -29,12 +28,16 @@ export default function Home() {
       <BackgroundParticles />
       <FloatingNav />
       
-      <div className="container mx-auto px-8 lg:px-12 flex flex-col lg:flex-row">
-        {/* Fixed Left Sidebar */}
-        <Sidebar />
+      {/* Root Layout Container: Centered with max-width for consistent alignment */}
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row relative">
         
-        {/* Scrollable Right Content Area with increased horizontal padding */}
-        <div className="w-full lg:ml-80 lg:pl-20 relative z-10">
+        {/* Fixed Left Sidebar Column */}
+        <div className="w-full lg:w-80 xl:w-96 flex-shrink-0">
+          <Sidebar />
+        </div>
+        
+        {/* Scrollable Right Content Column */}
+        <div className="flex-1 w-full lg:pl-16 xl:pl-24 relative z-10">
           <Hero />
           <SectionDivider />
           <About />
