@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Bot } from 'lucide-react';
+import { ArrowRight, Bot, Download } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -57,15 +57,25 @@ export const Hero: React.FC = () => {
             <Button 
               size="lg" 
               onClick={() => scrollTo('projects')}
-              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-10 h-14 font-bold tracking-wider transition-all shadow-lg shadow-primary/5"
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 h-14 font-bold tracking-wider transition-all shadow-lg shadow-primary/5"
             >
               View Work
             </Button>
+            
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-primary/20 hover:bg-primary/5 text-primary rounded-xl px-8 h-14 font-bold tracking-wider transition-all"
+            >
+              <Download className="mr-2 w-4 h-4" />
+              Download Resume
+            </Button>
+
             <Button 
               variant="outline" 
               size="lg" 
               onClick={() => scrollTo('contact')}
-              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-10 h-14 font-bold text-muted-foreground hover:text-white transition-all"
+              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-8 h-14 font-bold text-muted-foreground hover:text-white transition-all"
             >
               Contact Me
               <ArrowRight className="ml-2 w-4 h-4" />
