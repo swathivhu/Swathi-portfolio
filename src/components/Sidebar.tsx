@@ -68,7 +68,7 @@ export const Sidebar: React.FC = () => {
         {/* 4. Location Card (mt-6 = 24px) - Exact Boarding Pass Style - Enlarged Width */}
         <div className="mt-6 w-[95%] bg-[#10b981] rounded-2xl py-3 px-8 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center pb-1">
-            {/* Left Section: IND IN INDIA */}
+            {/* Left Section: IND INDIA */}
             <div className="flex flex-col items-start leading-none">
               <div className="flex items-start gap-1">
                 <span className="text-xl font-bold leading-none">IND</span>
@@ -105,19 +105,19 @@ export const Sidebar: React.FC = () => {
 
         {/* 5. Roles Card (mt-5 = 20px) - Enlarged Width */}
         <div className="mt-5 w-[95%] bg-[#0a0a0a] border border-primary/20 rounded-2xl py-4 px-6 flex flex-col items-center gap-3 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
-          <div className="flex items-center gap-3 text-primary">
-            <Code className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">PYTHON FULL STACK</span>
+          <div className="flex items-center gap-3">
+            <Code className="w-4 h-4 text-[#3B82F6]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#10B981]">PYTHON FULL STACK</span>
           </div>
           
-          <div className="flex items-center gap-3 text-purple-500">
-            <Bot className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">GEN AI</span>
+          <div className="flex items-center gap-3">
+            <Bot className="w-4 h-4 text-[#9333EA]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#A855F7]">GEN AI</span>
           </div>
           
-          <div className="flex items-center gap-3 text-orange-500">
-            <Clapperboard className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em]">CONTENT CREATOR</span>
+          <div className="flex items-center gap-3">
+            <Clapperboard className="w-4 h-4 text-[#F97316]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#F97316]">CONTENT CREATOR</span>
           </div>
         </div>
 
