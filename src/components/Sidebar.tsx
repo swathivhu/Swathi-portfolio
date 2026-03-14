@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Download, MapPin, Plane, Code, Bot, Clapperboard } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Plane, Code, Bot, Clapperboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -10,7 +10,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
  * Karnataka Flag Component (Yellow & Red horizontal stripes)
  */
 const KarnatakaFlag = () => (
-  <div className="flex flex-col w-5 h-3.5 border-[0.5px] border-white/20 rounded-[1px] overflow-hidden">
+  <div className="flex flex-col w-4 h-2.5 border-[0.5px] border-white/20 rounded-[1px] overflow-hidden">
     <div className="h-1/2 bg-[#FFD700]" />
     <div className="h-1/2 bg-[#ED1C24]" />
   </div>
@@ -49,59 +49,47 @@ export const Sidebar: React.FC = () => {
             <h1 className="text-3xl xl:text-4xl font-headline font-bold tracking-tight text-white">
               Swathi P V
             </h1>
-            {/* Signature Underline Decor */}
             <div className="w-8 h-1 bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,0.3)]" />
             <p className="text-primary font-mono text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
               AI System Architect
             </p>
           </div>
 
-          {/* Boarding Pass Style Location Card */}
-          <div className="w-full max-w-[280px] mt-2">
-            <div className="bg-primary rounded-[1.5rem] p-4 text-white shadow-lg shadow-primary/20 relative overflow-hidden group">
+          {/* Boarding Pass Style Location Card - Reduced Size */}
+          <div className="w-full max-w-[240px] mt-2">
+            <div className="bg-primary rounded-[1.2rem] p-3 text-white shadow-lg shadow-primary/20 relative overflow-hidden group">
               {/* Top Row: Origin -> Destination */}
-              <div className="flex justify-between items-center mb-3">
+              <div className="flex justify-between items-center mb-2">
                 <div className="text-left">
-                  <div className="flex items-center gap-1.5 mb-0.5">
-                    <span className="text-lg font-black tracking-tighter">IND</span>
-                    <span className="text-xs">🇮🇳</span>
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-base font-black tracking-tighter">IND</span>
+                    <span className="text-[10px]">🇮🇳</span>
                   </div>
-                  <div className="text-[8px] font-bold uppercase tracking-widest opacity-80">INDIA</div>
+                  <div className="text-[7px] font-bold uppercase tracking-widest opacity-80">INDIA</div>
                 </div>
 
                 <div className="flex-1 flex justify-center">
-                  <Plane className="w-5 h-5 rotate-90 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  <Plane className="w-3.5 h-3.5 rotate-90 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </div>
 
                 <div className="text-right">
-                  <div className="flex items-center justify-end gap-1.5 mb-0.5">
+                  <div className="flex items-center justify-end gap-1 mb-0.5">
                     <KarnatakaFlag />
-                    <span className="text-lg font-black tracking-tighter">BLR</span>
+                    <span className="text-base font-black tracking-tighter">BLR</span>
                   </div>
-                  <div className="text-[8px] font-bold uppercase tracking-widest opacity-80">BENGALURU</div>
+                  <div className="text-[7px] font-bold uppercase tracking-widest opacity-80">BENGALURU</div>
                 </div>
               </div>
 
               {/* Separator Line */}
-              <div className="w-full h-px bg-white/20 mb-3 border-dashed border-b-[0.5px]" />
+              <div className="w-full h-px bg-white/20 mb-2 border-dashed border-b-[0.5px]" />
 
-              {/* Bottom Row: Status & Seat */}
-              <div className="flex justify-between items-end">
-                <div className="text-left">
-                  <div className="text-[7px] font-bold uppercase tracking-[0.2em] opacity-70 mb-0.5">STATUS</div>
-                  <div className="text-[10px] font-black uppercase tracking-wider">IN BENGALURU</div>
+              {/* Bottom Row: Status Only */}
+              <div className="flex justify-center items-center">
+                <div className="text-center">
+                  <div className="text-[6px] font-bold uppercase tracking-[0.2em] opacity-70 mb-0.5">CURRENT STATUS</div>
+                  <div className="text-[9px] font-black uppercase tracking-wider">IN BENGALURU, KA</div>
                 </div>
-                <div className="text-right">
-                  <div className="text-[7px] font-bold uppercase tracking-[0.2em] opacity-70 mb-0.5">SEAT</div>
-                  <div className="text-[10px] font-black uppercase tracking-wider">REMOTE</div>
-                </div>
-              </div>
-              
-              {/* Full Location Label for Clarity */}
-              <div className="mt-3 pt-2 border-t border-white/10">
-                <p className="text-[8px] font-medium tracking-tight opacity-90">
-                  Bengaluru, Karnataka, India
-                </p>
               </div>
             </div>
           </div>
