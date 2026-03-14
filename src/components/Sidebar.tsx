@@ -43,7 +43,7 @@ export const Sidebar: React.FC = () => {
 
       <div className="w-full h-full bg-black backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 pb-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
 
-        {/* Profile Avatar Section - Premium Animated Ring */}
+        {/* Profile Avatar Section - Premium Animated Ring with Status Dot */}
         <div className="relative w-[110px] h-[110px] group flex-shrink-0">
 
           {/* Animated rotating gradient ring */}
@@ -67,6 +67,11 @@ export const Sidebar: React.FC = () => {
 
             </div>
 
+          </div>
+
+          {/* Online Status Dot - Attached to the bottom-right edge */}
+          <div className="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-black border-2 border-black flex items-center justify-center z-10">
+            <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse" />
           </div>
 
         </div>
