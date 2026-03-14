@@ -11,12 +11,13 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside className="w-full lg:w-80 xl:w-96 lg:fixed h-screen left-auto top-0 p-4 lg:p-6 z-40 flex flex-col">
-      <div className="flex-1 bg-[#0D0D0E] border border-white/5 shadow-2xl rounded-[2.5rem] p-6 xl:p-8 flex flex-col items-center justify-between text-center transition-all duration-500 hover:border-white/10 hover:shadow-black/40 group/card">
+      <div className="flex-1 bg-[#0D0D0E] border border-white/5 shadow-2xl rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center transition-all duration-500 hover:border-white/10 hover:shadow-black/40 group/card">
         
-        {/* Top Section: Identity */}
-        <div className="flex flex-col items-center w-full space-y-5">
-          {/* Profile Image */}
-          <div className="relative w-20 h-20 md:w-24 md:h-24 xl:w-26 xl:h-26 rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 group-hover/card:scale-[1.02]">
+        {/* Profile Content Stack */}
+        <div className="flex flex-col items-center w-full space-y-7">
+          
+          {/* 1. Profile Image */}
+          <div className="relative w-20 h-20 xl:w-24 xl:h-24 rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 group-hover/card:scale-[1.02] shadow-2xl">
             <Image
               src={profile?.imageUrl || ''}
               alt="Swathi P V"
@@ -26,30 +27,29 @@ export const Sidebar: React.FC = () => {
             />
           </div>
           
-          <div className="space-y-3">
-            <div className="space-y-1">
-              <h1 className="text-3xl xl:text-4xl font-headline font-extrabold tracking-tighter text-white drop-shadow-2xl">
-                Swathi P V
-              </h1>
-              <p className="text-secondary font-mono text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.4em] opacity-90">
-                AI System Architect
-              </p>
+          {/* 2. Identity Block (Name & Title) */}
+          <div className="space-y-2">
+            <h1 className="text-3xl xl:text-4xl font-headline font-extrabold tracking-tighter text-white text-glow-primary">
+              Swathi P V
+            </h1>
+            <p className="text-secondary font-mono text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.4em] opacity-90">
+              AI System Architect
+            </p>
+          </div>
+          
+          {/* 3. Location Badges */}
+          <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-muted-foreground/70 shadow-inner hover:border-secondary/30 transition-colors">
+              <MapPin className="w-3 h-3 text-secondary/60" />
+              <span className="text-[9px] font-bold tracking-tight uppercase">Bangalore</span>
             </div>
-            
-            {/* Creative Location Indicator */}
-            <div className="flex items-center justify-center gap-2">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-muted-foreground/70 shadow-inner hover:border-secondary/30 transition-colors">
-                <MapPin className="w-3 h-3 text-secondary/60" />
-                <span className="text-[10px] font-bold tracking-tight uppercase">Bangalore</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-muted-foreground/70 shadow-inner hover:border-secondary/30 transition-colors">
-                <Globe className="w-3 h-3 text-secondary/60" />
-                <span className="text-[10px] font-bold tracking-tight uppercase">India</span>
-              </div>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-muted-foreground/70 shadow-inner hover:border-secondary/30 transition-colors">
+              <Globe className="w-3 h-3 text-secondary/60" />
+              <span className="text-[9px] font-bold tracking-tight uppercase">India</span>
             </div>
           </div>
           
-          {/* Styled Tagline Badges */}
+          {/* 4. Tagline Badges */}
           <div className="flex flex-wrap justify-center gap-2 max-w-[280px]">
             {[
               'Python Full Stack',
@@ -58,15 +58,15 @@ export const Sidebar: React.FC = () => {
             ].map((tag, i) => (
               <span 
                 key={i}
-                className="px-3 py-1.5 rounded-xl text-[9px] xl:text-[10px] font-mono font-bold uppercase tracking-widest bg-white/[0.02] border border-white/10 text-secondary/70 shadow-[0_0_15px_rgba(0,255,255,0.05)] hover:bg-secondary/5 hover:border-secondary/40 hover:text-secondary hover:shadow-[0_0_20px_rgba(0,255,255,0.15)] transition-all duration-500 cursor-default"
+                className="px-3 py-1.5 rounded-xl text-[9px] font-mono font-bold uppercase tracking-widest bg-white/[0.02] border border-white/10 text-secondary/70 shadow-[0_0_15px_rgba(0,255,255,0.02)] hover:bg-secondary/5 hover:border-secondary/40 hover:text-secondary hover:shadow-[0_0_20px_rgba(0,255,255,0.1)] transition-all duration-500 cursor-default"
               >
                 {tag}
               </span>
             ))}
           </div>
           
-          {/* Enhanced Social Links */}
-          <div className="flex flex-row justify-center gap-4 w-full pt-1">
+          {/* 5. Social Links */}
+          <div className="flex flex-row justify-center gap-3 w-full">
             {[
               { icon: Github, href: 'https://github.com' },
               { icon: Linkedin, href: 'https://linkedin.com' },
@@ -77,29 +77,28 @@ export const Sidebar: React.FC = () => {
                 href={social.href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-11 h-11 flex items-center justify-center rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-secondary/10 hover:border-secondary/40 hover:scale-110 hover:shadow-[0_0_15px_hsla(var(--secondary),0.3)] transition-all duration-300 group/icon"
+                className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/[0.03] border border-white/5 hover:bg-secondary/10 hover:border-secondary/40 hover:scale-110 hover:shadow-[0_0_15px_hsla(var(--secondary),0.3)] transition-all duration-300 group/icon"
               >
-                <social.icon className="w-5 h-5 text-muted-foreground group-hover/icon:text-white transition-colors" />
+                <social.icon className="w-4.5 h-4.5 text-muted-foreground group-hover/icon:text-white transition-colors" />
               </a>
             ))}
           </div>
-        </div>
 
-        {/* Middle Section: Minimal Divider */}
-        <div className="w-full py-4">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 via-secondary/20 to-transparent relative" />
-        </div>
+          {/* 6. Minimal Divider */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
-        {/* Bottom Section: Actions & Footer */}
-        <div className="w-full space-y-4">
-          <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-5 text-[10px] xl:text-xs font-bold tracking-wide shadow-xl shadow-primary/10 transition-all active:scale-[0.98]">
-            <Download className="w-3.5 h-3.5 mr-2" />
-            Download CV
-          </Button>
-          <div className="flex items-center justify-center gap-2 text-[8px] font-mono text-muted-foreground uppercase tracking-[0.25em]">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Open for Collaboration
+          {/* 7. Primary Action */}
+          <div className="w-full space-y-4">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-6 text-[10px] xl:text-xs font-bold tracking-widest shadow-xl shadow-primary/10 transition-all active:scale-[0.98]">
+              <Download className="w-4 h-4 mr-2" />
+              DOWNLOAD CV
+            </Button>
+            <div className="flex items-center justify-center gap-2 text-[8px] font-mono text-muted-foreground uppercase tracking-[0.25em] opacity-60">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              Neural Link Active
+            </div>
           </div>
+
         </div>
 
       </div>
