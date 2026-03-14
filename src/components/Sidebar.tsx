@@ -68,12 +68,9 @@ export const Sidebar: React.FC = () => {
         {/* 4. Location Card (mt-6 = 24px) - Boarding Pass Style */}
         <div className="mt-6 w-[95%] bg-[#10b981] rounded-2xl py-3 px-8 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center pb-1">
-            {/* Left Section: IND IN */}
+            {/* Left Section: IND INDIA */}
             <div className="flex flex-col items-start leading-none">
-              <div className="flex items-start gap-1">
-                <span className="text-xl font-bold leading-none">IND</span>
-                <span className="text-[9px] font-normal leading-none mt-0.5 opacity-90">IN</span>
-              </div>
+              <span className="text-xl font-bold leading-none">IND</span>
               <span className="text-[8px] font-normal uppercase tracking-widest mt-0.5">INDIA</span>
             </div>
             
@@ -82,11 +79,11 @@ export const Sidebar: React.FC = () => {
               <Plane className="w-4 h-4 rotate-45" />
             </div>
             
-            {/* Right Section: KarnatakaFlag BLR */}
+            {/* Right Section: BLR BENGALURU KarnatakaFlag */}
             <div className="flex flex-col items-end leading-none">
               <div className="flex items-center">
+                <span className="text-xl font-bold leading-none mr-1.5">BLR</span>
                 <KarnatakaFlag />
-                <span className="text-xl font-bold leading-none ml-1.5">BLR</span>
               </div>
               <span className="text-[8px] font-normal uppercase tracking-widest mt-0.5">BENGALURU</span>
             </div>
