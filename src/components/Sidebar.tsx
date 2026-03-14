@@ -60,7 +60,7 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 3. Boarding Pass Location Card - Precise Sizing from Figure */}
+        {/* 3. Boarding Pass Location Card */}
         <div className="w-full bg-[#10b981] rounded-[2.5rem] p-6 text-white shadow-[0_10px_30px_rgba(16,185,129,0.3)] mb-8">
           <div className="flex justify-between items-start mb-1">
             <div className="flex flex-col">
@@ -86,7 +86,7 @@ export const Sidebar: React.FC = () => {
           
           <div className="mt-4 pt-4 border-t border-white/30 border-dashed text-center space-y-1">
             <div className="text-[7px] font-mono uppercase tracking-[0.2em] opacity-80">CURRENT STATUS</div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-white">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-white leading-tight">
               IN BENGALURU, KARNATAKA, INDIA
             </div>
           </div>
