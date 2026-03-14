@@ -29,13 +29,16 @@ export const Sidebar: React.FC = () => {
       {/* Main Identity Card Container */}
       <div className="w-full h-full bg-black border border-white/5 rounded-[3rem] p-6 flex flex-col items-center shadow-2xl overflow-hidden relative">
         
-        {/* Profile Avatar Section - Restored Styled Layout */}
+        {/* Profile Avatar Section - Premium Styled Layout */}
         <div className="relative w-[110px] h-[110px] mb-5 group flex-shrink-0">
-          {/* Emerald Accent Glow Ring */}
-          <div className="absolute inset-0 rounded-full bg-primary/20 blur-md group-hover:bg-primary/40 transition-all duration-500" />
+          {/* Emerald Accent Glow Bloom (Subtle background layer) */}
+          <div className="absolute inset-[-4px] rounded-full bg-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
           
-          {/* Outer Border */}
-          <div className="absolute inset-0 rounded-full border border-white/10 shadow-[0_0_15px_rgba(16,185,129,0.2)]" />
+          {/* Primary Glow Ring */}
+          <div className="absolute inset-0 rounded-full bg-primary/15 blur-md group-hover:bg-primary/30 transition-all duration-500" />
+          
+          {/* Outer Border with Soft Emerald Shadow */}
+          <div className="absolute inset-0 rounded-full border border-white/10 shadow-[0_0_20px_rgba(16,185,129,0.25)] group-hover:shadow-[0_0_35px_rgba(16,185,129,0.45)] transition-all duration-500" />
           
           {/* Image Container */}
           <div className="relative w-full h-full rounded-full p-1 overflow-hidden bg-black">
