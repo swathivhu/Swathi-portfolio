@@ -1,8 +1,8 @@
 import React from 'react';
 import { Sidebar } from '@/components/ui/Sidebar';
-import { FloatingNav } from '@/components/ui/FloatingNav';
-import { CustomCursor } from '@/components/ui/CustomCursor';
-import { BackgroundParticles } from '@/components/ui/BackgroundParticles';
+import { FloatingNav } from '@/components/FloatingNav';
+import { CustomCursor } from '@/components/CustomCursor';
+import { BackgroundParticles } from '@/components/BackgroundParticles';
 
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
@@ -12,7 +12,7 @@ import { Experience } from '@/components/sections/Experience';
 import { Education } from '@/components/sections/Education';
 import { Contact } from '@/components/sections/Contact';
 
-import { GlassCard } from '@/components/ui/GlassCard';
+import { GlassCard } from '@/components/GlassCard';
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full">
