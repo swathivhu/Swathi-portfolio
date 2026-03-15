@@ -1,8 +1,19 @@
+
 "use client"
 
 import React from 'react';
 import Image from 'next/image';
+import { Sparkles, Terminal, Brain, Zap, Network, Code } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+const interests = [
+  { label: 'Generative Systems', icon: Sparkles },
+  { label: 'Prompt Engineering', icon: Terminal },
+  { label: 'Multi-modal AI', icon: Brain },
+  { label: 'Content Automation', icon: Zap },
+  { label: 'LLM Integration', icon: Network },
+  { label: 'Python Ecosystem', icon: Code },
+];
 
 export const About: React.FC = () => {
   const profile = PlaceHolderImages.find(img => img.id === 'profile');
@@ -45,18 +56,15 @@ export const About: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 pt-4 border-t border-white/5">
-            {[
-              'Generative Systems',
-              'Prompt Engineering',
-              'Multi-modal AI',
-              'Content Automation',
-              'LLM Integration',
-              'Python Ecosystem'
-            ].map((interest) => (
-              <div key={interest} className="flex items-center gap-3 group/item">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover/item:scale-150 transition-transform" />
-                <span className="text-sm md:text-base text-zinc-300 group-hover/item:text-white transition-colors">{interest}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 pt-6 border-t border-white/5">
+            {interests.map((item) => (
+              <div key={item.label} className="flex items-center gap-4 group/item transition-transform duration-300 hover:-translate-y-1">
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center transition-all duration-300 group-hover/item:border-primary/50 group-hover/item:bg-primary/10 group-hover/item:shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                  <item.icon className="w-5 h-5 text-primary transition-all duration-300 group-hover/item:scale-110 group-hover/item:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                </div>
+                <span className="text-sm md:text-base text-zinc-400 font-medium group-hover/item:text-white transition-colors">
+                  {item.label}
+                </span>
               </div>
             ))}
           </div>
