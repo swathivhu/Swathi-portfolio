@@ -77,11 +77,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
       whileHover={{ 
-        y: -5, 
+        y: -6, 
         scale: 1.02,
-        transition: { duration: 0.2 }
+        transition: { duration: 0.3 }
       }}
-      className="group relative h-full flex flex-col bg-[#050505] border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-300 hover:bg-white/[0.02] hover:border-primary/20 hover:shadow-[0_10px_30px_rgba(16,185,129,0.05)]"
+      className="group relative h-full flex flex-col bg-gradient-to-br from-[#0d0d0d] to-[#050505] border border-primary/20 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-primary/40 shadow-[0_0_30px_rgba(16,185,129,0.05)] hover:shadow-[0_0_40px_rgba(16,185,129,0.12)]"
     >
       {/* Preview Image at Top */}
       <div className="relative w-full aspect-video overflow-hidden border-b border-white/5">
@@ -98,9 +98,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <Sparkles className="w-6 h-6 text-white/10" />
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+        {/* Image Overlay Gradient for separation */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-60" />
+        
+        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-primary/20">
           <Sparkles className="w-2.5 h-2.5 text-primary" />
           <span className="text-[8px] font-mono font-bold uppercase tracking-widest text-white/90">
             {project.category}
@@ -109,8 +111,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       </div>
 
       <div className="relative z-10 flex flex-col gap-4 p-6 flex-grow">
-        {/* Project Title */}
-        <h3 className="text-lg md:text-xl font-headline font-bold text-white group-hover:text-primary transition-colors duration-300 leading-tight">
+        {/* Project Title with increased brightness */}
+        <h3 className="text-lg md:text-xl font-headline font-bold text-white group-hover:text-primary group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.4)] transition-all duration-300 leading-tight">
           {project.title}
         </h3>
 
@@ -124,7 +126,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {project.tech.map((t) => (
             <span 
               key={t} 
-              className="text-[9px] font-mono font-bold px-2.5 py-0.5 bg-white/[0.03] border border-white/5 rounded-full text-muted-foreground/80 uppercase tracking-tighter group-hover:border-primary/20 group-hover:text-white transition-all duration-300"
+              className="text-[9px] font-mono font-bold px-2.5 py-0.5 bg-white/[0.03] border border-white/10 rounded-full text-muted-foreground/80 uppercase tracking-tighter group-hover:border-primary/30 group-hover:text-white transition-all duration-300"
             >
               {t}
             </span>
@@ -158,8 +160,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
       </div>
 
-      {/* Subtle Internal Glow Effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_40px_rgba(16,185,129,0.02)] pointer-events-none" />
+      {/* Subtle Internal Edge Glow Effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_40px_rgba(16,185,129,0.03)] pointer-events-none" />
     </motion.div>
   );
 };
