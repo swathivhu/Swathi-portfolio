@@ -54,13 +54,13 @@ export const Skills: React.FC = () => {
               </h3>
             </div>
             
-            <div className="flex flex-wrap gap-2.5">
+            <div className="grid grid-cols-2 gap-2.5">
               {category.skills.map((skill) => (
                 <div 
                   key={skill}
                   className={cn(
                     "px-4 py-2 rounded-full bg-white/10 border border-white/20 transition-all duration-300",
-                    "text-[11px] font-mono font-bold text-white uppercase tracking-wider",
+                    "text-[10px] font-mono font-bold text-white text-center uppercase tracking-wider",
                     "hover:border-primary hover:text-primary hover:bg-primary/5 hover:shadow-[0_0_10px_rgba(16,185,129,0.2)]"
                   )}
                 >
