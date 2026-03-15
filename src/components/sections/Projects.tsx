@@ -1,12 +1,11 @@
 "use client"
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { Github, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { cn } from '@/lib/utils';
 
 const projects = [
   {
@@ -116,14 +115,34 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       }}
       className="group relative flex flex-col bg-gradient-to-br from-[#0d0d0d] via-[#080808] to-[#050505] border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-500 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_60px_rgba(16,185,129,0.1)] hover:border-primary/20"
     >
+      {/* Apple-style Light Sweep Effect */}
+      <motion.div
+        className="absolute inset-0 z-30 pointer-events-none"
+        initial={{ x: '-150%', opacity: 0 }}
+        whileHover={{ 
+          x: '150%', 
+          opacity: [0, 1, 1, 0] 
+        }}
+        transition={{ 
+          duration: 1.2, 
+          ease: "easeOut",
+        }}
+        style={{
+          background: 'linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0) 65%, transparent 100%)',
+          width: '100%',
+          height: '100%',
+          skewX: -25,
+        }}
+      />
+
       {/* Animated Accent Line (Top Edge) */}
-      <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-50">
+      <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-40">
         <div className="w-full h-full bg-gradient-to-r from-transparent via-primary to-transparent animate-dot-move" />
       </div>
 
       {/* Interactive Cursor-Following Glow */}
       <motion.div 
-        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"
+        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"
         style={{
           background: useTransform(
             [mouseX, mouseY],
@@ -151,7 +170,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         {/* Subtle Dark Gradient Overlay at Bottom of Image */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-80" />
         
-        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-primary/20 shadow-lg">
+        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-primary/20 shadow-lg z-20">
           <Sparkles className="w-2.5 h-2.5 text-primary" />
           <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-white/90">
             {project.category}
