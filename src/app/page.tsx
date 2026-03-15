@@ -28,10 +28,10 @@ export default function Home() {
         </div>
         
         {/* Main Content Column */}
-        <div className="flex-1 w-full lg:pl-16 xl:pl-24 lg:pr-24 xl:pr-32 relative z-10 py-16">
+        <div className="flex-1 w-full lg:pl-16 xl:pl-24 lg:pr-24 xl:pr-32 relative z-10 py-12 md:py-16">
           <Hero />
           
-          <div className="mt-12 space-y-4">
+          <div className="mt-8 space-y-4">
             <GlassCard id="about">
               <About />
             </GlassCard>
