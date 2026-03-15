@@ -1,8 +1,7 @@
 "use client"
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { Github, ExternalLink, Sparkles, Layers, Code2 } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Github, ExternalLink, Sparkles, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { generateProjectSummary } from '@/ai/flows/generate-project-summary-flow';
 import { cn } from '@/lib/utils';
@@ -10,23 +9,33 @@ import { cn } from '@/lib/utils';
 const projects = [
   {
     id: 'career-os',
-    title: 'Career OS – AI Career Management',
+    title: 'Career OS',
+    subtitle: 'AI-Powered Career Management',
     description: 'A unified career operating system integrating placement tracking, ATS resume scoring, and deployment verification.',
     longDescription: 'Career OS is a comprehensive platform designed to streamline the job search and career management process. It features an intelligent ATS scoring engine to optimize resumes, a robust tracking system for applications and placements, and automated verification tools to ensure deployment accuracy.',
-    tags: ['Next.js', 'TypeScript', 'Firebase', 'AI'],
+    tags: ['Next.js', 'TypeScript', 'Firebase'],
     github: 'https://github.com/swathivhu/career-os',
-    demo: 'https://career-os-kappa.vercel.app',
-    image: 'https://picsum.photos/seed/career-os/800/500'
+    demo: 'https://career-os-kappa.vercel.app'
   },
   {
-    id: 'neural-vision',
-    title: 'Neural Vision Pipeline',
-    description: 'Automated video synthesis engine orchestrating Suno AI, NotebookLM, and ElevenLabs.',
-    longDescription: 'This project leverages a multi-agent AI system to orchestrate various generative models. It uses NotebookLM for structured research, ElevenLabs for high-fidelity voice cloning, and Suno AI for background score generation.',
-    tags: ['Python', 'GenAI', 'MoviePy', 'FastAPI'],
-    github: 'https://github.com/swathivhu',
-    demo: 'https://demo.com',
-    image: 'https://picsum.photos/seed/neural/800/500'
+    id: 'streamverse',
+    title: 'StreamVerse',
+    subtitle: 'Netflix-Style Streaming',
+    description: 'Modern OTT-style movie streaming web application built using Next.js and TMDB API with dynamic categories.',
+    longDescription: 'StreamVerse provides a premium streaming experience with dynamic movie categories, real-time search functionality, and a fully responsive UI. It leverages the TMDB API for up-to-date content and Next.js for high-performance rendering.',
+    tags: ['Next.js', 'TMDB API', 'Tailwind'],
+    github: 'https://github.com/swathivhu/streamverse',
+    demo: 'https://streamverse-blue.vercel.app'
+  },
+  {
+    id: 'codbank',
+    title: 'CodBank',
+    subtitle: 'Secure Modern Banking',
+    description: 'Secure full-stack banking application with authentication, real-time transactions, and Firebase integration.',
+    longDescription: 'CodBank is a robust fintech solution featuring secure user authentication, real-time balance tracking, and transaction history. Built with a focus on security and scalability using Firebase and TypeScript.',
+    tags: ['Next.js', 'TypeScript', 'Firebase'],
+    github: 'https://github.com/swathivhu/codbank-production',
+    demo: 'https://codbank-production.vercel.app'
   }
 ];
 
@@ -35,6 +44,7 @@ export const Projects: React.FC = () => {
   const [loading, setLoading] = useState<Record<string, boolean>>({});
 
   const handleGenerateSummary = async (projectId: string, description: string) => {
+    if (summaries[projectId]) return;
     setLoading(prev => ({ ...prev, [projectId]: true }));
     try {
       const result = await generateProjectSummary({ projectDescription: description });
@@ -47,7 +57,7 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <h2 className="section-heading !mb-0">
           <span className="section-number">03.</span> Featured Systems
@@ -55,104 +65,121 @@ export const Projects: React.FC = () => {
         <div className="h-px bg-white/5 flex-1 hidden md:block ml-8" />
       </div>
       
-      <div className="grid grid-cols-1 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
-          <div 
+          <ProjectCard 
             key={project.id} 
-            className="group relative bg-white/[0.02] border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:scale-[1.01] hover:bg-white/[0.04] hover:border-primary/20 shadow-2xl"
-          >
-            {/* Subtle Radial Glow on Hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.05)_0%,transparent_70%)]" />
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-              {/* Image Section */}
-              <div className="lg:col-span-5 relative aspect-video lg:aspect-auto overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                  data-ai-hint="ai project screenshot"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent lg:bg-gradient-to-r" />
-              </div>
-              
-              {/* Content Section */}
-              <div className="lg:col-span-7 p-8 md:p-10 flex flex-col justify-center space-y-6 relative z-10">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-primary/10">
-                      <Code2 className="w-4 h-4 text-primary" />
-                    </div>
-                    <span className="text-[10px] font-mono text-primary font-bold uppercase tracking-[0.2em]">Deployment Verified</span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                </div>
-                
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* AI Insight Bubble */}
-                {summaries[project.id] && (
-                  <div className="p-4 bg-primary/5 border border-primary/10 rounded-2xl animate-in fade-in slide-in-from-left-4">
-                    <p className="text-sm italic text-primary/90 font-medium leading-relaxed">
-                      <Sparkles className="w-3.5 h-3.5 inline mr-2 mb-1" />
-                      "{summaries[project.id]}"
-                    </p>
-                  </div>
-                )}
-                
-                {/* Tech Pills */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="text-[10px] font-bold px-4 py-1.5 rounded-full bg-white/5 border border-white/5 text-zinc-400 uppercase tracking-wider group-hover:border-primary/30 group-hover:text-zinc-200 transition-colors">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                {/* Actions */}
-                <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-                  <div className="flex items-center gap-4 w-full sm:w-auto">
-                    <Button 
-                      asChild
-                      className="flex-1 sm:flex-none bg-primary hover:bg-primary/90 text-white rounded-xl px-6 font-bold transition-all hover:scale-105 active:scale-95"
-                    >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        Live Demo
-                        <ExternalLink className="ml-2 w-4 h-4" />
-                      </a>
-                    </Button>
-                    <Button 
-                      variant="outline"
-                      asChild
-                      className="flex-1 sm:flex-none border-white/10 hover:bg-white/5 rounded-xl px-6 font-bold text-muted-foreground hover:text-white transition-all"
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        GitHub
-                        <Github className="ml-2 w-4 h-4" />
-                      </a>
-                    </Button>
-                  </div>
-
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    className="ml-auto text-primary/60 hover:text-primary hover:bg-transparent font-bold text-xs uppercase tracking-widest transition-all group/btn"
-                    onClick={() => handleGenerateSummary(project.id, project.longDescription)}
-                    disabled={loading[project.id]}
-                  >
-                    <Sparkles className={cn("w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-transform", loading[project.id] && "animate-spin")} />
-                    {loading[project.id] ? "Analyzing..." : "AI Summary"}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+            project={project}
+            summary={summaries[project.id]}
+            loading={loading[project.id]}
+            onSummarize={() => handleGenerateSummary(project.id, project.longDescription)}
+          />
         ))}
+      </div>
+    </div>
+  );
+};
+
+interface ProjectCardProps {
+  project: typeof projects[0];
+  summary?: string;
+  loading?: boolean;
+  onSummarize: () => void;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, summary, loading, onSummarize }) => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  return (
+    <div 
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      className="group relative bg-white/[0.03] border border-white/10 rounded-[2rem] p-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:scale-[1.03] hover:bg-white/[0.06] hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_30px_rgba(16,185,129,0.1)] overflow-hidden"
+    >
+      {/* Interactive Radial Highlight */}
+      <div 
+        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(16, 185, 129, 0.1), transparent 40%)`,
+        }}
+      />
+
+      {/* Header */}
+      <div className="relative z-10 space-y-4 flex-grow">
+        <div className="flex items-start justify-between">
+          <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20">
+            <Code2 className="w-5 h-5 text-primary" />
+          </div>
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className="text-primary/40 hover:text-primary hover:bg-transparent transition-colors"
+            onClick={onSummarize}
+            disabled={loading}
+          >
+            <Sparkles className={cn("w-4 h-4", loading && "animate-spin")} />
+          </Button>
+        </div>
+
+        <div className="space-y-1">
+          <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300">
+            {project.title}
+          </h3>
+          <p className="text-[10px] font-mono text-primary font-bold uppercase tracking-[0.2em]">
+            {project.subtitle}
+          </p>
+        </div>
+
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {project.description}
+        </p>
+
+        {/* AI Insight Bubble */}
+        {summary && (
+          <div className="p-4 bg-primary/5 border border-primary/10 rounded-2xl animate-in fade-in slide-in-from-top-2">
+            <p className="text-[11px] italic text-primary/90 font-medium leading-relaxed">
+              "{summary}"
+            </p>
+          </div>
+        )}
+
+        {/* Tech Pills */}
+        <div className="flex flex-wrap gap-2 pt-4">
+          {project.tags.map(tag => (
+            <span key={tag} className="text-[9px] font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-400 uppercase tracking-wider group-hover:border-primary/40 group-hover:text-zinc-200 transition-colors">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Actions */}
+      <div className="relative z-10 flex items-center gap-3 pt-8 mt-auto">
+        <Button 
+          asChild
+          className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-xl h-10 font-bold text-xs uppercase tracking-wider transition-all hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+        >
+          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+            Live Demo
+            <ExternalLink className="ml-2 w-3.5 h-3.5" />
+          </a>
+        </Button>
+        <Button 
+          variant="outline"
+          asChild
+          className="w-12 h-10 border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl p-0 transition-all"
+        >
+          <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+            <Github className="w-4 h-4 text-muted-foreground group-hover:text-white" />
+          </a>
+        </Button>
       </div>
     </div>
   );
