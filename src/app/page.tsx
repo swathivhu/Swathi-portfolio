@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Sidebar } from '@/components/Sidebar';
 import { FloatingNav } from '@/components/FloatingNav';
@@ -41,9 +40,10 @@ export default function Home() {
               <Skills />
             </GlassCard>
 
-            <GlassCard id="projects">
+            {/* Projects section moved outside individual GlassCard to handle its own grid of interactive cards */}
+            <section id="projects" className="py-12 md:py-20">
               <Projects />
-            </GlassCard>
+            </section>
 
             <GlassCard id="experience">
               <Experience />
