@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 interface GlassCardProps {
@@ -11,7 +11,6 @@ interface GlassCardProps {
 
 export const GlassCard: React.FC<GlassCardProps> = ({ children, className, id }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [borderAngle, setBorderAngle] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -23,16 +22,6 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className, id })
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     setMousePos({ x, y });
-
-    // Calculate angle for the moving radiant border
-    // We calculate from the center of the card
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    // Math.atan2 returns angle in radians, convert to degrees
-    // Adding 90 to align with CSS conic-gradient 0deg (top)
-    const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI) + 90;
-    setBorderAngle(angle);
   };
 
   return (
@@ -42,16 +31,12 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className, id })
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{
-        // Passing the angle as a CSS variable to the container
-        '--border-angle': `${borderAngle}deg`,
-      } as React.CSSProperties}
       className={cn(
         "glass-card p-8 md:p-12 mb-16 rounded-[2.5rem] group/card",
         className
       )}
     >
-      {/* Radiant Moving Border strictly on the edge, reacts to --border-angle */}
+      {/* Radiant Moving Border strictly on the edge, automated via CSS animation */}
       <div className="animated-border" />
 
       {/* Dynamic Cursor Glow (Radial follows mouse) */}
