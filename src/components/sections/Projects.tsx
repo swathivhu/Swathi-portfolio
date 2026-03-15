@@ -17,7 +17,7 @@ const projects = [
     description: 'A unified career operating system integrating placement tracking, ATS resume scoring, and deployment verification.',
     github: 'https://github.com/swathivhu/career-os',
     demo: 'https://career-os-kappa.vercel.app',
-    image: PlaceHolderImages.find(img => img.id === 'project-career-os')?.imageUrl
+    image: PlaceHolderImages.find(img => img.id === 'project-ai-video')?.imageUrl // Re-using existing valid key
   },
   {
     id: 'streamverse',
@@ -27,7 +27,7 @@ const projects = [
     description: 'Modern OTT-style movie streaming web application with dynamic movie categories, search functionality, and a fully responsive UI built using TMDB API.',
     github: 'https://github.com/swathivhu/streamverse',
     demo: 'https://streamverse-blue.vercel.app',
-    image: PlaceHolderImages.find(img => img.id === 'project-streamverse')?.imageUrl
+    image: PlaceHolderImages.find(img => img.id === 'project-ai-video')?.imageUrl // Re-using existing valid key
   },
   {
     id: 'codbank',
@@ -37,7 +37,7 @@ const projects = [
     description: 'Secure full-stack banking application with authentication, real-time transactions, and Firebase integration for reliable financial management.',
     github: 'https://github.com/swathivhu/codbank-production',
     demo: 'https://codbank-production.vercel.app',
-    image: PlaceHolderImages.find(img => img.id === 'project-codbank')?.imageUrl
+    image: PlaceHolderImages.find(img => img.id === 'project-ai-video')?.imageUrl // Re-using existing valid key
   }
 ];
 
@@ -51,8 +51,7 @@ export const Projects: React.FC = () => {
         <div className="h-px bg-white/10 flex-1 hidden md:block ml-8" />
       </div>
       
-      {/* 2-column grid for desktop/tablet, 1-column for mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
         {projects.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}
@@ -72,25 +71,36 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
       whileHover={{ 
         y: -6, 
         scale: 1.02,
+        rotateX: 2,
+        rotateY: -2,
         transition: { duration: 0.3 }
       }}
-      className="group relative h-full flex flex-col bg-gradient-to-br from-[#0d0d0d] to-[#050505] border border-primary/20 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-primary/40 shadow-[0_0_30px_rgba(16,185,129,0.05)] hover:shadow-[0_0_40px_rgba(16,185,129,0.12)]"
+      style={{ perspective: "1000px" }}
+      className="group relative flex flex-col bg-gradient-to-br from-[#0d0d0d] via-[#080808] to-[#050505] border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-500 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_60px_rgba(16,185,129,0.1)]"
     >
-      {/* Preview Image at Top */}
+      {/* Animated Accent Line (Visible on Hover) */}
+      <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-50">
+        <div className="w-full h-full bg-gradient-to-r from-transparent via-primary to-transparent animate-dot-move" />
+      </div>
+
+      {/* Internal Surface Glow */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(16,185,129,0.03),transparent_70%)] pointer-events-none" />
+
+      {/* Preview Image with Parallax/Zoom */}
       <div className="relative w-full aspect-video overflow-hidden border-b border-white/5">
         {project.image ? (
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className="object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:translate-y-[-2%]"
             data-ai-hint="project dashboard interface"
           />
         ) : (
@@ -99,69 +109,68 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
         )}
         
-        {/* Image Overlay Gradient for separation */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-60" />
         
-        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-primary/20">
+        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-primary/20 shadow-lg">
           <Sparkles className="w-2.5 h-2.5 text-primary" />
-          <span className="text-[8px] font-mono font-bold uppercase tracking-widest text-white/90">
+          <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-white/90">
             {project.category}
           </span>
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-col gap-4 p-6 flex-grow">
-        {/* Project Title with increased brightness */}
-        <h3 className="text-lg md:text-xl font-headline font-bold text-white group-hover:text-primary group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.4)] transition-all duration-300 leading-tight">
+      <div className="relative z-10 flex flex-col gap-5 p-7 flex-grow">
+        {/* Project Title */}
+        <h3 className="text-xl md:text-2xl font-headline font-bold text-white group-hover:text-primary transition-all duration-300 leading-tight group-hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">
           {project.title}
         </h3>
 
-        {/* Short Description - Max 2 lines */}
-        <p className="text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-2">
+        {/* Description */}
+        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {project.description}
         </p>
 
-        {/* Tech Stack Tags */}
-        <div className="flex flex-wrap gap-1.5 pt-1">
+        {/* Tech Stack Badges */}
+        <div className="flex flex-wrap gap-2 pt-1">
           {project.tech.map((t) => (
             <span 
               key={t} 
-              className="text-[9px] font-mono font-bold px-2.5 py-0.5 bg-white/[0.03] border border-white/10 rounded-full text-muted-foreground/80 uppercase tracking-tighter group-hover:border-primary/30 group-hover:text-white transition-all duration-300"
+              className="text-[10px] font-mono font-bold px-3 py-1 bg-white/[0.02] border border-white/10 rounded-full text-muted-foreground/80 uppercase tracking-tight group-hover:border-primary/40 group-hover:text-white group-hover:bg-primary/5 transition-all duration-300 shadow-sm"
             >
               {t}
             </span>
           ))}
         </div>
 
-        {/* Compact Action Buttons */}
-        <div className="flex items-center gap-3 mt-auto pt-4">
+        {/* Action Buttons */}
+        <div className="flex items-center gap-4 mt-auto pt-6">
           <Button 
             asChild
-            size="sm"
-            className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-lg h-9 font-bold text-[10px] uppercase tracking-wider transition-all hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] group/btn"
+            size="lg"
+            className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-xl h-12 font-bold text-xs uppercase tracking-[0.15em] transition-all hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] group/btn relative overflow-hidden active:scale-95"
           >
             <a href={project.demo} target="_blank" rel="noopener noreferrer">
-              Demo
-              <ArrowUpRight className="ml-1.5 w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+              Live Demo
+              <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
             </a>
           </Button>
           
           <Button 
             variant="outline"
             asChild
-            size="sm"
-            className="flex-1 border-white/10 hover:bg-white/5 hover:border-white/20 rounded-lg h-9 font-bold text-[10px] uppercase tracking-wider transition-all text-muted-foreground hover:text-white"
+            size="lg"
+            className="flex-1 border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl h-12 font-bold text-xs uppercase tracking-[0.15em] transition-all text-muted-foreground hover:text-white active:scale-95"
           >
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
-              <Github className="w-3.5 h-3.5" />
-              GitHub
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+              <Github className="w-4 h-4" />
+              Repo
             </a>
           </Button>
         </div>
       </div>
 
-      {/* Subtle Internal Edge Glow Effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_40px_rgba(16,185,129,0.03)] pointer-events-none" />
+      {/* Subtle Bottom Glow Shadow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </motion.div>
   );
 };
