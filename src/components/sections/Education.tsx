@@ -11,7 +11,12 @@ const education = [
     field: 'Electronics & Communication',
     school: 'Acharya Institute of Technology (AIT)',
     period: '2022 – 2026',
-    description: 'Focused on electronics systems, communication technologies, and modern computing. Actively exploring Artificial Intelligence, Generative AI, and Full Stack Development through projects and practical implementations.',
+    description: (
+      <>
+        Focused on electronics systems, communication technologies, and modern computing. 
+        Actively exploring <span className="text-white font-bold">Artificial Intelligence, Generative AI, and Full Stack Development</span> through projects and hands-on development.
+      </>
+    ),
     focus: ['AI', 'Generative AI', 'Full Stack', 'Electronics'],
     icon: GraduationCap
   },
@@ -20,8 +25,12 @@ const education = [
     field: 'Science Stream',
     school: 'MES PU College of Arts, Commerce & Science',
     period: '2021 – 2022',
-    description: 'Studied core subjects including Physics, Chemistry, and Mathematics, building a strong analytical and problem-solving foundation for engineering studies.',
-    focus: ['Physics', 'Chemistry', 'Mathematics', 'Analysis'],
+    description: (
+      <>
+        Studied core subjects including <span className="text-white font-bold">Physics, Chemistry, and Mathematics</span>, building strong analytical and problem-solving foundations for engineering studies.
+      </>
+    ),
+    focus: ['Physics', 'Chemistry', 'Mathematics', 'Analytical Thinking'],
     icon: BookOpen
   },
   {
@@ -29,8 +38,12 @@ const education = [
     field: 'Secondary Education',
     school: 'Raja Rajeshwari English School',
     period: '2020 – 2021',
-    description: 'Completed secondary education with a strong focus on academic excellence. Developed early interest in technology, computing, and logical problem solving.',
-    focus: ['Computing', 'Logic', 'Problem Solving'],
+    description: (
+      <>
+        Completed secondary education with strong academic performance and developed an early interest in <span className="text-white font-bold">technology, computing, and logical problem solving</span>.
+      </>
+    ),
+    focus: ['Mathematics', 'Science', 'Logical Thinking'],
     icon: School
   }
 ];
@@ -52,8 +65,8 @@ export const Education: React.FC = () => {
             
             {/* Pulsing Timeline Node */}
             <div className="absolute -left-[32.5px] top-1.5 flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] z-10 group-hover:scale-150 transition-transform duration-500" />
-              <div className="absolute inset-0 w-2 h-2 rounded-full bg-primary/40 animate-ping" />
+              <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_15px_rgba(16,185,129,0.8)] z-10 group-hover:scale-150 transition-transform duration-500" />
+              <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-primary/40 animate-ping" />
             </div>
 
             <div className="flex flex-col md:flex-row gap-6 items-start">
@@ -66,9 +79,9 @@ export const Education: React.FC = () => {
                         {edu.degree}
                       </h3>
                     </div>
-                    <p className="text-lg text-muted-foreground font-medium flex items-center gap-2">
-                      {edu.field} 
-                      <span className="text-white/20">•</span> 
+                    <p className="text-lg text-muted-foreground font-medium flex items-center gap-2 flex-wrap">
+                      <span className="text-white/80">{edu.field}</span>
+                      <span className="text-white/20 hidden sm:inline">•</span> 
                       <span className="text-white/60">{edu.school}</span>
                     </p>
                   </div>
@@ -81,13 +94,13 @@ export const Education: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm md:text-base text-muted-foreground/80 leading-relaxed max-w-4xl">
+                <div className="text-sm md:text-base text-muted-foreground/80 leading-relaxed max-w-4xl">
                   {edu.description}
-                </p>
+                </div>
                 
                 <div className="flex flex-wrap gap-2 pt-2">
                   {edu.focus.map(f => (
-                    <span key={f} className="text-[9px] font-bold px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-muted-foreground/60 uppercase tracking-widest hover:border-primary/30 hover:text-primary transition-all duration-300">
+                    <span key={f} className="text-[9px] font-bold px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-muted-foreground/60 uppercase tracking-widest hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-300">
                       {f}
                     </span>
                   ))}
