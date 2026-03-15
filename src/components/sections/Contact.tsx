@@ -8,7 +8,7 @@ import { Send } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-32">
+    <section id="contact" className="py-24">
       <h2 className="section-heading">
         <span className="section-number">07.</span> Contact
         <div className="h-px bg-white/5 flex-1" />
@@ -48,7 +48,7 @@ export const Contact: React.FC = () => {
         </div>
       </div>
       
-      <footer className="mt-32 pt-12 border-t border-white/5 text-center">
+      <footer className="mt-24 pt-12 border-t border-white/5 text-center">
         <p className="text-muted-foreground/40 text-[10px] font-mono uppercase tracking-[0.4em]">
           © {new Date().getFullYear()} Swathi P V • Professional AI Architect
         </p>

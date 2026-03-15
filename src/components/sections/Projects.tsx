@@ -47,7 +47,7 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-32">
+    <section id="projects" className="py-24">
       <h2 className="section-heading">
         <span className="section-number">03.</span> Featured Systems
         <div className="h-px bg-white/5 flex-1" />

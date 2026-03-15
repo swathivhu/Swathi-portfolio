@@ -8,7 +8,7 @@ export const About: React.FC = () => {
   const profile = PlaceHolderImages.find(img => img.id === 'profile');
 
   return (
-    <section id="about" className="py-32">
+    <section id="about" className="py-24">
       <h2 className="section-heading">
         <span className="section-number">01.</span> About Me
         <div className="h-px bg-white/5 flex-1" />

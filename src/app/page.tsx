@@ -14,9 +14,10 @@ import { Contact } from '@/components/sections/Contact';
 
 /**
  * A minimal, modern section divider with a subtle purple-to-cyan gradient.
+ * Reduced padding to py-12 to minimize large gaps.
  */
 const SectionDivider = () => (
-  <div className="w-full py-24 flex justify-center items-center opacity-10">
+  <div className="w-full py-12 flex justify-center items-center opacity-10">
     <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-primary via-secondary to-transparent" />
   </div>
 );
