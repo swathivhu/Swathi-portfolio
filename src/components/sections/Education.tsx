@@ -1,8 +1,10 @@
+
 "use client"
 
 import React from 'react';
-import { GraduationCap, BookOpen, School } from 'lucide-react';
+import { GraduationCap, BookOpen, School, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 const education = [
   {
@@ -49,23 +51,66 @@ const education = [
 
 export const Education: React.FC = () => {
   return (
-    <section id="education" className="space-y-12">
-      <h2 className="section-heading">
-        <span className="section-number">05.</span> Education
-        <div className="h-px bg-white/5 flex-1" />
-      </h2>
+    <section id="education" className="relative space-y-12">
+      {/* Background Particles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div 
+          animate={{ 
+            y: [0, -20, 0],
+            opacity: [0.1, 0.3, 0.1] 
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-10 w-2 h-2 bg-primary rounded-full blur-[2px]" 
+        />
+        <motion.div 
+          animate={{ 
+            y: [0, 20, 0],
+            opacity: [0.1, 0.4, 0.1] 
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-1/4 right-20 w-1.5 h-1.5 bg-primary rounded-full blur-[1px]" 
+        />
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="flex items-center gap-4"
+      >
+        <h2 className="section-heading m-0">
+          <span className="section-number">05.</span> Education
+        </h2>
+        <div className="h-px bg-gradient-to-r from-primary/50 to-transparent flex-1 shadow-[0_0_8px_rgba(16,185,129,0.3)]" />
+      </motion.div>
       
       <div className="relative space-y-16 pl-8">
-        {/* Vertical Timeline Line */}
-        <div className="absolute left-[3.5px] top-4 bottom-4 w-[1px] bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
+        {/* Animated Vertical Timeline Line */}
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute left-[3.5px] top-4 bottom-4 w-[1px] bg-gradient-to-b from-primary via-primary/40 to-transparent origin-top shadow-[0_0_10px_rgba(16,185,129,0.5)]" 
+        />
 
         {education.map((edu, idx) => (
-          <div key={idx} className="relative group">
-            
+          <motion.div 
+            key={idx} 
+            initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: idx * 0.1 }}
+            className="relative group"
+          >
             {/* Pulsing Timeline Node */}
             <div className="absolute -left-[32.5px] top-1.5 flex items-center justify-center">
-              <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_15px_rgba(16,185,129,0.8)] z-10 group-hover:scale-150 transition-transform duration-500" />
+              <motion.div 
+                whileHover={{ scale: 1.5 }}
+                className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_15px_rgba(16,185,129,1)] z-10 transition-all duration-300" 
+              />
               <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-primary/40 animate-ping" />
+              <div className="absolute inset-[-4px] w-4.5 h-4.5 rounded-full border border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
 
             <div className="flex flex-col md:flex-row gap-6 items-start">
@@ -73,7 +118,7 @@ export const Education: React.FC = () => {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="space-y-2">
                     <div className="flex items-center gap-3">
-                      <edu.icon className="w-6 h-6 text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
+                      <edu.icon className="w-6 h-6 text-primary drop-shadow-[0_0_10px_rgba(16,185,129,0.6)] group-hover:scale-110 transition-transform" />
                       <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">
                         {edu.degree}
                       </h3>
@@ -86,11 +131,16 @@ export const Education: React.FC = () => {
                   </div>
 
                   {/* Floating Year Badge */}
-                  <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-black border border-primary/30 shadow-[0_0_15px_rgba(16,185,129,0.1)] group-hover:border-primary/60 group-hover:-translate-y-1 transition-all duration-300">
+                  <motion.div 
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    animate={{ y: [0, -2, 0] }}
+                    transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+                    className="inline-flex items-center px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-sm border border-primary/30 shadow-[0_0_15px_rgba(16,185,129,0.1)] group-hover:border-primary/60 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-300"
+                  >
                     <span className="text-[10px] font-mono font-bold text-primary tracking-widest uppercase">
                       {edu.period}
                     </span>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="text-sm md:text-base text-muted-foreground/80 leading-relaxed max-w-4xl">
@@ -99,14 +149,18 @@ export const Education: React.FC = () => {
                 
                 <div className="flex flex-wrap gap-2 pt-2">
                   {edu.focus.map(f => (
-                    <span key={f} className="text-[9px] font-bold px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-muted-foreground/60 uppercase tracking-widest hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-300">
+                    <motion.span 
+                      key={f}
+                      whileHover={{ y: -2, backgroundColor: "rgba(16, 185, 129, 0.1)", borderColor: "rgba(16, 185, 129, 0.4)" }}
+                      className="text-[9px] font-bold px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] text-muted-foreground/60 uppercase tracking-widest hover:text-primary transition-all duration-300 cursor-default shadow-sm"
+                    >
                       {f}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
