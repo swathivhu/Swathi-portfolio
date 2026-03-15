@@ -1,6 +1,7 @@
+
 "use client"
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Github, ExternalLink, Sparkles, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { generateProjectSummary } from '@/ai/flows/generate-project-summary-flow';
@@ -42,6 +43,26 @@ const projects = [
 export const Projects: React.FC = () => {
   const [summaries, setSummaries] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState<Record<string, boolean>>({});
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleGenerateSummary = async (projectId: string, description: string) => {
     if (summaries[projectId]) return;
@@ -57,7 +78,7 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <div className="space-y-16">
+    <div ref={sectionRef} className="space-y-16">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <h2 className="section-heading !mb-0">
           <span className="section-number">03.</span> Featured Systems
@@ -66,14 +87,25 @@ export const Projects: React.FC = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <ProjectCard 
-            key={project.id} 
-            project={project}
-            summary={summaries[project.id]}
-            loading={loading[project.id]}
-            onSummarize={() => handleGenerateSummary(project.id, project.longDescription)}
-          />
+        {projects.map((project, index) => (
+          <div
+            key={project.id}
+            className={cn(
+              "transition-all duration-700 ease-out",
+              isVisible ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0",
+              !isVisible && index === 0 && "-translate-x-10",
+              !isVisible && index === 1 && "translate-y-10",
+              !isVisible && index === 2 && "translate-x-10"
+            )}
+            style={{ transitionDelay: `${index * 150}ms` }}
+          >
+            <ProjectCard 
+              project={project}
+              summary={summaries[project.id]}
+              loading={loading[project.id]}
+              onSummarize={() => handleGenerateSummary(project.id, project.longDescription)}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -101,7 +133,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, summary, loading, on
     <div 
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className="group relative bg-white/[0.03] border border-white/10 rounded-[2rem] p-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:scale-[1.03] hover:bg-white/[0.06] hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_30px_rgba(16,185,129,0.1)] overflow-hidden"
+      className="group relative bg-white/[0.03] border border-white/10 rounded-[2rem] p-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] hover:bg-white/[0.06] hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_30px_rgba(16,185,129,0.1)] overflow-hidden"
     >
       {/* Interactive Radial Highlight */}
       <div 
@@ -121,7 +153,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, summary, loading, on
             variant="ghost" 
             size="icon"
             className="text-primary/40 hover:text-primary hover:bg-transparent transition-colors"
-            onClick={onSummarize}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSummarize();
+            }}
             disabled={loading}
           >
             <Sparkles className={cn("w-4 h-4", loading && "animate-spin")} />
@@ -164,11 +199,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, summary, loading, on
       <div className="relative z-10 flex items-center gap-3 pt-8 mt-auto">
         <Button 
           asChild
-          className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-xl h-10 font-bold text-xs uppercase tracking-wider transition-all hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+          className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-xl h-10 font-bold text-xs uppercase tracking-wider transition-all hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] group/btn"
         >
           <a href={project.demo} target="_blank" rel="noopener noreferrer">
             Live Demo
-            <ExternalLink className="ml-2 w-3.5 h-3.5" />
+            <ExternalLink className="ml-2 w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
           </a>
         </Button>
         <Button 
