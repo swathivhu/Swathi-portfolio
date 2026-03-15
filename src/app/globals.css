@@ -71,10 +71,24 @@
   }
 
   .section-number {
-    @apply text-xs font-mono text-primary tracking-widest opacity-80;
+    @apply text-xl md:text-2xl font-mono text-primary tracking-widest opacity-90;
   }
 
   .neon-text {
     @apply text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.5)];
+  }
+
+  .animated-border {
+    @apply absolute inset-0 rounded-[2.5rem] border border-primary/10 pointer-events-none;
+    animation: border-glow-pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes border-glow-pulse {
+    0%, 100% {
+      @apply border-primary/5 shadow-none;
+    }
+    50% {
+      @apply border-primary/30 shadow-[0_0_15px_rgba(16,185,129,0.1)];
+    }
   }
 }
