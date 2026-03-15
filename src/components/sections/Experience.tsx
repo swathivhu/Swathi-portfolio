@@ -5,51 +5,62 @@ import React from 'react';
 const experiences = [
   {
     role: 'Generative AI Developer',
-    company: 'AI Innovation Hub',
-    period: '2023 - Present',
-    description: 'Leading development of autonomous content agents and multi-agent LLM systems. Optimized pipeline latency by 40%.',
-    tech: ['Python', 'GenAI', 'LangChain', 'FastAPI']
+    company: 'AI Innovation Lab',
+    period: 'Present',
+    description: 'Developing AI-driven applications and intelligent automation workflows using modern Generative AI frameworks.',
+    tech: ['Python', 'GenAI', 'LangChain', 'Prompt Engineering', 'LLM Integration']
   },
   {
-    role: 'Python Developer Intern',
-    company: 'Tech Solutions Inc.',
-    period: '2022 - 2023',
-    description: 'Engineered backend microservices for automated data analysis and predictive reporting.',
-    tech: ['Python', 'SQL', 'Pandas', 'Docker']
+    role: 'Python Full Stack with Gen AI',
+    company: 'KodNest',
+    period: 'Training',
+    description: 'Trained in building full-stack web applications with modern frontend and backend technologies.',
+    tech: ['Python', 'JavaScript', 'React', 'Next.js', 'FastAPI', 'Firebase', 'Git']
   }
 ];
 
 export const Experience: React.FC = () => {
   return (
     <div className="space-y-12">
-      <h2 className="section-heading">
-        <span className="section-number">04.</span> Experience
-      </h2>
+      <div className="flex items-center gap-4 mb-10">
+        <h2 className="text-2xl md:text-3xl font-headline font-bold text-white tracking-tight">
+          Professional <span className="text-primary neon-text">Timeline</span>
+        </h2>
+        <div className="h-px bg-white/10 flex-1 hidden md:block" />
+      </div>
       
       <div className="space-y-12">
         {experiences.map((exp, idx) => (
           <div key={idx} className="relative pl-8 group">
-            <div className="absolute left-0 top-1.5 w-1.5 h-1.5 rounded-full bg-primary group-hover:scale-150 group-hover:shadow-[0_0_10px_rgba(16,185,129,0.8)] transition-all" />
-            <div className="absolute left-[2px] top-4 h-full w-[1px] bg-white/5" />
+            {/* Timeline Dot & Line */}
+            <div className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-primary group-hover:scale-150 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.8)] transition-all duration-300 z-10" />
+            <div className="absolute left-[3.5px] top-4 h-full w-[1px] bg-gradient-to-b from-primary/30 to-transparent" />
             
-            <div className="space-y-3">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+            <div className="space-y-4">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
                 <div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">{exp.role}</h3>
-                  <p className="text-primary/80 font-mono text-xs uppercase tracking-wider">{exp.company}</p>
+                  <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300">
+                    {exp.role}
+                  </h3>
+                  <p className="text-primary/90 font-mono text-[10px] uppercase tracking-[0.2em] mt-1 font-bold">
+                    {exp.company}
+                  </p>
                 </div>
-                <span className="text-[10px] font-mono text-muted-foreground/60 px-2 py-1 rounded-md border border-white/5">
+                <span className="text-[10px] font-mono text-muted-foreground/60 px-3 py-1 rounded-full border border-white/5 bg-white/[0.02] self-start">
                   {exp.period}
                 </span>
               </div>
               
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-3xl">
                 {exp.description}
               </p>
               
-              <div className="flex flex-wrap gap-2 pt-1">
+              <div className="flex flex-wrap gap-2 pt-2">
                 {exp.tech.map(t => (
-                  <span key={t} className="text-[9px] font-mono px-2 py-0.5 bg-white/5 rounded border border-white/5 text-muted-foreground/60 uppercase">
+                  <span 
+                    key={t} 
+                    className="text-[9px] font-mono px-3 py-1 bg-primary/5 rounded-full border border-primary/20 text-primary uppercase tracking-widest hover:bg-primary/10 transition-colors shadow-[0_0_10px_rgba(16,185,129,0.05)]"
+                  >
                     {t}
                   </span>
                 ))}
