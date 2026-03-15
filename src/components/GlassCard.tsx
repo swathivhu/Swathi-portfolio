@@ -31,11 +31,11 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className, id })
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "glass-card p-8 md:p-12 mb-16 rounded-[2.5rem]",
+        "glass-card p-8 md:p-12 mb-16 rounded-[2.5rem] group/card",
         className
       )}
     >
-      {/* Radiant Moving Border */}
+      {/* Radiant Moving Border strictly on the edge */}
       <div className="animated-border" />
 
       {/* Dynamic Cursor Glow (Radial follows mouse) */}
@@ -47,7 +47,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className, id })
         }}
       />
       
-      {/* Content wrapper to ensure z-index */}
+      {/* Content wrapper to ensure z-index above border effects */}
       <div className="relative z-10">
         {children}
       </div>

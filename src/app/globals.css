@@ -78,19 +78,23 @@
     @apply text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.5)];
   }
 
+  /* MOVING RADIANT BORDER SYSTEM */
   .animated-border {
     @apply absolute inset-0 rounded-[2.5rem] pointer-events-none overflow-hidden;
-    padding: 1.5px;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
+    padding: 2px; /* This defines the thickness of the radiant line */
+    
+    /* MASK: This is the key. It hides everything except the padded border area. */
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
-    opacity: 0.35;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    
+    opacity: 0.5; /* Base visibility of the radiant line */
     transition: opacity 0.5s ease;
   }
 
   .glass-card:hover .animated-border {
-    opacity: 1;
+    opacity: 1; /* Intensify when hovering the card */
   }
 
   .animated-border::before {
@@ -99,9 +103,10 @@
     background: conic-gradient(
       from 0deg,
       transparent 0deg,
-      transparent 260deg,
-      hsl(var(--primary)) 300deg,
-      hsl(var(--primary)) 340deg,
+      transparent 150deg,
+      hsl(var(--primary)) 180deg,
+      hsl(var(--primary)) 210deg,
+      transparent 240deg,
       transparent 360deg
     );
     animation: border-rotate 4s linear infinite;
