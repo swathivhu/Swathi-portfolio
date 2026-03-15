@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect } from 'react';
@@ -7,7 +8,7 @@ import { ArrowRight, Bot } from 'lucide-react';
 export const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
   
-  const fullTitleText = "Generative AI Systems";
+  const fullTitleText = "Full-Stack Development with Generative AI";
   
   useEffect(() => {
     let i = 0;
@@ -15,7 +16,7 @@ export const Hero: React.FC = () => {
       setDisplayText(fullTitleText.substring(0, i));
       i++;
       if (i > fullTitleText.length) clearInterval(titleInterval);
-    }, 60);
+    }, 40); // Slightly faster typing speed for the longer text
 
     return () => clearInterval(titleInterval);
   }, []);
@@ -32,25 +33,27 @@ export const Hero: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <div className="lg:col-span-7 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10">
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">Innovation & Intelligence</span>
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">FULL-STACK & AI DEVELOPMENT</span>
           </div>
           
           <div className="space-y-4">
             <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight tracking-tight text-white">
-              Architecting <br />
+              Building Intelligent <br />
               <span className="text-primary">Digital Systems</span>
             </h1>
             
-            <div className="h-10 flex items-center justify-center lg:justify-start">
+            <div className="h-12 flex items-center justify-center lg:justify-start">
               <p className="text-xl font-medium text-muted-foreground tracking-tight">
                 Crafting <span className="text-white font-mono">{displayText}</span>
-                <span className="inline-block w-1 h-6 ml-2 bg-primary"></span>
+                <span className="inline-block w-1 h-6 ml-2 bg-primary animate-pulse"></span>
               </p>
             </div>
           </div>
           
           <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-            I bridge the gap between human creativity and machine intelligence, building production-grade AI solutions that transform complex data into meaningful experiences.
+            I develop scalable full-stack applications integrating modern web technologies with Generative AI. 
+            My focus is on building intelligent products that combine powerful backend systems, 
+            intuitive interfaces, and AI-driven capabilities.
           </p>
           
           <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 w-full">
