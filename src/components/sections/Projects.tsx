@@ -1,16 +1,16 @@
 "use client"
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Github, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const projects = [
   {
     id: 'career-os',
-    title: 'Career OS – AI-Powered Career Management System',
+    title: 'Career OS',
     category: 'AI SYSTEM ARCHITECT',
     tech: ['Next.js', 'TypeScript', 'Firebase'],
     description: 'A unified career operating system integrating placement tracking, ATS resume scoring, and deployment verification.',
@@ -20,7 +20,7 @@ const projects = [
   },
   {
     id: 'streamverse',
-    title: 'StreamVerse – Netflix-Style Streaming Platform',
+    title: 'StreamVerse',
     category: 'WEB APPLICATION',
     tech: ['Next.js', 'TMDB API', 'Tailwind CSS'],
     description: 'Modern OTT-style movie streaming web application with dynamic movie categories, search functionality, and a fully responsive UI.',
@@ -30,7 +30,7 @@ const projects = [
   },
   {
     id: 'codbank',
-    title: 'CodBank – Secure Modern Banking Platform',
+    title: 'CodBank',
     category: 'FINTECH SOLUTION',
     tech: ['Next.js', 'TypeScript', 'Firebase'],
     description: 'Secure full-stack banking application with authentication, real-time transactions, and Firebase integration for reliable financial management.',
@@ -50,7 +50,6 @@ export const Projects: React.FC = () => {
         <div className="h-px bg-white/10 flex-1 hidden md:block ml-6" />
       </div>
       
-      {/* 2-Column Product Showcase Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
@@ -66,30 +65,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  
-  // Motion values for subtle 3D tilt
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [5, -5]), { stiffness: 150, damping: 20 });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-5, 5]), { stiffness: 150, damping: 20 });
-
-  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseXRel = event.clientX - rect.left;
-    const mouseYRel = event.clientY - rect.top;
-    x.set(mouseXRel / width - 0.5);
-    y.set(mouseYRel / height - 0.5);
-  }
-
-  function handleMouseLeave() {
-    x.set(0);
-    y.set(0);
-  }
 
   return (
     <motion.div
@@ -99,27 +76,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ 
         duration: 0.7, 
-        delay: index * 0.15,
+        delay: index * 0.1,
         ease: "easeOut" 
       }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ 
-        rotateX, 
-        rotateY,
-        perspective: "1200px"
-      }}
-      className="group relative flex flex-col bg-gradient-to-br from-zinc-900/80 via-black to-black border border-primary/20 rounded-[1.5rem] overflow-hidden transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_40px_rgba(16,185,129,0.15)] hover:border-primary/40 hover:-translate-y-1.5"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -6, scale: 1.02 }}
+      className="group relative flex flex-col bg-gradient-to-br from-[#0d0d0d] to-[#050505] border border-primary/20 rounded-[1.5rem] overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(16,185,129,0.05)] hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:border-primary/40"
     >
       {/* Apple-style Light Sweep Reflection */}
       <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden rounded-[1.5rem]">
         <motion.div
           className="absolute inset-0"
           initial={{ x: '-150%', opacity: 0 }}
-          whileHover={{ 
-            x: '150%', 
-            opacity: [0, 1, 1, 0] 
-          }}
+          animate={isHovered ? { x: '150%', opacity: [0, 1, 1, 0] } : { x: '-150%', opacity: 0 }}
           transition={{ 
             duration: 1.2, 
             ease: "easeOut",
@@ -133,27 +103,31 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         />
       </div>
 
-      {/* Project Image Section (Top 50%) */}
+      {/* Project Image Section */}
       <div className="relative aspect-video w-full overflow-hidden border-b border-white/5 bg-zinc-950">
         <div className="relative w-full h-full overflow-hidden">
           {project.image ? (
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
-              priority={index < 2}
-            />
+            <motion.div
+              animate={isHovered ? { scale: 1.1 } : { scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative w-full h-full"
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+                priority={index < 2}
+              />
+            </motion.div>
           ) : (
             <div className="w-full h-full bg-white/[0.03] flex items-center justify-center">
               <Sparkles className="w-6 h-6 text-white/10" />
             </div>
           )}
-          {/* Bottom Gradient Overlay for Visual Separation */}
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent z-10" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0d0d0d] to-transparent z-10" />
         </div>
         
-        {/* Category Badge */}
         <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-primary/30 z-20">
           <Sparkles className="w-2.5 h-2.5 text-primary" />
           <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-white/90">
@@ -165,13 +139,37 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       {/* Project Information Section */}
       <div className="flex flex-col gap-4 p-6 md:p-8 flex-grow">
         <div className="space-y-3">
-          <h3 className="text-xl md:text-2xl font-headline font-bold text-primary neon-text transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] leading-tight">
+          <h3 className="text-2xl font-headline font-bold text-primary neon-text transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] leading-tight">
             {project.title}
           </h3>
 
-          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 min-h-[2.5rem]">
+          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
             {project.description}
           </p>
+
+          {/* Skills revealed on hover */}
+          <div className="h-8 relative overflow-hidden">
+            <AnimatePresence>
+              {isHovered && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-wrap gap-2 pt-2"
+                >
+                  {project.tech.map((t) => (
+                    <span 
+                      key={t} 
+                      className="text-[9px] font-mono px-2 py-0.5 bg-primary/5 rounded border border-primary/20 text-primary uppercase tracking-wider shadow-[0_0_10px_rgba(16,185,129,0.1)]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Action Buttons */}
@@ -179,8 +177,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <Button 
             asChild
             variant="outline"
-            size="lg"
-            className="flex-1 border-white/10 hover:bg-white/5 hover:border-primary/40 rounded-xl h-12 font-bold text-xs uppercase tracking-widest transition-all text-muted-foreground hover:text-white group/btn"
+            className="flex-1 border-white/10 hover:bg-white/5 hover:border-primary/40 rounded-xl h-11 font-bold text-[10px] uppercase tracking-widest transition-all text-muted-foreground hover:text-white group/btn"
           >
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
               <Github className="w-4 h-4 transition-transform group-hover/btn:rotate-12" />
@@ -190,8 +187,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
           <Button 
             asChild
-            size="lg"
-            className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-xl h-12 font-bold text-xs uppercase tracking-widest group/btn relative overflow-hidden active:scale-95 shadow-lg shadow-primary/20"
+            className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-xl h-11 font-bold text-[10px] uppercase tracking-widest group/btn relative overflow-hidden active:scale-95 shadow-lg shadow-primary/20"
           >
             <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
               Live Demo
@@ -199,11 +195,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </a>
           </Button>
         </div>
-      </div>
-
-      {/* Subtle Bottom Accent Highlight */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="w-full h-full bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       </div>
     </motion.div>
   );
