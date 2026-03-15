@@ -16,6 +16,13 @@ const experiences = [
     period: 'Training',
     description: 'Trained in building full-stack web applications with modern frontend and backend technologies.',
     tech: ['Python', 'JavaScript', 'React', 'Next.js', 'FastAPI', 'Firebase', 'Git']
+  },
+  {
+    role: 'AI Content Creator',
+    company: 'Sangeetha Sudha',
+    period: 'Project Based',
+    description: 'Created AI-driven educational content and multimedia using advanced generative tools for audio, video, and storytelling.',
+    tech: ['Suno AI', 'ElevenLabs', 'Runway ML', 'AI Content Generation', 'Creative AI Tools']
   }
 ];
 
