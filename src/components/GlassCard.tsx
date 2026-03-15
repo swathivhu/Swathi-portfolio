@@ -35,7 +35,10 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className, id })
         className
       )}
     >
-      {/* Dynamic Cursor Glow */}
+      {/* Radiant Moving Border */}
+      <div className="animated-border" />
+
+      {/* Dynamic Cursor Glow (Radial follows mouse) */}
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500"
         style={{
@@ -43,9 +46,6 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className, id })
           background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(16, 185, 129, 0.08), transparent 40%)`,
         }}
       />
-
-      {/* Subtle AI-themed Animated Border */}
-      <div className="animated-border" />
       
       {/* Content wrapper to ensure z-index */}
       <div className="relative z-10">

@@ -79,16 +79,36 @@
   }
 
   .animated-border {
-    @apply absolute inset-0 rounded-[2.5rem] border border-primary/20 pointer-events-none;
-    animation: border-glow-pulse 3s ease-in-out infinite;
+    @apply absolute inset-0 rounded-[2.5rem] pointer-events-none overflow-hidden;
+    padding: 1.5px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    opacity: 0.35;
+    transition: opacity 0.5s ease;
   }
 
-  @keyframes border-glow-pulse {
-    0%, 100% {
-      @apply border-primary/10 shadow-none;
-    }
-    50% {
-      @apply border-primary/50 shadow-[0_0_20px_rgba(16,185,129,0.2)];
-    }
+  .glass-card:hover .animated-border {
+    opacity: 1;
+  }
+
+  .animated-border::before {
+    content: "";
+    @apply absolute inset-[-150%];
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 260deg,
+      hsl(var(--primary)) 300deg,
+      hsl(var(--primary)) 340deg,
+      transparent 360deg
+    );
+    animation: border-rotate 4s linear infinite;
+  }
+
+  @keyframes border-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }
