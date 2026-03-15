@@ -6,6 +6,7 @@ import { Github, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 const projects = [
   {
@@ -42,15 +43,16 @@ const projects = [
 
 export const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-20 md:py-32">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16">
-        <h2 className="text-3xl md:text-5xl font-headline font-bold text-white tracking-tight">
+    <section id="projects" className="py-12 md:py-20">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+        <h2 className="text-2xl md:text-4xl font-headline font-bold text-white tracking-tight">
           Featured <span className="text-primary neon-text">Systems</span>
         </h2>
-        <div className="h-px bg-white/10 flex-1 hidden md:block ml-12" />
+        <div className="h-px bg-white/10 flex-1 hidden md:block ml-8" />
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+      {/* 2-column grid for desktop/tablet, 1-column for mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {projects.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}
@@ -70,87 +72,94 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
       whileHover={{ 
-        y: -6, 
+        y: -5, 
         scale: 1.02,
-        transition: { duration: 0.3 }
+        transition: { duration: 0.2 }
       }}
-      className="group relative h-full flex flex-col bg-[#050505] border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:bg-white/[0.02] hover:border-primary/20"
+      className="group relative h-full flex flex-col bg-[#050505] border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-300 hover:bg-white/[0.02] hover:border-primary/20 hover:shadow-[0_10px_30px_rgba(16,185,129,0.05)]"
     >
-      <div className="relative w-full aspect-[16/9] overflow-hidden border-b border-white/5">
+      {/* Preview Image at Top */}
+      <div className="relative w-full aspect-video overflow-hidden border-b border-white/5">
         {project.image ? (
           <Image
             src={project.image}
             alt={project.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
-            data-ai-hint="project dashboard"
+            data-ai-hint="project dashboard interface"
           />
         ) : (
           <div className="w-full h-full bg-white/5 flex items-center justify-center">
-            <Sparkles className="w-8 h-8 text-white/10" />
+            <Sparkles className="w-6 h-6 text-white/10" />
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        <div className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
-          <Sparkles className="w-3 h-3 text-primary" />
-          <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-white">
+        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+          <Sparkles className="w-2.5 h-2.5 text-primary" />
+          <span className="text-[8px] font-mono font-bold uppercase tracking-widest text-white/90">
             {project.category}
           </span>
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-col gap-6 p-8 md:p-10 flex-grow">
-        <h3 className="text-2xl md:text-3xl font-headline font-bold text-white group-hover:text-primary transition-colors duration-300 leading-tight">
+      <div className="relative z-10 flex flex-col gap-4 p-6 flex-grow">
+        {/* Project Title */}
+        <h3 className="text-lg md:text-xl font-headline font-bold text-white group-hover:text-primary transition-colors duration-300 leading-tight">
           {project.title}
         </h3>
 
-        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+        {/* Short Description - Max 2 lines */}
+        <p className="text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 pt-2">
+        {/* Tech Stack Tags */}
+        <div className="flex flex-wrap gap-1.5 pt-1">
           {project.tech.map((t) => (
             <span 
               key={t} 
-              className="text-[10px] font-mono font-bold px-3 py-1 bg-white/[0.03] border border-white/10 rounded-full text-muted-foreground uppercase tracking-widest group-hover:border-primary/30 group-hover:text-white transition-all duration-300"
+              className="text-[9px] font-mono font-bold px-2.5 py-0.5 bg-white/[0.03] border border-white/5 rounded-full text-muted-foreground/80 uppercase tracking-tighter group-hover:border-primary/20 group-hover:text-white transition-all duration-300"
             >
               {t}
             </span>
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-auto pt-8">
+        {/* Compact Action Buttons */}
+        <div className="flex items-center gap-3 mt-auto pt-4">
           <Button 
             asChild
-            size="lg"
-            className="w-full sm:flex-1 bg-primary hover:bg-primary/90 text-white rounded-xl h-12 font-bold text-xs uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] group/btn"
+            size="sm"
+            className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-lg h-9 font-bold text-[10px] uppercase tracking-wider transition-all hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] group/btn"
           >
             <a href={project.demo} target="_blank" rel="noopener noreferrer">
-              Live Demo
-              <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+              Demo
+              <ArrowUpRight className="ml-1.5 w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
             </a>
           </Button>
           
           <Button 
             variant="outline"
             asChild
-            className="w-full sm:flex-1 border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl h-12 font-bold text-xs uppercase tracking-[0.2em] transition-all text-muted-foreground hover:text-white"
+            size="sm"
+            className="flex-1 border-white/10 hover:bg-white/5 hover:border-white/20 rounded-lg h-9 font-bold text-[10px] uppercase tracking-wider transition-all text-muted-foreground hover:text-white"
           >
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-              <Github className="w-4 h-4" />
-              GitHub Repo
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
+              <Github className="w-3.5 h-3.5" />
+              GitHub
             </a>
           </Button>
         </div>
       </div>
 
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_20px_50px_rgba(16,185,129,0.05)] pointer-events-none" />
+      {/* Subtle Internal Glow Effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_40px_rgba(16,185,129,0.02)] pointer-events-none" />
     </motion.div>
   );
 };
