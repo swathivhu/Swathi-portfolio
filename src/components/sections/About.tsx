@@ -9,8 +9,10 @@ export const About: React.FC = () => {
 
   return (
     <div className="space-y-12">
-      <h2 className="section-heading">
-        <span className="section-number mr-4">01.</span> About Me
+      <h2 className="section-heading flex items-center gap-4">
+        <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] flex-shrink-0" />
+        About Me
+        <div className="h-px bg-gradient-to-r from-primary/30 to-transparent flex-1" />
       </h2>
       
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 items-start">

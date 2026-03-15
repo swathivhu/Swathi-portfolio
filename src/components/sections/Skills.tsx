@@ -27,24 +27,21 @@ const skills = [
 export const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-4 relative">
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
-        <div className="mb-8 text-center">
-          <h2 className="text-2xl md:text-4xl font-headline font-bold tracking-[0.15em] text-white uppercase">
-            Technical <span className="text-primary">Stack</span>
-          </h2>
-          <div className="relative h-1 w-32 mx-auto mt-4 overflow-hidden rounded-full bg-primary/20">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary to-transparent animate-dot-move" />
-          </div>
-        </div>
+      <div className="max-w-4xl">
+        <h2 className="section-heading flex items-center gap-4 mb-10">
+          <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] flex-shrink-0" />
+          Technical Stack
+          <div className="h-px bg-gradient-to-r from-primary/30 to-transparent flex-1" />
+        </h2>
 
         <TooltipProvider delayDuration={100}>
-          <div className="grid grid-cols-4 gap-3 md:gap-4 justify-items-center">
+          <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-6 gap-3 md:gap-4">
             {skills.map((skill, index) => (
               <Tooltip key={`${skill.name}-${index}`}>
                 <TooltipTrigger asChild>
                   <div 
                     className={cn(
-                      "w-14 h-14 md:w-20 md:h-20 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 cursor-default group relative overflow-hidden",
+                      "w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 cursor-default group relative overflow-hidden",
                       "hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] border border-white/5"
                     )}
                     style={{ backgroundColor: skill.bgColor }}
@@ -52,7 +49,7 @@ export const Skills: React.FC = () => {
                     <i
                       className={cn(
                         skill.icon,
-                        "text-2xl md:text-3xl transition-transform duration-300 group-hover:scale-110",
+                        "text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110",
                         skill.dark ? "text-black" : "text-white"
                       )}
                     />

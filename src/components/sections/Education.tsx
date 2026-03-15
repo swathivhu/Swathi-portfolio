@@ -1,9 +1,7 @@
-
 "use client"
 
 import React from 'react';
-import { GraduationCap, BookOpen, School, Sparkles } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { GraduationCap, BookOpen, School } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const education = [
@@ -52,7 +50,6 @@ const education = [
 export const Education: React.FC = () => {
   return (
     <section id="education" className="relative space-y-12">
-      {/* Background Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div 
           animate={{ 
@@ -72,20 +69,13 @@ export const Education: React.FC = () => {
         />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        className="flex items-center gap-4"
-      >
-        <h2 className="section-heading m-0">
-          <span className="section-number">05.</span> Education
-        </h2>
-        <div className="h-px bg-gradient-to-r from-primary/50 to-transparent flex-1 shadow-[0_0_8px_rgba(16,185,129,0.3)]" />
-      </motion.div>
+      <h2 className="section-heading flex items-center gap-4 mb-10">
+        <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] flex-shrink-0" />
+        Education
+        <div className="h-px bg-gradient-to-r from-primary/30 to-transparent flex-1" />
+      </h2>
       
       <div className="relative space-y-16 pl-8">
-        {/* Animated Vertical Timeline Line */}
         <motion.div 
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
@@ -103,14 +93,12 @@ export const Education: React.FC = () => {
             transition={{ duration: 0.6, delay: idx * 0.1 }}
             className="relative group"
           >
-            {/* Pulsing Timeline Node */}
             <div className="absolute -left-[32.5px] top-1.5 flex items-center justify-center">
               <motion.div 
                 whileHover={{ scale: 1.5 }}
                 className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_15px_rgba(16,185,129,1)] z-10 transition-all duration-300" 
               />
               <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-primary/40 animate-ping" />
-              <div className="absolute inset-[-4px] w-4.5 h-4.5 rounded-full border border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
 
             <div className="flex flex-col md:flex-row gap-6 items-start">
@@ -130,7 +118,6 @@ export const Education: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Floating Year Badge */}
                   <motion.div 
                     whileHover={{ scale: 1.05, y: -4 }}
                     animate={{ y: [0, -2, 0] }}

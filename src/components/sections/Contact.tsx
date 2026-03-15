@@ -9,8 +9,10 @@ import { Send } from 'lucide-react';
 export const Contact: React.FC = () => {
   return (
     <div className="space-y-12">
-      <h2 className="section-heading">
-        <span className="section-number">07.</span> Contact
+      <h2 className="section-heading flex items-center gap-4 mb-10">
+        <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] flex-shrink-0" />
+        Contact
+        <div className="h-px bg-gradient-to-r from-primary/30 to-transparent flex-1" />
       </h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useRef, useState } from 'react';
@@ -44,12 +43,11 @@ const projects = [
 export const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-12 md:py-16">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
-        <h2 className="text-2xl md:text-3xl font-headline font-bold text-white tracking-tight">
-          Featured <span className="text-primary neon-text">Systems</span>
-        </h2>
-        <div className="h-px bg-white/10 flex-1 hidden md:block ml-6" />
-      </div>
+      <h2 className="section-heading flex items-center gap-4 mb-10">
+        <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] flex-shrink-0" />
+        Featured Projects
+        <div className="h-px bg-gradient-to-r from-primary/30 to-transparent flex-1" />
+      </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
@@ -85,10 +83,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       whileHover={{ y: -6, scale: 1.02 }}
       className="group relative flex flex-col bg-gradient-to-br from-[#0d0d0d] to-[#050505] border border-primary/10 rounded-[1.5rem] overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(16,185,129,0.05)] hover:shadow-[0_0_40px_rgba(16,185,129,0.25)] hover:border-primary/30"
     >
-      {/* RADIANT TRAVELING BORDER */}
       <div className="animated-border" />
 
-      {/* Apple-style Light Sweep Reflection */}
       <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden rounded-[1.5rem]">
         <motion.div
           className="absolute inset-0"
@@ -107,7 +103,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         />
       </div>
 
-      {/* Project Image Section */}
       <div className="relative aspect-video w-full overflow-hidden border-b border-white/5 bg-zinc-950">
         <div className="relative w-full h-full overflow-hidden">
           {project.image ? (
@@ -140,18 +135,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
       </div>
 
-      {/* Project Information Section - Compact & Dynamic */}
       <div className="flex flex-col p-6 md:p-8 relative z-20">
         <div className="space-y-3">
           <h3 className="text-2xl font-headline font-bold text-primary neon-text transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] leading-tight">
             {project.title}
           </h3>
 
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
             {project.description}
           </p>
 
-          {/* Interactive Skills Pop-up - Appears only on interaction */}
           <AnimatePresence>
             {isHovered && (
               <motion.div
@@ -178,7 +171,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </AnimatePresence>
         </div>
 
-        {/* Action Buttons - Directly below content with tight spacing */}
         <div className="flex items-center gap-3 mt-6">
           <Button 
             asChild
@@ -201,11 +193,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </a>
           </Button>
         </div>
-      </div>
-
-      {/* Subtle Floating Corner Sparkles */}
-      <div className="absolute top-2 right-2 pointer-events-none opacity-0 group-hover:opacity-40 transition-opacity duration-1000">
-        <Sparkles className="w-4 h-4 text-primary/40 animate-pulse" />
       </div>
     </motion.div>
   );

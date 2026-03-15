@@ -29,17 +29,15 @@ const experiences = [
 export const Experience: React.FC = () => {
   return (
     <div className="space-y-12">
-      <div className="flex items-center gap-4 mb-10">
-        <h2 className="text-2xl md:text-3xl font-headline font-bold text-white tracking-tight">
-          Professional <span className="text-primary neon-text">Timeline</span>
-        </h2>
-        <div className="h-px bg-white/10 flex-1 hidden md:block" />
-      </div>
+      <h2 className="section-heading flex items-center gap-4 mb-10">
+        <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.8)] flex-shrink-0" />
+        Professional Experience
+        <div className="h-px bg-gradient-to-r from-primary/30 to-transparent flex-1" />
+      </h2>
       
       <div className="space-y-12">
         {experiences.map((exp, idx) => (
           <div key={idx} className="relative pl-8 group">
-            {/* Timeline Dot & Line */}
             <div className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-primary group-hover:scale-150 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.8)] transition-all duration-300 z-10" />
             <div className="absolute left-[3.5px] top-4 h-full w-[1px] bg-gradient-to-b from-primary/30 to-transparent" />
             
