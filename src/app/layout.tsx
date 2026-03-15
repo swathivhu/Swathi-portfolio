@@ -13,7 +13,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased">
+      <head>
+        <link
+        rel="stylesheet"
+        href = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
+      <body className="font-body antialiased bg-background text-foreground">
         {children}
       </body>
     </html>
