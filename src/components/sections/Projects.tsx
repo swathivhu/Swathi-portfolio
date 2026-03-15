@@ -140,44 +140,46 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
       </div>
 
-      {/* Project Information Section */}
-      <div className="flex flex-col gap-4 p-6 md:p-8 flex-grow relative z-20">
+      {/* Project Information Section - Compact & Dynamic */}
+      <div className="flex flex-col p-6 md:p-8 relative z-20">
         <div className="space-y-3">
           <h3 className="text-2xl font-headline font-bold text-primary neon-text transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] leading-tight">
             {project.title}
           </h3>
 
-          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {project.description}
           </p>
 
-          {/* Interactive Skills Highlight - revealed on hover */}
-          <div className="min-h-[32px] relative overflow-hidden">
-            <AnimatePresence>
-              {isHovered && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="flex flex-wrap gap-2 pt-2"
-                >
+          {/* Interactive Skills Pop-up - Appears only on interaction */}
+          <AnimatePresence>
+            {isHovered && (
+              <motion.div
+                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
+                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="overflow-hidden"
+              >
+                <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span 
-                      key={t} 
+                    <motion.span 
+                      key={t}
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
                       className="text-[9px] font-mono px-3 py-1 bg-primary/5 rounded-full border border-primary/20 text-primary uppercase tracking-wider shadow-[0_0_15px_rgba(16,185,129,0.1)] hover:bg-primary/10 transition-colors"
                     >
                       {t}
-                    </span>
+                    </motion.span>
                   ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-3 mt-auto pt-4">
+        {/* Action Buttons - Directly below content with tight spacing */}
+        <div className="flex items-center gap-3 mt-6">
           <Button 
             asChild
             variant="outline"
