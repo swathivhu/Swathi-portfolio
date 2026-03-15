@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
       setDisplayText(fullTitleText.substring(0, i));
       i++;
       if (i > fullTitleText.length) clearInterval(titleInterval);
-    }, 40); // Slightly faster typing speed for the longer text
+    }, 40);
 
     return () => clearInterval(titleInterval);
   }, []);
@@ -28,38 +28,37 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="flex flex-col justify-center py-24 relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        <div className="lg:col-span-7 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+    <section id="hero" className="flex flex-col justify-center py-16 relative overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div className="lg:col-span-7 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">FULL-STACK & AI DEVELOPMENT</span>
           </div>
           
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight tracking-tight text-white">
+          <div className="space-y-3">
+            <h1 className="text-4xl md:text-6xl font-headline font-bold leading-tight tracking-tight text-white">
               Building Intelligent <br />
               <span className="text-primary">Digital Systems</span>
             </h1>
             
-            <div className="h-12 flex items-center justify-center lg:justify-start">
-              <p className="text-xl font-medium text-muted-foreground tracking-tight">
+            <div className="h-8 flex items-center justify-center lg:justify-start">
+              <p className="text-lg font-medium text-muted-foreground tracking-tight">
                 Crafting <span className="text-white font-mono">{displayText}</span>
-                <span className="inline-block w-1 h-6 ml-2 bg-primary animate-pulse"></span>
+                <span className="inline-block w-0.5 h-5 ml-2 bg-primary animate-pulse"></span>
               </p>
             </div>
           </div>
           
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-            I develop scalable full-stack applications integrating modern web technologies with Generative AI. 
-            My focus is on building intelligent products that combine powerful backend systems, 
-            intuitive interfaces, and AI-driven capabilities.
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            I build scalable full-stack applications integrated with Generative AI, 
+            bridging powerful backends with intuitive, intelligent user experiences.
           </p>
           
-          <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 w-full">
+          <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 w-full">
             <Button 
               size="lg" 
               onClick={() => scrollTo('projects')}
-              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 h-14 font-bold tracking-wider transition-all shadow-lg shadow-primary/5 whitespace-nowrap"
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 h-12 font-bold tracking-wider transition-all shadow-lg shadow-primary/5 whitespace-nowrap"
             >
               View Work
             </Button>
@@ -68,7 +67,7 @@ export const Hero: React.FC = () => {
               variant="outline" 
               size="lg" 
               onClick={() => scrollTo('contact')}
-              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-8 h-14 font-bold text-muted-foreground hover:text-white transition-all whitespace-nowrap"
+              className="border-white/10 hover:bg-white/5 hover:border-white/20 rounded-xl px-8 h-12 font-bold text-muted-foreground hover:text-white transition-all whitespace-nowrap"
             >
               Contact Me
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -77,11 +76,11 @@ export const Hero: React.FC = () => {
         </div>
 
         <div className="lg:col-span-5 hidden lg:flex justify-center">
-          <div className="relative w-72 h-72 flex items-center justify-center">
+          <div className="relative w-64 h-64 flex items-center justify-center">
             <div className="absolute inset-0 border border-white/5 rounded-full" />
-            <div className="absolute inset-8 border border-white/5 rounded-full" />
-            <div className="w-32 h-32 rounded-full bg-white/[0.02] flex items-center justify-center border border-white/10">
-              <Bot className="w-12 h-12 text-primary/40" />
+            <div className="absolute inset-6 border border-white/5 rounded-full" />
+            <div className="w-28 h-28 rounded-full bg-white/[0.02] flex items-center justify-center border border-white/10">
+              <Bot className="w-10 h-10 text-primary/40" />
             </div>
           </div>
         </div>
