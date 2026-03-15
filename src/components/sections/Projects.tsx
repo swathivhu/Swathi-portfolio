@@ -47,8 +47,8 @@ export const Projects: React.FC = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id || index} project={project} />
         ))}
       </div>
     </section>
@@ -84,7 +84,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       }}
       className="group relative h-full flex flex-col bg-[#050505] border border-white/5 rounded-[2.5rem] p-8 md:p-10 transition-all duration-300 hover:bg-white/[0.02] hover:border-primary/20 overflow-hidden"
     >
-      {/* Interactive Radial Highlight */}
       <div 
         className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700"
         style={{
@@ -92,10 +91,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         }}
       />
 
-      {/* Radiant Glow Shadow (Active on Hover) */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_20px_50px_rgba(16,185,129,0.05)] pointer-events-none" />
 
-      {/* Header Info */}
       <div className="relative z-10 flex flex-col gap-6 h-full">
         <div className="space-y-2">
           <div className="flex items-center gap-2">
@@ -109,12 +106,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </h3>
         </div>
 
-        {/* Description */}
         <p className="text-sm md:text-base text-muted-foreground leading-relaxed flex-grow">
           {project.description}
         </p>
 
-        {/* Tech Stack Pills */}
         <div className="flex flex-wrap gap-2 py-4">
           {project.tech.map((t) => (
             <span 
@@ -126,7 +121,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ))}
         </div>
 
-        {/* Action Buttons */}
         <div className="flex items-center gap-4 mt-auto pt-4">
           <Button 
             asChild

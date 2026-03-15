@@ -28,22 +28,19 @@ export const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-4 relative">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
-        {/* Dominant Section Title */}
         <div className="mb-8 text-center">
           <h2 className="text-2xl md:text-4xl font-headline font-bold tracking-[0.15em] text-white uppercase">
             Technical <span className="text-primary">Stack</span>
           </h2>
-          {/* Radiating Decorative Line */}
           <div className="relative h-1 w-32 mx-auto mt-4 overflow-hidden rounded-full bg-primary/20">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary to-transparent animate-dot-move" />
           </div>
         </div>
 
-        {/* Compact Skills Grid (4 columns x 3 rows) */}
         <TooltipProvider delayDuration={100}>
           <div className="grid grid-cols-4 gap-3 md:gap-4 justify-items-center">
-            {skills.map((skill) => (
-              <Tooltip key={skill.name}>
+            {skills.map((skill, index) => (
+              <Tooltip key={`${skill.name}-${index}`}>
                 <TooltipTrigger asChild>
                   <div 
                     className={cn(
@@ -52,7 +49,6 @@ export const Skills: React.FC = () => {
                     )}
                     style={{ backgroundColor: skill.bgColor }}
                   >
-                    {/* Brand Icon */}
                     <i
                       className={cn(
                         skill.icon,
@@ -60,8 +56,6 @@ export const Skills: React.FC = () => {
                         skill.dark ? "text-black" : "text-white"
                       )}
                     />
-                    
-                    {/* Subtle Overlay Glow on Hover */}
                     <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </TooltipTrigger>
