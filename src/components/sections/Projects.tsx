@@ -1,11 +1,9 @@
-
 "use client"
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { Github, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -83,18 +81,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       }}
       className="group relative h-full flex flex-col bg-[#050505] border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-300 hover:bg-white/[0.02] hover:border-primary/20"
     >
-      {/* 1. Project Preview Image */}
       <div className="relative w-full aspect-[16/9] overflow-hidden border-b border-white/5">
-        <Image
-          src={project.image || ''}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
-          data-ai-hint="project dashboard"
-        />
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            data-ai-hint="project dashboard"
+          />
+        ) : (
+          <div className="w-full h-full bg-white/5 flex items-center justify-center">
+            <Sparkles className="w-8 h-8 text-white/10" />
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-60" />
         
-        {/* Category Label Overlay */}
         <div className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
           <Sparkles className="w-3 h-3 text-primary" />
           <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-white">
@@ -104,17 +106,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       </div>
 
       <div className="relative z-10 flex flex-col gap-6 p-8 md:p-10 flex-grow">
-        {/* 2. Project Title */}
         <h3 className="text-2xl md:text-3xl font-headline font-bold text-white group-hover:text-primary transition-colors duration-300 leading-tight">
           {project.title}
         </h3>
 
-        {/* 3. Short Description */}
         <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
           {project.description}
         </p>
 
-        {/* Tech Stack Row */}
         <div className="flex flex-wrap gap-2 pt-2">
           {project.tech.map((t) => (
             <span 
@@ -126,7 +125,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           ))}
         </div>
 
-        {/* 4. Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-auto pt-8">
           <Button 
             asChild
@@ -152,7 +150,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
       </div>
 
-      {/* Glow shadow on hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_20px_50px_rgba(16,185,129,0.05)] pointer-events-none" />
     </motion.div>
   );

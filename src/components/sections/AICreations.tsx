@@ -38,13 +38,19 @@ export const AICreations: React.FC = () => {
         {creations.map((item) => (
           <div key={item.id} className="group">
             <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/5 mb-4">
-              <Image
-                src={item.image || ''}
-                alt={item.title}
-                fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                data-ai-hint="ai generated artwork"
-              />
+              {item.image ? (
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  data-ai-hint="ai generated artwork"
+                />
+              ) : (
+                <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-white/10" />
+                </div>
+              )}
             </div>
             <div className="px-1 space-y-1">
               <div className="flex items-center gap-2">

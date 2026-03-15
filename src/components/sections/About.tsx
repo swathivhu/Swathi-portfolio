@@ -17,13 +17,19 @@ export const About: React.FC = () => {
         <div className="xl:col-span-4">
           <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 group">
             <div className="absolute inset-0 bg-primary/10 z-10 opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
-            <Image
-              src={profile?.imageUrl || ''}
-              alt="Swathi P V"
-              fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
-              data-ai-hint="tech developer profile"
-            />
+            {profile?.imageUrl ? (
+              <Image
+                src={profile.imageUrl}
+                alt="Swathi P V"
+                fill
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                data-ai-hint="tech developer profile"
+              />
+            ) : (
+              <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                <span className="text-white/20 text-xs font-mono">IMAGE N/A</span>
+              </div>
+            )}
           </div>
         </div>
         

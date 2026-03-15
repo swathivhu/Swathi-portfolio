@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Github, Plane, Code, Bot, Clapperboard, Download } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 /**
  * High-Fidelity Branded Icons
@@ -27,29 +28,34 @@ const KarnatakaFlag = () => (
 );
 
 export const Sidebar: React.FC = () => {
+  const profile = PlaceHolderImages.find(img => img.id === 'profile');
+
   return (
     <aside className="w-full lg:w-[350px] lg:fixed h-screen left-auto top-0 p-4 z-40 flex flex-col items-center justify-center">
       
-      {/* Sidebar Container */}
       <div className="w-full bg-[#050505] border border-white/5 rounded-[3.5rem] py-10 px-6 flex flex-col items-center shadow-[0_0_50px_rgba(16,185,129,0.1)] relative overflow-hidden">
         
-        {/* 1. Avatar Section */}
         <div className="relative w-[110px] h-[110px] flex-shrink-0">
           <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl" />
           <div className="relative w-full h-full rounded-full border border-primary/40 p-1 bg-black z-10 overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.3)]">
              <div className="relative w-full h-full rounded-full overflow-hidden">
-              <Image
-                src="/profile-portfolio.jpeg"
-                alt="Swathi P V"
-                fill
-                priority
-                className="object-cover"
-              />
+              {profile?.imageUrl ? (
+                <Image
+                  src={profile.imageUrl}
+                  alt="Swathi P V"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                  <Bot className="w-10 h-10 text-white/10" />
+                </div>
+              )}
             </div>
           </div>
         </div>
 
-        {/* 2. Name Section */}
         <div className="mt-6 flex flex-col items-center">
           <h1 className="text-[36px] font-headline font-bold text-white tracking-tight text-center leading-none">
             Swathi P V
@@ -57,28 +63,23 @@ export const Sidebar: React.FC = () => {
           <div className="w-12 h-[2px] bg-primary mt-2 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
         </div>
 
-        {/* 3. Title Section */}
         <div className="mt-2 flex flex-col items-center">
           <div className="text-[10px] font-mono font-bold uppercase text-primary tracking-[0.4em]">
             AI SYSTEM ARCHITECT
           </div>
         </div>
 
-        {/* 4. Location Card (Boarding Pass Style) */}
         <div className="mt-6 w-[95%] bg-[#10b981] rounded-2xl py-3 px-8 text-white shadow-xl flex flex-col items-center transition-transform hover:scale-[1.02] duration-300">
           <div className="w-full flex justify-between items-center pb-1">
-            {/* Left side: IND INDIA */}
             <div className="flex flex-col items-start leading-none">
               <span className="text-xl font-bold leading-none">IND</span>
               <span className="text-[8px] font-normal uppercase tracking-widest mt-0.5">INDIA</span>
             </div>
             
-            {/* Center: Airplane Icon */}
             <div className="opacity-90">
               <Plane className="w-4 h-4 rotate-45" />
             </div>
             
-            {/* Right side: BLR BENGALURU KarnatakaFlag */}
             <div className="flex flex-col items-end leading-none">
               <div className="flex items-center">
                 <span className="text-xl font-bold leading-none mr-1.5">BLR</span>
@@ -88,10 +89,8 @@ export const Sidebar: React.FC = () => {
             </div>
           </div>
           
-          {/* Horizontal Divider */}
           <div className="w-full h-[0.5px] bg-white/30 my-2" />
           
-          {/* Status Text (Simplified) */}
           <div className="text-center w-full">
             <div className="text-[9px] font-bold uppercase tracking-tight text-white leading-none">
               IN BENGALURU, KARNATAKA, INDIA
@@ -99,7 +98,6 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 5. Roles Card (Reduced Spacing) */}
         <div className="mt-5 w-[95%] bg-[#0a0a0a] border border-primary/20 rounded-2xl py-4 px-6 flex flex-col items-center gap-3 shadow-[0_0_15px_rgba(16,185,129,0.05)]">
           <div className="flex items-center gap-3">
             <Code className="w-4 h-4 text-[#38BDF8]" />
@@ -117,7 +115,6 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* 6. Social Icon Row */}
         <div className="mt-6 flex flex-row justify-center gap-4 w-full">
           {[
             { icon: () => <Github className="w-5 h-5 text-white" />, href: 'https://github.com/swathivhu', label: 'GitHub' },
