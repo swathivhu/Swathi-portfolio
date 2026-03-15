@@ -1,0 +1,47 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "profile",
+      "description": "Professional profile photo of Swathi P V",
+      "imageUrl": "https://picsum.photos/seed/swathi/400/400",
+      "imageHint": "tech developer portrait"
+    },
+    {
+      "id": "project-career-os",
+      "description": "Career OS Project Preview",
+      "imageUrl": "https://picsum.photos/seed/career-os/800/500",
+      "imageHint": "dashboard interface"
+    },
+    {
+      "id": "project-streamverse",
+      "description": "StreamVerse Project Preview",
+      "imageUrl": "https://picsum.photos/seed/streamverse/800/500",
+      "imageHint": "video streaming"
+    },
+    {
+      "id": "project-codbank",
+      "description": "CodBank Project Preview",
+      "imageUrl": "https://picsum.photos/seed/codbank/800/500",
+      "imageHint": "banking fintech"
+    },
+    {
+      "id": "ai-creation-1",
+      "description": "AI Generated Artwork 1",
+      "imageUrl": "https://picsum.photos/seed/aiart1/400/300",
+      "imageHint": "futuristic ai art"
+    },
+    {
+      "id": "ai-creation-2",
+      "description": "AI Generated Artwork 2",
+      "imageUrl": "https://picsum.photos/seed/aiart2/400/300",
+      "imageHint": "cyberpunk landscape"
+    },
+    {
+      "id": "ai-creation-3",
+      "description": "AI Generated Artwork 3",
+      "imageUrl": "https://picsum.photos/seed/aiart3/400/300",
+      "imageHint": "neural network visualization"
+    }
+  ]
+}
