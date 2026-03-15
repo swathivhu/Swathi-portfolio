@@ -37,8 +37,8 @@ export default function Home() {
           <Sidebar />
         </div>
         
-        {/* Scrollable Right Content Column */}
-        <div className="flex-1 w-full lg:pl-16 xl:pl-24 relative z-10">
+        {/* Scrollable Right Content Column - Added right padding (lg:pr-24 xl:pr-32) to avoid overlap with FloatingNav */}
+        <div className="flex-1 w-full lg:pl-16 xl:pl-24 lg:pr-24 xl:pr-32 relative z-10">
           <Hero />
           <SectionDivider />
           <About />
