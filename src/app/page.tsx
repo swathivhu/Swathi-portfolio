@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Sidebar } from '@/components/Sidebar';
 import { FloatingNav } from '@/components/FloatingNav';
@@ -31,12 +32,12 @@ export default function Home() {
         <div className="flex-1 w-full lg:pl-16 xl:pl-24 lg:pr-24 xl:pr-32 relative z-10 py-12 md:py-16">
           <Hero />
           
-          <div className="mt-8 space-y-4">
+          <div className="mt-4 space-y-4">
             <GlassCard id="about">
               <About />
             </GlassCard>
 
-            <GlassCard id="skills">
+            <GlassCard id="skills" className="p-6 md:p-8 mb-8">
               <Skills />
             </GlassCard>
 
