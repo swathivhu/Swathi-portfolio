@@ -29,16 +29,19 @@ export const Skills: React.FC = () => {
     <section id="skills" className="py-4 relative">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
         {/* Dominant Section Title */}
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-headline font-bold tracking-[0.15em] text-white uppercase">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl md:text-4xl font-headline font-bold tracking-[0.15em] text-white uppercase">
             Technical <span className="text-primary">Stack</span>
           </h2>
-          <div className="h-1 w-24 bg-primary mx-auto mt-4 rounded-full opacity-50" />
+          {/* Radiating Decorative Line */}
+          <div className="relative h-1 w-32 mx-auto mt-4 overflow-hidden rounded-full bg-primary/20">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary to-transparent animate-dot-move" />
+          </div>
         </div>
 
         {/* Compact Skills Grid (4 columns x 3 rows) */}
         <TooltipProvider delayDuration={100}>
-          <div className="grid grid-cols-4 gap-2 md:gap-4 justify-items-center">
+          <div className="grid grid-cols-4 gap-3 md:gap-4 justify-items-center">
             {skills.map((skill) => (
               <Tooltip key={skill.name}>
                 <TooltipTrigger asChild>
