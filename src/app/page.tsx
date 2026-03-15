@@ -9,7 +9,6 @@ import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
 import { Experience } from '@/components/sections/Experience';
 import { Education } from '@/components/sections/Education';
-import { AICreations } from '@/components/sections/AICreations';
 import { Contact } from '@/components/sections/Contact';
 import { GlassCard } from '@/components/GlassCard';
 
@@ -40,8 +39,8 @@ export default function Home() {
               <Skills />
             </GlassCard>
 
-            {/* Projects section moved outside individual GlassCard to handle its own grid of interactive cards */}
-            <section id="projects" className="py-12 md:py-20">
+            {/* Projects section handles its own grid of interactive cards */}
+            <section id="projects">
               <Projects />
             </section>
 
@@ -51,10 +50,6 @@ export default function Home() {
 
             <GlassCard id="education">
               <Education />
-            </GlassCard>
-
-            <GlassCard id="ai-creations">
-              <AICreations />
             </GlassCard>
 
             <GlassCard id="contact">

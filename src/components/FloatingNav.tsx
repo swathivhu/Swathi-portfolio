@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import { Home, User, Code, Briefcase, GraduationCap, Mail, Star, Sparkles } from 'lucide-react';
+import { Home, User, Code, Briefcase, GraduationCap, Mail, Star } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 
@@ -12,7 +12,6 @@ const navItems = [
   { id: 'projects', icon: Briefcase, label: 'Projects' },
   { id: 'experience', icon: Star, label: 'Experience' },
   { id: 'education', icon: GraduationCap, label: 'Education' },
-  { id: 'ai-creations', icon: Sparkles, label: 'AI Creations' },
   { id: 'contact', icon: Mail, label: 'Contact' },
 ];
 
@@ -31,7 +30,6 @@ export const FloatingNav: React.FC = () => {
 
   /**
    * Intersection Observer to detect which section is currently in view.
-   * rootMargin is set to detect the section occupying the middle of the viewport.
    */
   useEffect(() => {
     const observerOptions: IntersectionObserverInit = {
@@ -87,7 +85,6 @@ export const FloatingNav: React.FC = () => {
                     )} 
                     strokeWidth={isActive ? 2.5 : 2}
                   />
-                  {/* Subtle pulsing glow for the active item */}
                   {isActive && (
                     <div className="absolute inset-0 rounded-xl border border-primary/30 animate-pulse pointer-events-none" />
                   )}
