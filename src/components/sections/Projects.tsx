@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     id: 'career-os',
-    title: 'Career OS',
+    title: 'Career OS – AI-Powered Career Management System',
     category: 'AI SYSTEM ARCHITECT',
     tech: ['Next.js', 'TypeScript', 'Firebase'],
     description: 'A unified career operating system integrating placement tracking, ATS resume scoring, and deployment verification.',
@@ -18,7 +18,7 @@ const projects = [
   },
   {
     id: 'streamverse',
-    title: 'StreamVerse',
+    title: 'StreamVerse – Netflix-Style Streaming Platform',
     category: 'WEB APPLICATION',
     tech: ['Next.js', 'TMDB API', 'Tailwind CSS'],
     description: 'Modern OTT-style movie streaming web application built using Next.js and TMDB API with dynamic categories and search.',
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     id: 'codbank',
-    title: 'CodBank',
+    title: 'CodBank – Secure Modern Banking Platform',
     category: 'FINTECH SOLUTION',
     tech: ['Next.js', 'TypeScript', 'Firebase'],
     description: 'Secure full-stack banking application with authentication, real-time transactions, and Firebase integration.',
@@ -46,7 +46,7 @@ export const Projects: React.FC = () => {
         <div className="h-px bg-white/10 flex-1 hidden md:block ml-12" />
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
         {projects.map((project, index) => (
           <ProjectCard key={project.id || index} project={project} />
         ))}
@@ -84,6 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       }}
       className="group relative h-full flex flex-col bg-[#050505] border border-white/5 rounded-[2.5rem] p-8 md:p-10 transition-all duration-300 hover:bg-white/[0.02] hover:border-primary/20 overflow-hidden"
     >
+      {/* Interactive Radial Highlight */}
       <div 
         className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700"
         style={{
@@ -91,10 +92,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         }}
       />
 
+      {/* Glow shadow on hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_20px_50px_rgba(16,185,129,0.05)] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col gap-6 h-full">
-        <div className="space-y-2">
+        {/* Header: Label + Title */}
+        <div className="space-y-3">
           <div className="flex items-center gap-2">
             <Sparkles className="w-3 h-3 text-primary" />
             <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-primary/80">
@@ -106,11 +109,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </h3>
         </div>
 
+        {/* Description */}
         <p className="text-sm md:text-base text-muted-foreground leading-relaxed flex-grow">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 py-4">
+        {/* Tech Stack Pills */}
+        <div className="flex flex-wrap gap-2 pt-2">
           {project.tech.map((t) => (
             <span 
               key={t} 
@@ -121,14 +126,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ))}
         </div>
 
-        <div className="flex items-center gap-4 mt-auto pt-4">
+        {/* Action Buttons */}
+        <div className="flex items-center gap-4 mt-auto pt-6">
           <Button 
             asChild
             size="lg"
             className="flex-1 bg-primary hover:bg-primary/90 text-white rounded-xl h-12 font-bold text-xs uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] group/btn"
           >
             <a href={project.demo} target="_blank" rel="noopener noreferrer">
-              Demo
+              Live Demo
               <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
             </a>
           </Button>
