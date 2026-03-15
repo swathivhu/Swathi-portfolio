@@ -28,7 +28,7 @@ const creations = [
 
 export const AICreations: React.FC = () => {
   return (
-    <section id="ai-creations" className="py-24">
+    <section id="ai-creations" className="space-y-12">
       <h2 className="section-heading">
         <span className="section-number">06.</span> Synthetic Media
         <div className="h-px bg-white/5 flex-1" />

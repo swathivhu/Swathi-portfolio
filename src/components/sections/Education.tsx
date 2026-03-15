@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from 'react';
@@ -50,7 +49,7 @@ const education = [
 
 export const Education: React.FC = () => {
   return (
-    <section id="education" className="py-24">
+    <section id="education" className="space-y-12">
       <h2 className="section-heading">
         <span className="section-number">05.</span> Education
         <div className="h-px bg-white/5 flex-1" />
