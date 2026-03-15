@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sidebar } from '@/components/ui/Sidebar';
+import { Sidebar } from '@/components/Sidebar';
 import { FloatingNav } from '@/components/FloatingNav';
 import { CustomCursor } from '@/components/CustomCursor';
 import { BackgroundParticles } from '@/components/BackgroundParticles';
