@@ -11,7 +11,7 @@ const projects = [
   {
     id: 'p1',
     title: 'Neural Vision Pipeline',
-    description: 'Automated video synthesis engine orchestrating Suno AI, NotebookLM, and ElevenLabs. Transforms raw concepts into production-quality educational media.',
+    description: 'Automated video synthesis engine orchestrating Suno AI, NotebookLM, and ElevenLabs.',
     longDescription: 'This project leverages a multi-agent AI system to orchestrate various generative models. It uses NotebookLM for structured research, ElevenLabs for high-fidelity voice cloning, and Suno AI for background score generation.',
     tags: ['Python', 'GenAI', 'MoviePy', 'FastAPI'],
     github: 'https://github.com',
@@ -21,7 +21,7 @@ const projects = [
   {
     id: 'p2',
     title: 'Cognitive Content Hub',
-    description: 'Autonomous dashboard managing multi-modal AI workflows. Intelligent prompt chaining ensures consistent brand voice across fragmented channels.',
+    description: 'Autonomous dashboard managing multi-modal AI workflows with intelligent prompt chaining.',
     longDescription: 'Built with Next.js and Firebase, this tool manages complex prompts for different LLMs, ensuring consistency across generated content assets.',
     tags: ['Next.js', 'LangChain', 'OpenAI', 'Firebase'],
     github: 'https://github.com',
@@ -47,76 +47,73 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-24">
+    <div className="space-y-12">
       <h2 className="section-heading">
         <span className="section-number">03.</span> Featured Systems
-        <div className="h-px bg-white/5 flex-1" />
       </h2>
       
-      <div className="space-y-32">
+      <div className="space-y-20">
         {projects.map((project) => (
-          <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7 relative aspect-video rounded-2xl overflow-hidden border border-white/5 bg-[#111827]">
+          <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group/project">
+            <div className="lg:col-span-6 relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a]">
               <Image
                 src={project.image || ''}
                 alt={project.title}
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="object-cover grayscale group-hover/project:grayscale-0 group-hover/project:scale-105 transition-all duration-700"
                 data-ai-hint="ai project dashboard"
               />
             </div>
             
-            <div className="lg:col-span-5 space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-primary/5 text-primary border border-primary/10">
-                  <Layers className="w-4 h-4" />
-                </div>
-                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">Module {project.id === 'p1' ? '01' : '02'}</span>
+            <div className="lg:col-span-6 space-y-4">
+              <div className="flex items-center gap-2">
+                <Layers className="w-3.5 h-3.5 text-primary opacity-60" />
+                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">System {project.id === 'p1' ? '01' : '02'}</span>
               </div>
               
-              <h3 className="text-3xl font-bold text-white leading-tight">
+              <h3 className="text-2xl font-bold text-white group-hover/project:text-primary transition-colors">
                 {project.title}
               </h3>
               
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {project.description}
               </p>
 
               {summaries[project.id] && (
-                <div className="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
-                  <p className="text-sm italic text-primary font-medium">"{summaries[project.id]}"</p>
+                <div className="p-4 bg-primary/5 border border-primary/10 rounded-xl">
+                  <p className="text-xs italic text-primary font-medium">"{summaries[project.id]}"</p>
                 </div>
               )}
               
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 py-2">
                 {project.tags.map(tag => (
-                  <span key={tag} className="text-[10px] font-mono font-bold px-3 py-1 rounded-lg bg-white/5 border border-white/5 text-muted-foreground uppercase tracking-wider">
+                  <span key={tag} className="text-[9px] font-mono font-bold px-2 py-1 rounded-lg bg-white/5 border border-white/5 text-muted-foreground/60 uppercase">
                     {tag}
                   </span>
                 ))}
               </div>
               
-              <div className="flex items-center gap-8 pt-4">
+              <div className="flex items-center gap-6 pt-2">
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  className="px-0 h-auto hover:bg-transparent text-primary hover:text-primary/80 font-bold tracking-wide transition-colors"
+                  className="px-0 h-auto hover:bg-transparent text-primary hover:text-primary/80 font-bold text-xs uppercase tracking-widest transition-colors"
                   onClick={() => handleGenerateSummary(project.id, project.longDescription)}
                   disabled={loading[project.id]}
                 >
                   <Sparkles className={`w-3.5 h-3.5 mr-2 ${loading[project.id] ? 'animate-spin' : ''}`} />
-                  {loading[project.id] ? "Processing..." : "AI Insights"}
+                  {loading[project.id] ? "Thinking..." : "AI Insight"}
                 </Button>
                 
-                <div className="flex items-center gap-6 ml-auto">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github className="w-5 h-5" /></a>
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><ExternalLink className="w-5 h-5" /></a>
+                <div className="flex items-center gap-4 ml-auto">
+                  <a href={project.github} className="text-muted-foreground hover:text-primary transition-colors"><Github className="w-4 h-4" /></a>
+                  <a href={project.demo} className="text-muted-foreground hover:text-primary transition-colors"><ExternalLink className="w-4 h-4" /></a>
                 </div>
               </div>
             </div>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };

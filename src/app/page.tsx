@@ -11,16 +11,7 @@ import { Experience } from '@/components/sections/Experience';
 import { Education } from '@/components/sections/Education';
 import { AICreations } from '@/components/sections/AICreations';
 import { Contact } from '@/components/sections/Contact';
-
-/**
- * A minimal, modern section divider with a subtle purple-to-cyan gradient.
- * Reduced padding to py-12 to minimize large gaps.
- */
-const SectionDivider = () => (
-  <div className="w-full py-12 flex justify-center items-center opacity-10">
-    <div className="w-full max-w-5xl h-[1px] bg-gradient-to-r from-transparent via-primary via-secondary to-transparent" />
-  </div>
-);
+import { GlassCard } from '@/components/GlassCard';
 
 export default function Home() {
   return (
@@ -29,31 +20,46 @@ export default function Home() {
       <BackgroundParticles />
       <FloatingNav />
       
-      {/* Root Layout Container: Centered with max-width for consistent alignment */}
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row relative min-h-screen">
         
-        {/* Fixed Left Sidebar Column: Maintains space while aside is fixed */}
+        {/* Sidebar Column */}
         <div className="w-full lg:w-80 xl:w-96 flex-shrink-0">
           <Sidebar />
         </div>
         
-        {/* Scrollable Right Content Column - Added right padding (lg:pr-24 xl:pr-32) to avoid overlap with FloatingNav */}
-        <div className="flex-1 w-full lg:pl-16 xl:pl-24 lg:pr-24 xl:pr-32 relative z-10">
+        {/* Main Content Column */}
+        <div className="flex-1 w-full lg:pl-16 xl:pl-24 lg:pr-24 xl:pr-32 relative z-10 py-16">
           <Hero />
-          <SectionDivider />
-          <About />
-          <SectionDivider />
-          <Skills />
-          <SectionDivider />
-          <Projects />
-          <SectionDivider />
-          <Experience />
-          <SectionDivider />
-          <Education />
-          <SectionDivider />
-          <AICreations />
-          <SectionDivider />
-          <Contact />
+          
+          <div className="mt-12 space-y-4">
+            <GlassCard id="about">
+              <About />
+            </GlassCard>
+
+            <GlassCard id="skills">
+              <Skills />
+            </GlassCard>
+
+            <GlassCard id="projects">
+              <Projects />
+            </GlassCard>
+
+            <GlassCard id="experience">
+              <Experience />
+            </GlassCard>
+
+            <GlassCard id="education">
+              <Education />
+            </GlassCard>
+
+            <GlassCard id="ai-creations">
+              <AICreations />
+            </GlassCard>
+
+            <GlassCard id="contact">
+              <Contact />
+            </GlassCard>
+          </div>
         </div>
       </div>
     </main>
