@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -85,7 +86,7 @@
   }
 
   .animated-border {
-    @apply absolute inset-0 rounded-[2.5rem] pointer-events-none overflow-hidden;
+    @apply absolute inset-0 rounded-[2.5rem] pointer-events-none overflow-hidden z-[5];
     padding: 2px;
     
     /* MASK: This hides everything except the padded border area. */
@@ -98,7 +99,7 @@
     transition: opacity 0.4s ease;
   }
 
-  .glass-card:hover .animated-border {
+  .group:hover .animated-border {
     opacity: 0.8;
   }
 
@@ -113,6 +114,10 @@
       transparent 200deg,
       transparent 360deg
     );
-    animation: spin-border 4s linear infinite;
+    animation: spin-border 5s linear infinite;
+  }
+
+  .group:hover .animated-border::before {
+    animation-duration: 2.5s; /* Speed up neon light on hover */
   }
 }

@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useRef, useState } from 'react';
@@ -76,14 +77,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ 
         duration: 0.7, 
-        delay: index * 0.1,
+        delay: index * 0.15,
         ease: "easeOut" 
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -6, scale: 1.02 }}
-      className="group relative flex flex-col bg-gradient-to-br from-[#0d0d0d] to-[#050505] border border-primary/20 rounded-[1.5rem] overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(16,185,129,0.05)] hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:border-primary/40"
+      className="group relative flex flex-col bg-gradient-to-br from-[#0d0d0d] to-[#050505] border border-primary/10 rounded-[1.5rem] overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(16,185,129,0.05)] hover:shadow-[0_0_40px_rgba(16,185,129,0.25)] hover:border-primary/30"
     >
+      {/* RADIANT TRAVELING BORDER */}
+      <div className="animated-border" />
+
       {/* Apple-style Light Sweep Reflection */}
       <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden rounded-[1.5rem]">
         <motion.div
@@ -95,7 +99,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             ease: "easeOut",
           }}
           style={{
-            background: 'linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 65%, transparent 100%)',
+            background: 'linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 65%, transparent 100%)',
             width: '100%',
             height: '100%',
             skewX: -25,
@@ -137,7 +141,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       </div>
 
       {/* Project Information Section */}
-      <div className="flex flex-col gap-4 p-6 md:p-8 flex-grow">
+      <div className="flex flex-col gap-4 p-6 md:p-8 flex-grow relative z-20">
         <div className="space-y-3">
           <h3 className="text-2xl font-headline font-bold text-primary neon-text transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] leading-tight">
             {project.title}
@@ -147,21 +151,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             {project.description}
           </p>
 
-          {/* Skills revealed on hover */}
-          <div className="h-8 relative overflow-hidden">
+          {/* Interactive Skills Highlight - revealed on hover */}
+          <div className="min-h-[32px] relative overflow-hidden">
             <AnimatePresence>
               {isHovered && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                   className="flex flex-wrap gap-2 pt-2"
                 >
                   {project.tech.map((t) => (
                     <span 
                       key={t} 
-                      className="text-[9px] font-mono px-2 py-0.5 bg-primary/5 rounded border border-primary/20 text-primary uppercase tracking-wider shadow-[0_0_10px_rgba(16,185,129,0.1)]"
+                      className="text-[9px] font-mono px-3 py-1 bg-primary/5 rounded-full border border-primary/20 text-primary uppercase tracking-wider shadow-[0_0_15px_rgba(16,185,129,0.1)] hover:bg-primary/10 transition-colors"
                     >
                       {t}
                     </span>
@@ -177,7 +181,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <Button 
             asChild
             variant="outline"
-            className="flex-1 border-white/10 hover:bg-white/5 hover:border-primary/40 rounded-xl h-11 font-bold text-[10px] uppercase tracking-widest transition-all text-muted-foreground hover:text-white group/btn"
+            className="flex-1 border-white/10 bg-black/20 hover:bg-white/5 hover:border-primary/40 rounded-xl h-11 font-bold text-[10px] uppercase tracking-widest transition-all text-muted-foreground hover:text-white group/btn shadow-sm"
           >
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
               <Github className="w-4 h-4 transition-transform group-hover/btn:rotate-12" />
@@ -195,6 +199,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </a>
           </Button>
         </div>
+      </div>
+
+      {/* Subtle Floating Corner Sparkles */}
+      <div className="absolute top-2 right-2 pointer-events-none opacity-0 group-hover:opacity-40 transition-opacity duration-1000">
+        <Sparkles className="w-4 h-4 text-primary/40 animate-pulse" />
       </div>
     </motion.div>
   );
