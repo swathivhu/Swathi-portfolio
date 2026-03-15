@@ -41,7 +41,7 @@ export const Sidebar: React.FC = () => {
              <div className="relative w-full h-full rounded-full overflow-hidden">
               {profile?.imageUrl ? (
                 <Image
-                  src={profile.imageUrl}
+                  src="/profile-portfolio.jpeg"
                   alt="Swathi P V"
                   fill
                   priority

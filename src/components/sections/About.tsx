@@ -72,7 +72,7 @@ export const About: React.FC = () => {
             <div className="absolute inset-0 bg-primary/10 z-10 opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
             {profile?.imageUrl ? (
               <Image
-                src={profile.imageUrl}
+                src="/profile-portfolio.jpeg"
                 alt="Swathi P V"
                 fill
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
