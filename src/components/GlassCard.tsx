@@ -32,7 +32,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className, id })
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "glass-card p-8 md:p-12 mb-16 rounded-[2.5rem] group/card",
+        "glass-card p-8 md:p-12 mb-16 rounded-[2.5rem] group/card transition-all duration-500 hover:scale-[1.01]",
         className
       )}
     >

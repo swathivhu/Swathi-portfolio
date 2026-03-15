@@ -80,9 +80,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      whileHover={{ y: -6, scale: 1.02 }}
+      whileHover={{ y: -4, scale: 1.02 }}
       className="group relative flex flex-col bg-gradient-to-br from-[#0d0d0d] to-[#050505] border border-primary/10 rounded-[1.5rem] overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(16,185,129,0.05)] hover:shadow-[0_0_40px_rgba(16,185,129,0.25)] hover:border-primary/30"
     >
+      {/* Moving Radiant Border */}
       <div className="animated-border" />
 
       <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden rounded-[1.5rem]">
