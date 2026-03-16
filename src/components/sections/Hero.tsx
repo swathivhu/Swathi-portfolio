@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
+
 import { ArrowRight, Bot } from "lucide-react"
 
-export const Hero: React.FC = () => {
+export const Hero = () => {
   const [displayText, setDisplayText] = useState("")
 
   const fullTitleText = "Full-Stack Development with Generative AI"
