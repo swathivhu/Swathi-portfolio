@@ -82,7 +82,9 @@ git push
 Vercel automatically builds and deploys your app.
 
 📸 Screenshots
-
+<p align="center">
+  <img src="portfolio.png" width="800"/>
+</p>
 📬 Contact
 📧 Email:swathipv.2501@gmail.com
 💼 LinkedIn: www.linkedin.com/in/swathi-p-v-1ba07733a
