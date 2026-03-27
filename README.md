@@ -50,7 +50,7 @@ src/
 1️⃣ Clone the repository
 Bash
 Copy code
-git clone https://github.com/your-username/swathi-portfolio.git
+git clone https://github.com/swathivhu/swathi-portfolio.git
 cd swathi-portfolio
 2️⃣ Install dependencies
 Bash
@@ -82,11 +82,11 @@ git push
 Vercel automatically builds and deploys your app.
 
 📸 Screenshots
-Add screenshots of your portfolio here
+
 📬 Contact
-📧 Email: your-email@example.com
-💼 LinkedIn: https://linkedin.com/in/your-profile�
-💻 GitHub: https://github.com/your-username�
+📧 Email:swathipv.2501@gmail.com
+💼 LinkedIn: www.linkedin.com/in/swathi-p-v-1ba07733a
+💻 GitHub: https://github.com/swathivhu
 
 ⭐ Acknowledgements
 Next.js Documentation
