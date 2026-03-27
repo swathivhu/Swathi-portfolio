@@ -3,7 +3,7 @@ A modern, responsive developer portfolio built using Next.js, TypeScript, Tailwi
 Showcases my projects, skills, and work in Generative AI and Full-Stack Development.
 
 🔗 Live Demo
-👉 https://swathi-portfolio-eta.vercel.app�
+👉 https://swathi-portfolio-eta.vercel.app
 
 🛠 Tech Stack
 Frontend: Next.js (App Router), React, TypeScript
